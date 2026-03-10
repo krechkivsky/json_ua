@@ -25,7 +25,7 @@
 
 from . import common
 
-__version__ = "0.9.1"
+__version__ = "0.9.2"
 
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name

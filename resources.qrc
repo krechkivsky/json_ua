@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/plugins/geojson_ua" >
-        <file>icon.png</file>
+    <qresource prefix="/plugins/json_ua" >
+        <file>icon.svg</file>
     </qresource>
 </RCC>

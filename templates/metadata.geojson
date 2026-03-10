@@ -1,0 +1,51 @@
+{
+    "type": "FeatureCollection",
+    "name": "_metadata",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": 1,
+                "title": "",
+                "doc_type": "3",
+                "region": "",
+                "region_koatuu": "",
+                "region_katotth": "",
+                "hromada": "",
+                "hromada_koatuu": "",
+                "hromada_katotth": "",
+                "settlement": "",
+                "settl_koatuu": "",
+                "settl_katotth": "",
+                "existing_term": "",
+                "prime_term": "",
+                "project_term": "",
+                "company_name": "",
+                "edrpou": "",
+                "address": "",
+                "phone": "",
+                "email": "",
+                "arch_lastname": "",
+                "arch_firstname": "",
+                "arch_middlename": "",
+                "arch_certificate_number": "",
+                "arch_certificate_date": "",
+                "surv_last_name": "відсутній",
+                "surv_first_name": "відсутній",
+                "surv_middle_name": "відсутній",
+                "surv_certificate_number": "",
+                "surv_certificate_date": "",
+                "decision_authority": "",
+                "decision_date": "",
+                "decision_number": "",
+                "expertise_authority": null,
+                "expertise_date": null,
+                "expertise_number": null,
+                "approval_authority": null,
+                "approval_date": null,
+                "approval_number": null
+            },
+            "geometry": null
+        }
+    ]
+}

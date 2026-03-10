@@ -23,6 +23,9 @@
  This script initializes the plugin, making it known to QGIS.
 """
 
+from . import common
+
+__version__ = "0.9.1"
 
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name
@@ -32,5 +35,7 @@ def classFactory(iface):  # pylint: disable=invalid-name
     :type iface: QgsInterface
     """
     #
-    from .geojson_ua import GeoJsonUa
+    if common.LOG:
+        common.log_calls(common.logFile, f"classFactory(iface={type(iface).__name__})")
+    from .json_ua import GeoJsonUa
     return GeoJsonUa(iface)

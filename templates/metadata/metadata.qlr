@@ -1,0 +1,1032 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group expanded="1" groupLayer="" name="" checked="Qt::Checked">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer providerKey="ogr" expanded="0" id="xxxxxxxxxxx_metadata_d2ab4ccc_e5fe_49f9_989f_f404fbf1f184" source="D:/work/json_ua_project/GeoJSON/BGD_QGIS/BGD_QGIS/mbd.gpkg|layername=xxxxxxxxxxx_metadata" name="xxxxxxxxxxx_metadata" legend_exp="" patch_size="-1,-1" checked="Qt::Checked" legend_split_behavior="0">
+      <customproperties>
+        <Option type="Map">
+          <Option type="invalid" name="expandedLegendNodes"/>
+        </Option>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer readOnly="0" wkbType="NoGeometry" minScale="1e+08" autoRefreshMode="Disabled" type="vector" hasScaleBasedVisibilityFlag="0" styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" legendPlaceholderImage="" geometry="No geometry" maxScale="0" autoRefreshTime="0">
+      <id>xxxxxxxxxxx_metadata_d2ab4ccc_e5fe_49f9_989f_f404fbf1f184</id>
+      <datasource>D:/work/json_ua_project/GeoJSON/BGD_QGIS/BGD_QGIS/mbd.gpkg|layername=xxxxxxxxxxx_metadata</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>xxxxxxxxxxx_metadata</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt></wkt>
+          <proj4></proj4>
+          <srsid>0</srsid>
+          <srid>0</srid>
+          <authid></authid>
+          <description></description>
+          <projectionacronym></projectionacronym>
+          <ellipsoidacronym></ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial minx="0" miny="0" minz="0" maxx="0" dimensions="2" maxy="0" maxz="0" crs=""/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="UTF-8">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal startExpression="" endExpression="" limitMode="0" durationUnit="min" mode="0" endField="" fixedDuration="0" startField="" durationField="" accumulate="0" enabled="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation respectLayerSymbol="1" extrusionEnabled="0" symbology="Line" zscale="1" type="IndividualFeatures" zoffset="0" showMarkerSymbolInSurfacePlots="0" clamping="Terrain" extrusion="0" binding="Centroid">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option type="QString" name="name" value=""/>
+            <Option name="properties"/>
+            <Option type="QString" name="type" value="collection"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol type="line" clip_to_extent="1" force_rhr="0" alpha="1" name="" frame_rate="10" is_animated="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{aaa9fe76-2a43-4d51-be61-99deb0f8b5c6}" locked="0" pass="0" class="SimpleLine" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="align_dash_pattern" value="0"/>
+                <Option type="QString" name="capstyle" value="square"/>
+                <Option type="QString" name="customdash" value="5;2"/>
+                <Option type="QString" name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="customdash_unit" value="MM"/>
+                <Option type="QString" name="dash_pattern_offset" value="0"/>
+                <Option type="QString" name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
+                <Option type="QString" name="draw_inside_polygon" value="0"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="line_color" value="232,113,141,255"/>
+                <Option type="QString" name="line_style" value="solid"/>
+                <Option type="QString" name="line_width" value="0.6"/>
+                <Option type="QString" name="line_width_unit" value="MM"/>
+                <Option type="QString" name="offset" value="0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="ring_filter" value="0"/>
+                <Option type="QString" name="trim_distance_end" value="0"/>
+                <Option type="QString" name="trim_distance_end_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="trim_distance_end_unit" value="MM"/>
+                <Option type="QString" name="trim_distance_start" value="0"/>
+                <Option type="QString" name="trim_distance_start_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="trim_distance_start_unit" value="MM"/>
+                <Option type="QString" name="tweak_dash_pattern_on_corners" value="0"/>
+                <Option type="QString" name="use_custom_dash" value="0"/>
+                <Option type="QString" name="width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol type="fill" clip_to_extent="1" force_rhr="0" alpha="1" name="" frame_rate="10" is_animated="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{2e514252-c7d3-4bdd-9c2f-61e60d292e1f}" locked="0" pass="0" class="SimpleFill" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="color" value="232,113,141,255"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="offset" value="0,0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="outline_color" value="166,81,101,255"/>
+                <Option type="QString" name="outline_style" value="solid"/>
+                <Option type="QString" name="outline_width" value="0.2"/>
+                <Option type="QString" name="outline_width_unit" value="MM"/>
+                <Option type="QString" name="style" value="solid"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+        <profileMarkerSymbol>
+          <symbol type="marker" clip_to_extent="1" force_rhr="0" alpha="1" name="" frame_rate="10" is_animated="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option type="QString" name="name" value=""/>
+                <Option name="properties"/>
+                <Option type="QString" name="type" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{7e4a3548-3076-46dc-b655-f07f8cf15b54}" locked="0" pass="0" class="SimpleMarker" enabled="1">
+              <Option type="Map">
+                <Option type="QString" name="angle" value="0"/>
+                <Option type="QString" name="cap_style" value="square"/>
+                <Option type="QString" name="color" value="232,113,141,255"/>
+                <Option type="QString" name="horizontal_anchor_point" value="1"/>
+                <Option type="QString" name="joinstyle" value="bevel"/>
+                <Option type="QString" name="name" value="diamond"/>
+                <Option type="QString" name="offset" value="0,0"/>
+                <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="offset_unit" value="MM"/>
+                <Option type="QString" name="outline_color" value="166,81,101,255"/>
+                <Option type="QString" name="outline_style" value="solid"/>
+                <Option type="QString" name="outline_width" value="0.2"/>
+                <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="outline_width_unit" value="MM"/>
+                <Option type="QString" name="scale_method" value="diameter"/>
+                <Option type="QString" name="size" value="3"/>
+                <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+                <Option type="QString" name="size_unit" value="MM"/>
+                <Option type="QString" name="vertical_anchor_point" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" name="name" value=""/>
+                  <Option name="properties"/>
+                  <Option type="QString" name="type" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileMarkerSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option type="QString" value="&quot;company_name&quot;"/>
+          </Option>
+        </Option>
+      </customproperties>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <legend type="default-vector" showLabelLegend="0"/>
+      <referencedLayers/>
+      <fieldConfiguration>
+        <field configurationFlags="NoFlag" name="fid">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="title">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="doc_type">
+          <editWidget type="ValueMap">
+            <config>
+              <Option type="Map">
+                <Option type="List" name="map">
+                  <Option type="Map">
+                    <Option type="QString" name="комплексний план просторового розвитку території територіальної громади" value="1"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option type="QString" name="генеральний план населеного пункту" value="2"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option type="QString" name="детальний план території" value="3"/>
+                  </Option>
+                  <Option type="Map">
+                    <Option type="QString" name="&lt;NULL>" value="{2839923C-8B7D-419E-B84B-CA2FE9B80EC7}"/>
+                  </Option>
+                </Option>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="region">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="region_koatuu">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="region_katotth">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="hromada">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="hromada_koatuu">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="hromada_katotth">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="settlement">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="settl_koatuu">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="settl_katotth">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="existing_term">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="prime_term">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="project_term">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="company_name">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="edrpou">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="address">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="phone">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="email">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="arch_lastname">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="arch_firstname">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="arch_middlename">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="arch_certificate_number">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="arch_certificate_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="allow_null" value="true"/>
+                <Option type="bool" name="calendar_popup" value="true"/>
+                <Option type="QString" name="display_format" value="yyyy-MM-dd"/>
+                <Option type="QString" name="field_format" value="yyyy-MM-dd"/>
+                <Option type="bool" name="field_iso_format" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="surv_last_name">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="surv_first_name">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="surv_middle_name">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="surv_certificate_number">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="surv_certificate_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="allow_null" value="true"/>
+                <Option type="bool" name="calendar_popup" value="true"/>
+                <Option type="QString" name="display_format" value="yyyy-MM-dd"/>
+                <Option type="QString" name="field_format" value="yyyy-MM-dd"/>
+                <Option type="bool" name="field_iso_format" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="decision_authority">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="decision_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="allow_null" value="true"/>
+                <Option type="bool" name="calendar_popup" value="true"/>
+                <Option type="QString" name="display_format" value="yyyy-MM-dd"/>
+                <Option type="QString" name="field_format" value="yyyy-MM-dd"/>
+                <Option type="bool" name="field_iso_format" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="decision_number">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="expertise_authority">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="expertise_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="allow_null" value="true"/>
+                <Option type="bool" name="calendar_popup" value="true"/>
+                <Option type="QString" name="display_format" value="yyyy-MM-dd"/>
+                <Option type="QString" name="field_format" value="yyyy-MM-dd"/>
+                <Option type="bool" name="field_iso_format" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="expertise_number">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="approval_authority">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="approval_date">
+          <editWidget type="DateTime">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="allow_null" value="true"/>
+                <Option type="bool" name="calendar_popup" value="true"/>
+                <Option type="QString" name="display_format" value="yyyy-MM-dd"/>
+                <Option type="QString" name="field_format" value="yyyy-MM-dd"/>
+                <Option type="bool" name="field_iso_format" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+        <field configurationFlags="NoFlag" name="approval_number">
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias field="fid" index="0" name=""/>
+        <alias field="title" index="1" name="Повна назва документації"/>
+        <alias field="doc_type" index="2" name="Вид документації"/>
+        <alias field="region" index="3" name="Назва регіону"/>
+        <alias field="region_koatuu" index="4" name="КОАТУУ регіону"/>
+        <alias field="region_katotth" index="5" name="КАТОТТГ регіону"/>
+        <alias field="hromada" index="6" name="Назва територіальної громади"/>
+        <alias field="hromada_koatuu" index="7" name="КОАТУУ територіальної громади"/>
+        <alias field="hromada_katotth" index="8" name="КАТОТТГ територіальної громади"/>
+        <alias field="settlement" index="9" name="Назва населеного пункту"/>
+        <alias field="settl_koatuu" index="10" name="КОАТУУ населеного пункту"/>
+        <alias field="settl_katotth" index="11" name="КАТОТТГ населеного пункту"/>
+        <alias field="existing_term" index="12" name="дата існуючого стану (рік)"/>
+        <alias field="prime_term" index="13" name="дата першого етапу (рік)"/>
+        <alias field="project_term" index="14" name="дата розрахунковго період (рік)"/>
+        <alias field="company_name" index="15" name="Назва організації-розробника документації"/>
+        <alias field="edrpou" index="16" name="Код ЄДРПОУ організації-розробника документації"/>
+        <alias field="address" index="17" name="Адреса організації-розробника документації"/>
+        <alias field="phone" index="18" name="Телефон організації-розробника документації"/>
+        <alias field="email" index="19" name="Електронна адреса організації-розробника документації"/>
+        <alias field="arch_lastname" index="20" name="Прізвище сертифікованого архітектора"/>
+        <alias field="arch_firstname" index="21" name="Ім'я сертифікованого архітектора"/>
+        <alias field="arch_middlename" index="22" name="По-батькові сертифікованого архітектора"/>
+        <alias field="arch_certificate_number" index="23" name="Номер сертифіката аріхтектора"/>
+        <alias field="arch_certificate_date" index="24" name="Дата видачі сертифіката архітектора"/>
+        <alias field="surv_last_name" index="25" name="Прізвище сертифікованого інженера-землевпорядника"/>
+        <alias field="surv_first_name" index="26" name="Імя сертифікованого інженера-землевпорядника"/>
+        <alias field="surv_middle_name" index="27" name="По-батькові сертифікованого інженера-землевпорядника"/>
+        <alias field="surv_certificate_number" index="28" name="Номер сертифіката інженера-землевпорядника"/>
+        <alias field="surv_certificate_date" index="29" name="Дата видачі сертифіката інженера-землевпорядника"/>
+        <alias field="decision_authority" index="30" name="Назва органу, щи прийняв рішення щодо розроблення документації"/>
+        <alias field="decision_date" index="31" name="Дата рішення щодо розроблення документації"/>
+        <alias field="decision_number" index="32" name="Номер рішення щодо розроблення документації"/>
+        <alias field="expertise_authority" index="33" name="Назва організації, що провела експертизу проекту документації"/>
+        <alias field="expertise_date" index="34" name="Дата висновку за результатами проведення експертизи проекту документації"/>
+        <alias field="expertise_number" index="35" name="Номер висновку за результатами проведення експертизи проекту документації"/>
+        <alias field="approval_authority" index="36" name="Назва органу, що прийняв рішення щодо затвердження документації"/>
+        <alias field="approval_date" index="37" name="Дата рішення щодо затвердження документації"/>
+        <alias field="approval_number" index="38" name="Номер рішення щодо затвердження документації"/>
+      </aliases>
+      <splitPolicies>
+        <policy policy="Duplicate" field="fid"/>
+        <policy policy="Duplicate" field="title"/>
+        <policy policy="Duplicate" field="doc_type"/>
+        <policy policy="Duplicate" field="region"/>
+        <policy policy="Duplicate" field="region_koatuu"/>
+        <policy policy="Duplicate" field="region_katotth"/>
+        <policy policy="Duplicate" field="hromada"/>
+        <policy policy="Duplicate" field="hromada_koatuu"/>
+        <policy policy="Duplicate" field="hromada_katotth"/>
+        <policy policy="Duplicate" field="settlement"/>
+        <policy policy="Duplicate" field="settl_koatuu"/>
+        <policy policy="Duplicate" field="settl_katotth"/>
+        <policy policy="Duplicate" field="existing_term"/>
+        <policy policy="Duplicate" field="prime_term"/>
+        <policy policy="Duplicate" field="project_term"/>
+        <policy policy="Duplicate" field="company_name"/>
+        <policy policy="Duplicate" field="edrpou"/>
+        <policy policy="Duplicate" field="address"/>
+        <policy policy="Duplicate" field="phone"/>
+        <policy policy="Duplicate" field="email"/>
+        <policy policy="Duplicate" field="arch_lastname"/>
+        <policy policy="Duplicate" field="arch_firstname"/>
+        <policy policy="Duplicate" field="arch_middlename"/>
+        <policy policy="Duplicate" field="arch_certificate_number"/>
+        <policy policy="Duplicate" field="arch_certificate_date"/>
+        <policy policy="Duplicate" field="surv_last_name"/>
+        <policy policy="Duplicate" field="surv_first_name"/>
+        <policy policy="Duplicate" field="surv_middle_name"/>
+        <policy policy="Duplicate" field="surv_certificate_number"/>
+        <policy policy="Duplicate" field="surv_certificate_date"/>
+        <policy policy="Duplicate" field="decision_authority"/>
+        <policy policy="Duplicate" field="decision_date"/>
+        <policy policy="Duplicate" field="decision_number"/>
+        <policy policy="Duplicate" field="expertise_authority"/>
+        <policy policy="Duplicate" field="expertise_date"/>
+        <policy policy="Duplicate" field="expertise_number"/>
+        <policy policy="Duplicate" field="approval_authority"/>
+        <policy policy="Duplicate" field="approval_date"/>
+        <policy policy="Duplicate" field="approval_number"/>
+      </splitPolicies>
+      <defaults>
+        <default field="fid" expression="" applyOnUpdate="0"/>
+        <default field="title" expression="" applyOnUpdate="0"/>
+        <default field="doc_type" expression="" applyOnUpdate="0"/>
+        <default field="region" expression="" applyOnUpdate="0"/>
+        <default field="region_koatuu" expression="" applyOnUpdate="0"/>
+        <default field="region_katotth" expression="" applyOnUpdate="0"/>
+        <default field="hromada" expression="" applyOnUpdate="0"/>
+        <default field="hromada_koatuu" expression="" applyOnUpdate="0"/>
+        <default field="hromada_katotth" expression="" applyOnUpdate="0"/>
+        <default field="settlement" expression="" applyOnUpdate="0"/>
+        <default field="settl_koatuu" expression="" applyOnUpdate="0"/>
+        <default field="settl_katotth" expression="" applyOnUpdate="0"/>
+        <default field="existing_term" expression="" applyOnUpdate="0"/>
+        <default field="prime_term" expression="" applyOnUpdate="0"/>
+        <default field="project_term" expression="" applyOnUpdate="0"/>
+        <default field="company_name" expression="" applyOnUpdate="0"/>
+        <default field="edrpou" expression="" applyOnUpdate="0"/>
+        <default field="address" expression="" applyOnUpdate="0"/>
+        <default field="phone" expression="" applyOnUpdate="0"/>
+        <default field="email" expression="" applyOnUpdate="0"/>
+        <default field="arch_lastname" expression="" applyOnUpdate="0"/>
+        <default field="arch_firstname" expression="" applyOnUpdate="0"/>
+        <default field="arch_middlename" expression="" applyOnUpdate="0"/>
+        <default field="arch_certificate_number" expression="" applyOnUpdate="0"/>
+        <default field="arch_certificate_date" expression="" applyOnUpdate="0"/>
+        <default field="surv_last_name" expression="" applyOnUpdate="0"/>
+        <default field="surv_first_name" expression="" applyOnUpdate="0"/>
+        <default field="surv_middle_name" expression="" applyOnUpdate="0"/>
+        <default field="surv_certificate_number" expression="" applyOnUpdate="0"/>
+        <default field="surv_certificate_date" expression="" applyOnUpdate="0"/>
+        <default field="decision_authority" expression="" applyOnUpdate="0"/>
+        <default field="decision_date" expression="" applyOnUpdate="0"/>
+        <default field="decision_number" expression="" applyOnUpdate="0"/>
+        <default field="expertise_authority" expression="" applyOnUpdate="0"/>
+        <default field="expertise_date" expression="" applyOnUpdate="0"/>
+        <default field="expertise_number" expression="" applyOnUpdate="0"/>
+        <default field="approval_authority" expression="" applyOnUpdate="0"/>
+        <default field="approval_date" expression="" applyOnUpdate="0"/>
+        <default field="approval_number" expression="" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint exp_strength="0" notnull_strength="1" field="fid" constraints="3" unique_strength="1"/>
+        <constraint exp_strength="0" notnull_strength="0" field="title" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="doc_type" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="region" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="region_koatuu" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="region_katotth" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="hromada" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="hromada_koatuu" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="hromada_katotth" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="settlement" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="settl_koatuu" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="settl_katotth" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="existing_term" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="prime_term" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="project_term" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="company_name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="edrpou" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="address" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="phone" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="email" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="arch_lastname" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="arch_firstname" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="arch_middlename" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="arch_certificate_number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="arch_certificate_date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="surv_last_name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="surv_first_name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="surv_middle_name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="surv_certificate_number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="surv_certificate_date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="decision_authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="decision_date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="decision_number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="expertise_authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="expertise_date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="expertise_number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="approval_authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="approval_date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="approval_number" constraints="0" unique_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint exp="" field="fid" desc=""/>
+        <constraint exp="" field="title" desc=""/>
+        <constraint exp="" field="doc_type" desc=""/>
+        <constraint exp="" field="region" desc=""/>
+        <constraint exp="" field="region_koatuu" desc=""/>
+        <constraint exp="" field="region_katotth" desc=""/>
+        <constraint exp="" field="hromada" desc=""/>
+        <constraint exp="" field="hromada_koatuu" desc=""/>
+        <constraint exp="" field="hromada_katotth" desc=""/>
+        <constraint exp="" field="settlement" desc=""/>
+        <constraint exp="" field="settl_koatuu" desc=""/>
+        <constraint exp="" field="settl_katotth" desc=""/>
+        <constraint exp="" field="existing_term" desc=""/>
+        <constraint exp="" field="prime_term" desc=""/>
+        <constraint exp="" field="project_term" desc=""/>
+        <constraint exp="" field="company_name" desc=""/>
+        <constraint exp="" field="edrpou" desc=""/>
+        <constraint exp="" field="address" desc=""/>
+        <constraint exp="" field="phone" desc=""/>
+        <constraint exp="" field="email" desc=""/>
+        <constraint exp="" field="arch_lastname" desc=""/>
+        <constraint exp="" field="arch_firstname" desc=""/>
+        <constraint exp="" field="arch_middlename" desc=""/>
+        <constraint exp="" field="arch_certificate_number" desc=""/>
+        <constraint exp="" field="arch_certificate_date" desc=""/>
+        <constraint exp="" field="surv_last_name" desc=""/>
+        <constraint exp="" field="surv_first_name" desc=""/>
+        <constraint exp="" field="surv_middle_name" desc=""/>
+        <constraint exp="" field="surv_certificate_number" desc=""/>
+        <constraint exp="" field="surv_certificate_date" desc=""/>
+        <constraint exp="" field="decision_authority" desc=""/>
+        <constraint exp="" field="decision_date" desc=""/>
+        <constraint exp="" field="decision_number" desc=""/>
+        <constraint exp="" field="expertise_authority" desc=""/>
+        <constraint exp="" field="expertise_date" desc=""/>
+        <constraint exp="" field="expertise_number" desc=""/>
+        <constraint exp="" field="approval_authority" desc=""/>
+        <constraint exp="" field="approval_date" desc=""/>
+        <constraint exp="" field="approval_number" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns>
+          <column hidden="0" width="-1" type="field" name="fid"/>
+          <column hidden="0" width="-1" type="field" name="title"/>
+          <column hidden="0" width="-1" type="field" name="doc_type"/>
+          <column hidden="0" width="-1" type="field" name="region"/>
+          <column hidden="0" width="-1" type="field" name="region_koatuu"/>
+          <column hidden="0" width="-1" type="field" name="region_katotth"/>
+          <column hidden="0" width="-1" type="field" name="hromada"/>
+          <column hidden="0" width="-1" type="field" name="hromada_koatuu"/>
+          <column hidden="0" width="-1" type="field" name="hromada_katotth"/>
+          <column hidden="0" width="-1" type="field" name="settlement"/>
+          <column hidden="0" width="-1" type="field" name="settl_koatuu"/>
+          <column hidden="0" width="-1" type="field" name="settl_katotth"/>
+          <column hidden="0" width="-1" type="field" name="existing_term"/>
+          <column hidden="0" width="-1" type="field" name="prime_term"/>
+          <column hidden="0" width="-1" type="field" name="project_term"/>
+          <column hidden="0" width="-1" type="field" name="company_name"/>
+          <column hidden="0" width="-1" type="field" name="edrpou"/>
+          <column hidden="0" width="-1" type="field" name="address"/>
+          <column hidden="0" width="-1" type="field" name="phone"/>
+          <column hidden="0" width="-1" type="field" name="email"/>
+          <column hidden="0" width="-1" type="field" name="arch_lastname"/>
+          <column hidden="0" width="-1" type="field" name="arch_firstname"/>
+          <column hidden="0" width="-1" type="field" name="arch_middlename"/>
+          <column hidden="0" width="-1" type="field" name="arch_certificate_number"/>
+          <column hidden="0" width="-1" type="field" name="arch_certificate_date"/>
+          <column hidden="0" width="-1" type="field" name="surv_last_name"/>
+          <column hidden="0" width="-1" type="field" name="surv_first_name"/>
+          <column hidden="0" width="-1" type="field" name="surv_middle_name"/>
+          <column hidden="0" width="-1" type="field" name="surv_certificate_number"/>
+          <column hidden="0" width="-1" type="field" name="surv_certificate_date"/>
+          <column hidden="0" width="-1" type="field" name="decision_authority"/>
+          <column hidden="0" width="-1" type="field" name="decision_date"/>
+          <column hidden="0" width="-1" type="field" name="decision_number"/>
+          <column hidden="0" width="-1" type="field" name="expertise_authority"/>
+          <column hidden="0" width="-1" type="field" name="expertise_date"/>
+          <column hidden="0" width="-1" type="field" name="expertise_number"/>
+          <column hidden="0" width="-1" type="field" name="approval_authority"/>
+          <column hidden="0" width="-1" type="field" name="approval_date"/>
+          <column hidden="0" width="-1" type="field" name="approval_number"/>
+          <column hidden="1" width="-1" type="actions"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	shape = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field editable="1" name="address"/>
+        <field editable="1" name="approval_authority"/>
+        <field editable="1" name="approval_date"/>
+        <field editable="1" name="approval_number"/>
+        <field editable="1" name="arch_certificate_date"/>
+        <field editable="1" name="arch_certificate_number"/>
+        <field editable="1" name="arch_firstname"/>
+        <field editable="1" name="arch_lastname"/>
+        <field editable="1" name="arch_middlename"/>
+        <field editable="1" name="company_name"/>
+        <field editable="1" name="decision_authority"/>
+        <field editable="1" name="decision_date"/>
+        <field editable="1" name="decision_number"/>
+        <field editable="1" name="doc_type"/>
+        <field editable="1" name="edrpou"/>
+        <field editable="1" name="email"/>
+        <field editable="1" name="existing_term"/>
+        <field editable="1" name="expertise_authority"/>
+        <field editable="1" name="expertise_date"/>
+        <field editable="1" name="expertise_number"/>
+        <field editable="1" name="fid"/>
+        <field editable="1" name="hromada"/>
+        <field editable="1" name="hromada_katotth"/>
+        <field editable="1" name="hromada_koatuu"/>
+        <field editable="1" name="phone"/>
+        <field editable="1" name="prime_term"/>
+        <field editable="1" name="project_term"/>
+        <field editable="1" name="region"/>
+        <field editable="1" name="region_katotth"/>
+        <field editable="1" name="region_koatuu"/>
+        <field editable="1" name="settl_katotth"/>
+        <field editable="1" name="settl_koatuu"/>
+        <field editable="1" name="settlement"/>
+        <field editable="1" name="surv_certificate_date"/>
+        <field editable="1" name="surv_certificate_number"/>
+        <field editable="1" name="surv_first_name"/>
+        <field editable="1" name="surv_last_name"/>
+        <field editable="1" name="surv_middle_name"/>
+        <field editable="1" name="title"/>
+      </editable>
+      <labelOnTop>
+        <field labelOnTop="0" name="address"/>
+        <field labelOnTop="0" name="approval_authority"/>
+        <field labelOnTop="0" name="approval_date"/>
+        <field labelOnTop="0" name="approval_number"/>
+        <field labelOnTop="0" name="arch_certificate_date"/>
+        <field labelOnTop="0" name="arch_certificate_number"/>
+        <field labelOnTop="0" name="arch_firstname"/>
+        <field labelOnTop="0" name="arch_lastname"/>
+        <field labelOnTop="0" name="arch_middlename"/>
+        <field labelOnTop="0" name="company_name"/>
+        <field labelOnTop="0" name="decision_authority"/>
+        <field labelOnTop="0" name="decision_date"/>
+        <field labelOnTop="0" name="decision_number"/>
+        <field labelOnTop="0" name="doc_type"/>
+        <field labelOnTop="0" name="edrpou"/>
+        <field labelOnTop="0" name="email"/>
+        <field labelOnTop="0" name="existing_term"/>
+        <field labelOnTop="0" name="expertise_authority"/>
+        <field labelOnTop="0" name="expertise_date"/>
+        <field labelOnTop="0" name="expertise_number"/>
+        <field labelOnTop="0" name="fid"/>
+        <field labelOnTop="0" name="hromada"/>
+        <field labelOnTop="0" name="hromada_katotth"/>
+        <field labelOnTop="0" name="hromada_koatuu"/>
+        <field labelOnTop="0" name="phone"/>
+        <field labelOnTop="0" name="prime_term"/>
+        <field labelOnTop="0" name="project_term"/>
+        <field labelOnTop="0" name="region"/>
+        <field labelOnTop="0" name="region_katotth"/>
+        <field labelOnTop="0" name="region_koatuu"/>
+        <field labelOnTop="0" name="settl_katotth"/>
+        <field labelOnTop="0" name="settl_koatuu"/>
+        <field labelOnTop="0" name="settlement"/>
+        <field labelOnTop="0" name="surv_certificate_date"/>
+        <field labelOnTop="0" name="surv_certificate_number"/>
+        <field labelOnTop="0" name="surv_first_name"/>
+        <field labelOnTop="0" name="surv_last_name"/>
+        <field labelOnTop="0" name="surv_middle_name"/>
+        <field labelOnTop="0" name="title"/>
+      </labelOnTop>
+      <reuseLastValue/>
+      <dataDefinedFieldProperties/>
+      <widgets/>
+      <previewExpression>"company_name"</previewExpression>
+      <mapTip enabled="1"></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>

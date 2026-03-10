@@ -25,8 +25,8 @@ import configparser
 import json
 import uuid
 
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant
-from qgis.PyQt.QtGui import QIcon, QGuiApplication
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl
+from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices
 from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog
 from qgis.PyQt.QtWidgets import (
     QFileDialog, QMessageBox,
@@ -258,14 +258,14 @@ class GeoJsonUa:
         if not os.path.exists(icon_path):
             icon_path = os.path.join(self.plugin_dir, "icon.svg")
 
-        # Keep plugin menu entry, but use a toolbar tool-button with a drop-down menu (xml_ua style).
+        # No plugin menu entry; use a toolbar tool-button with a drop-down menu (xml_ua style).
         self.add_action(
             icon_path,
             text=self.tr(u"geojson"),
             callback=self.run,
             parent=self.iface.mainWindow(),
             add_to_toolbar=False,
-            add_to_menu=True,
+            add_to_menu=False,
         )
 
         main_window = self.iface.mainWindow()
@@ -1792,7 +1792,9 @@ class GeoJsonUa:
     def on_open_help(self):
         if common.LOG:
             common.log_calls(common.logFile, "GeoJsonUa.on_open_help()")
-        self._push_info(self.tr(u"Довідка: поки не реалізовано."))
+        url = QUrl("https://krechkivsky.github.io/json_ua_docs/")
+        if not QDesktopServices.openUrl(url):
+            self._push_info(self.tr(u"Не вдалося відкрити довідку у браузері."))
 
     def on_new_geojson(self):
         if common.LOG:

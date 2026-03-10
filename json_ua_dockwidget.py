@@ -42,8 +42,8 @@ import configparser
 import os
 from functools import partial
 
-from qgis.PyQt import QtGui, QtWidgets, uic
-from qgis.PyQt.QtCore import pyqtSignal, Qt, QSize
+from qgis.PyQt import QtWidgets, uic
+from qgis.PyQt.QtCore import pyqtSignal, Qt
 
 from . import common
 

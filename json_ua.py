@@ -53,7 +53,6 @@ from qgis.core import (
     QgsMarkerSymbol,
     QgsSingleSymbolRenderer,
     QgsEditorWidgetSetup,
-    QgsEditFormConfig,
 )
 
 # Initialize Qt resources from file resources.py
@@ -87,6 +86,7 @@ class GeoJsonUa:
         self._schema_cache = None
         self._enums_cache = None
         self._normative_style_cache = None
+        self._missing_style_reported = set()
 
         settings = QSettings()
         debug_value = settings.value("json_ua/debug", False)
@@ -2041,8 +2041,22 @@ class GeoJsonUa:
                 continue
             style_path = self._normative_style_path(layer.name())
             if not style_path:
+                if layer.name() not in self._missing_style_reported:
+                    self._missing_style_reported.add(layer.name())
+                    self._push_message(
+                        self.tr(u"Не знайдено файл стилю для шару {0}.").format(layer.name()),
+                        level=Qgis.Warning,
+                        duration=0,
+                    )
                 continue
             if not os.path.exists(style_path):
+                if layer.name() not in self._missing_style_reported:
+                    self._missing_style_reported.add(layer.name())
+                    self._push_message(
+                        self.tr(u"Не знайдено файл стилю для шару {0}.").format(layer.name()),
+                        level=Qgis.Warning,
+                        duration=0,
+                    )
                 continue
             try:
                 self._load_symbology_only(layer, style_path)

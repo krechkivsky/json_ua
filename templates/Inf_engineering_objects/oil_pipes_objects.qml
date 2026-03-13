@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{5b0aa5fc-8e8a-4817-bb2f-9b1a0e1b136c}">
       <rule symbol="0" label="насосна станція на магістральному нафтопроводі існуюча" key="{8f9f8840-8e7a-4ef4-b50b-1b2de25630f1}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="насосна станція на магістральному нафтопроводі проектна" key="{2aa8b8be-8f8d-4506-9730-e05d1483c757}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="насосна станція на магістральному нафтопроводі проєктна" key="{2aa8b8be-8f8d-4506-9730-e05d1483c757}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{2ddcf2c9-1229-4ab9-8317-dd8dd70c19a7}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -733,7 +733,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="z_kind" index="14" name="характер встановлення зони"/>
     <alias field="pr_zone" index="15" name="розмір охоронної зони, м"/>

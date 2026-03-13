@@ -149,9 +149,9 @@
       <rule symbol="0" label="каналізаційна насосна станція існуюча" key="{e77ac3e3-abfc-43e5-8d0e-cf3f1cced4b3}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="зливна станція існуюча" key="{620df08b-875e-40bf-b964-2369e9da20c3}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="місце випуску очищених стічних вод існуюче" key="{5da8ba67-bbb5-4505-9037-b8ce162644ba}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="3" label="каналізаційна насосна станція проектна" key="{a147f631-4c47-43da-94bb-2fb8b600486d}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="зливна станція проектна" key="{5a9bc113-940c-48ee-988c-c2b08fb5da25}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="місце випуску очищених стічних вод проектне" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="каналізаційна насосна станція проєктна" key="{a147f631-4c47-43da-94bb-2fb8b600486d}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="зливна станція проєктна" key="{5a9bc113-940c-48ee-988c-c2b08fb5da25}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="місце випуску очищених стічних вод проєктне" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1327,7 +1327,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="outr_in" index="14" name="потужність існуюча, куб. м на добу"/>
     <alias field="outr_pr" index="15" name="потужність на короткостроковий період, куб. м на добу"/>

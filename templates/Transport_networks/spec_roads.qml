@@ -151,11 +151,11 @@
       <rule symbol="2" label="відокремлена смуга для руху громадського транспорту існуюча" key="{2bd5b314-c497-41b9-b52f-146f2abad0dc}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="дорога для технологічного автотранспорту промислових підприємств існуюча" key="{a8186ea7-23d0-4345-a936-582064120b4b}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="4" label="дорога сільськогосподарських підприємств існуюча" key="{d4bdb1f7-f1fa-46fd-a94a-abd85f05ddd4}" filter="type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="5" label="внутрішньоквартальний проїзд проектний" key="{90e057c4-f05f-4de9-9a46-8a653f0029d2}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="місцевий проїзд проектний" key="{604a7533-281a-4edb-a6b2-9751e170f66a}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="відокремлена смуга для руху громадського транспорту проектна" key="{062c2ccc-99c1-405c-b357-f60464e24436}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="дорога для технологічного автотранспорту промислових підприємств проектна" key="{7b23a3df-d210-4620-b685-caa59c8781ce}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="дорога сільськогосподарських підприємств проектна" key="{764781b4-86e2-4c60-b7ab-40c69af90d8c}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="внутрішньоквартальний проїзд проєктний" key="{90e057c4-f05f-4de9-9a46-8a653f0029d2}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="місцевий проїзд проєктний" key="{604a7533-281a-4edb-a6b2-9751e170f66a}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="відокремлена смуга для руху громадського транспорту проєктна" key="{062c2ccc-99c1-405c-b357-f60464e24436}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="дорога для технологічного автотранспорту промислових підприємств проєктна" key="{7b23a3df-d210-4620-b685-caa59c8781ce}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="дорога сільськогосподарських підприємств проєктна" key="{764781b4-86e2-4c60-b7ab-40c69af90d8c}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="10" label="інші" key="{0366472b-c8b4-4031-89c6-36cd9923f758}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1812,7 +1812,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип дороги"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
   </aliases>

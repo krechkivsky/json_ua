@@ -158,18 +158,18 @@
       <rule symbol="9" label="поруда теплопостачання існуюча" key="{b848f9f1-a332-4915-9a70-b88bee37c6d0}" filter="function=10  and  &quot;state&quot; in (1,2,3,4,5,6,7,13) "/>
       <rule symbol="10" label="споруда електрозабезпечення існуюча" key="{16f6ac8e-f0a5-4b86-a86b-ef9936a5dd89}" filter="function=11  and  &quot;state&quot; in (1,2,3,4,5,6,7,13) "/>
       <rule symbol="11" label="телекомунікаційна будівля чи споруда існуюча" key="{4c0fe370-5929-4599-ade4-686a11560aed}" filter="function=12  and  &quot;state&quot; in (1,2,3,4,5,6,7,13) "/>
-      <rule symbol="12" label="споруда на магістральному продуктопроводі проектна" key="{237244c2-c70e-4639-b48a-618ac04ad0b4}" filter="function=1  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="споруда на магістральному нафтопроводі проектна" key="{652cbd83-fd5c-47f1-8d5b-f9e449dc3b45}" filter="function=2  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="споруда на магістральному газопроводі проектна" key="{23e71bee-fc94-45e5-9eab-d51f71d7848e}" filter="function=3  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="споруда газопостачанняі проектна" key="{b58ecfdc-3286-4b3b-b350-6b72bd7b54ce}" filter="function=4 and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="16" label="споруда на магістральному водопроводі проектна" key="{7284104f-9b62-4743-b2e6-db6a8840c97f}" filter="function=5  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="17" label="споруда питного водопостачання проектна" key="{5836356a-0444-413d-af95-d496d878c2a6}" filter="function=6 and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="18" label="споруда технічного водопостачання проектна" key="{2cb10279-1a4d-48f1-8388-fed76b02d557}" filter="function=7  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="19" label="каналізаційна споруда проектна" key="{75f65111-7720-4f01-a3ff-7e4938c7c997}" filter="function=8 and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="20" label="споруда дощової каналізації проектна" key="{9573dc31-7e29-4d53-a90a-f0cdabd88b38}" filter="function=9  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="21" label="поруда теплопостачання проектна" key="{add38d33-917a-4e16-ad2f-9755880b8da9}" filter="function=10  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="22" label="споруда електрозабезпечення проектна" key="{33ad2426-314e-44a4-8068-2d7c936b9c65}" filter="function=11  and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="23" label="телекомунікаційна будівля чи споруда проектна" key="{717edcfd-8c0f-47eb-8666-7efb40ceddca}" filter="function=12  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="споруда на магістральному продуктопроводі проєктна" key="{237244c2-c70e-4639-b48a-618ac04ad0b4}" filter="function=1  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="споруда на магістральному нафтопроводі проєктна" key="{652cbd83-fd5c-47f1-8d5b-f9e449dc3b45}" filter="function=2  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="споруда на магістральному газопроводі проєктна" key="{23e71bee-fc94-45e5-9eab-d51f71d7848e}" filter="function=3  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="споруда газопостачанняі проєктна" key="{b58ecfdc-3286-4b3b-b350-6b72bd7b54ce}" filter="function=4 and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="16" label="споруда на магістральному водопроводі проєктна" key="{7284104f-9b62-4743-b2e6-db6a8840c97f}" filter="function=5  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="17" label="споруда питного водопостачання проєктна" key="{5836356a-0444-413d-af95-d496d878c2a6}" filter="function=6 and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="18" label="споруда технічного водопостачання проєктна" key="{2cb10279-1a4d-48f1-8388-fed76b02d557}" filter="function=7  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="19" label="каналізаційна споруда проєктна" key="{75f65111-7720-4f01-a3ff-7e4938c7c997}" filter="function=8 and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="20" label="споруда дощової каналізації проєктна" key="{9573dc31-7e29-4d53-a90a-f0cdabd88b38}" filter="function=9  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="21" label="поруда теплопостачання проєктна" key="{add38d33-917a-4e16-ad2f-9755880b8da9}" filter="function=10  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="22" label="споруда електрозабезпечення проєктна" key="{33ad2426-314e-44a4-8068-2d7c936b9c65}" filter="function=11  and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="23" label="телекомунікаційна будівля чи споруда проєктна" key="{717edcfd-8c0f-47eb-8666-7efb40ceddca}" filter="function=12  and  &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="24" label="будівля чи споруда інженерного забезпечення не визначена" key="{eac3fcd3-e66e-4d81-aa68-6d1cfa2e233e}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1420,14 +1420,14 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="function" index="13" name="функціональне призначення"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>
     <alias field="szz_in" index="16" name="розмір санітарно-захисної зони існуючий, м"/>
-    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проектний на короткостроковий період, м"/>
-    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проектний на середньостроковий період, м"/>
-    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проектний на довгостроковий період, м"/>
+    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проєктний на короткостроковий період, м"/>
+    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проєктний на середньостроковий період, м"/>
+    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проєктний на довгостроковий період, м"/>
     <alias field="pr_zone" index="20" name="розмір охоронної зони, м"/>
     <alias field="san_gap" index="21" name="санітарний (інший) відступ, м"/>
     <alias field="ad_guid" index="22" name=""/>

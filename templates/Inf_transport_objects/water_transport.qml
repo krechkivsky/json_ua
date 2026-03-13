@@ -154,14 +154,14 @@
       <rule symbol="5" label="пристань існуюча" key="{2b397920-fb68-45ba-a8e8-4c03652d0002}" filter="type=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="паромна переправа існуюча" key="{8fc33b89-9443-42de-89e5-613d7bce08d7}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="7" label="база для стоянки маломірних (малих) суден існуюча" key="{d87808a7-0e52-4663-9983-d117ce4d5623}" filter="type=8 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="8" label="морський порт проектний" key="{6a49715f-d6b2-4db8-bc90-9ae57663c458}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="морський вокзал проектний" key="{6bc34401-c535-4bb4-b947-bb2c7a31a792}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="морський порт проєктний" key="{6a49715f-d6b2-4db8-bc90-9ae57663c458}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="морський вокзал проєктний" key="{6bc34401-c535-4bb4-b947-bb2c7a31a792}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="10" label="річковий порт проктний" key="{56370a2d-ec32-4d97-abb8-3cbc9ef68990}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="річковий вокзал проектний" key="{b444e552-37e1-46de-b5e9-7aeb66f9157e}" filter="type=4 and  &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="причал проектний" key="{c5652f35-248a-42c8-b63b-5ac215c9ce81}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="пристань проектна" key="{ed35a074-3e09-4947-84f2-ba948d9991ad}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="паромна переправа проектна" key="{ea6f99fc-03ea-42d4-b42a-79eb34a678d9}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="база для стоянки маломірних (малих) суден проектна" key="{f9f0d65f-43e9-4fec-ba84-78bba1cd34f9}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="річковий вокзал проєктний" key="{b444e552-37e1-46de-b5e9-7aeb66f9157e}" filter="type=4 and  &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="причал проєктний" key="{c5652f35-248a-42c8-b63b-5ac215c9ce81}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="пристань проєктна" key="{ed35a074-3e09-4947-84f2-ba948d9991ad}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="паромна переправа проєктна" key="{ea6f99fc-03ea-42d4-b42a-79eb34a678d9}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="база для стоянки маломірних (малих) суден проєктна" key="{f9f0d65f-43e9-4fec-ba84-78bba1cd34f9}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="16" label="інші" key="{6ba56824-27a8-44d6-83e5-70b0b1a9c647}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2113,7 +2113,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту водного транспорту"/>
     <alias field="name" index="14" name="назва"/>
     <alias field="orient" index="15" name="спрямованість порту"/>

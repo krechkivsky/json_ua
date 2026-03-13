@@ -159,19 +159,19 @@
       <rule symbol="10" label="лугопарк існуючий" key="{9c6afcbc-81de-474f-a3bd-12168ff8916d}" filter="type=11 and status=1"/>
       <rule symbol="11" label="гідропарк існуючий" key="{ead2f9a1-eb65-4bff-b361-c1b4c82dedc5}" filter="type=12 and status=1"/>
       <rule symbol="12" label="ландшафтна зона існуюча" key="{515f7f20-634f-42c4-8b31-100b4b1a5d5a}" filter="type=13 and status=1"/>
-      <rule symbol="13" label="парк проектний" key="{10f70f0f-3b69-421b-8845-3d9720abaac9}" filter="type=1 and status in (2,3,4,5)"/>
-      <rule symbol="14" label="сквер проектний" key="{2f6d9b1c-3657-4e05-b699-420b2c2907eb}" filter="type=2 and status in (2,3,4,5)"/>
-      <rule symbol="15" label="сад проектний" key="{03ba927e-0aed-4c75-9da3-ee50fc3de0a8}" filter="type=3 and status in (2,3,4,5)"/>
-      <rule symbol="16" label="бульвар проектний" key="{3e417c04-96a0-47a1-aee5-cd95a9756bde}" filter="type=4 and status in (2,3,4,5)"/>
-      <rule symbol="17" label="газон проектний" key="{8a8c4d06-acc5-4070-823e-dd6f438eba6a}" filter="type=5 and status in (2,3,4,5)"/>
-      <rule symbol="18" label="квітник проектний" key="{2990ce8b-70f5-4002-9c0e-fff3718e86ba}" filter="type=6 and status in (2,3,4,5)"/>
-      <rule symbol="19" label="газон з деревною та чагарниковою рослинністю проектний" key="{91c4172b-4423-4032-bb3e-54bd02192714}" filter="type=7 and status in (2,3,4,5)"/>
-      <rule symbol="20" label="контейнерне озеленення проектне" key="{758b98e3-3417-4dec-8a55-127b80a2d70d}" filter="type=8 and status in (2,3,4,5)"/>
-      <rule symbol="21" label="дахове озеленення проектне" key="{79de672e-688b-4737-8246-b0c7b15a612d}" filter="type=9 and status in (2,3,4,5)"/>
-      <rule symbol="22" label="лісопарк проектний" key="{8fcb807f-a599-43b3-8f90-6bbb58baf8eb}" filter="type=10 and status in (2,3,4,5)"/>
-      <rule symbol="23" label="лугопарк проектний" key="{3605d0c1-233f-4148-960a-13c861a8a135}" filter="type=11 and status in (2,3,4,5)"/>
-      <rule symbol="24" label="гідропарк проектний" key="{3d0cbd06-a708-410b-aa21-576019a73f90}" filter="type=12 and status in (2,3,4,5)"/>
-      <rule symbol="25" label="ландшафтна зона проектна" key="{043bceb9-e9d5-45ee-9a06-222be52289c4}" filter="type=13 and status in (2,3,4,5)"/>
+      <rule symbol="13" label="парк проєктний" key="{10f70f0f-3b69-421b-8845-3d9720abaac9}" filter="type=1 and status in (2,3,4,5)"/>
+      <rule symbol="14" label="сквер проєктний" key="{2f6d9b1c-3657-4e05-b699-420b2c2907eb}" filter="type=2 and status in (2,3,4,5)"/>
+      <rule symbol="15" label="сад проєктний" key="{03ba927e-0aed-4c75-9da3-ee50fc3de0a8}" filter="type=3 and status in (2,3,4,5)"/>
+      <rule symbol="16" label="бульвар проєктний" key="{3e417c04-96a0-47a1-aee5-cd95a9756bde}" filter="type=4 and status in (2,3,4,5)"/>
+      <rule symbol="17" label="газон проєктний" key="{8a8c4d06-acc5-4070-823e-dd6f438eba6a}" filter="type=5 and status in (2,3,4,5)"/>
+      <rule symbol="18" label="квітник проєктний" key="{2990ce8b-70f5-4002-9c0e-fff3718e86ba}" filter="type=6 and status in (2,3,4,5)"/>
+      <rule symbol="19" label="газон з деревною та чагарниковою рослинністю проєктний" key="{91c4172b-4423-4032-bb3e-54bd02192714}" filter="type=7 and status in (2,3,4,5)"/>
+      <rule symbol="20" label="контейнерне озеленення проєктне" key="{758b98e3-3417-4dec-8a55-127b80a2d70d}" filter="type=8 and status in (2,3,4,5)"/>
+      <rule symbol="21" label="дахове озеленення проєктне" key="{79de672e-688b-4737-8246-b0c7b15a612d}" filter="type=9 and status in (2,3,4,5)"/>
+      <rule symbol="22" label="лісопарк проєктний" key="{8fcb807f-a599-43b3-8f90-6bbb58baf8eb}" filter="type=10 and status in (2,3,4,5)"/>
+      <rule symbol="23" label="лугопарк проєктний" key="{3605d0c1-233f-4148-960a-13c861a8a135}" filter="type=11 and status in (2,3,4,5)"/>
+      <rule symbol="24" label="гідропарк проєктний" key="{3d0cbd06-a708-410b-aa21-576019a73f90}" filter="type=12 and status in (2,3,4,5)"/>
+      <rule symbol="25" label="ландшафтна зона проєктна" key="{043bceb9-e9d5-45ee-9a06-222be52289c4}" filter="type=13 and status in (2,3,4,5)"/>
       <rule symbol="26" label="інші" key="{21bdf8a1-8927-4ce2-8948-d9babef70822}" filter="ELSE"/>
     </rules>
     <symbols>

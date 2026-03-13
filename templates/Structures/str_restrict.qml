@@ -150,10 +150,10 @@
       <rule symbol="1" label="військовий випробувальний центр існуючий" key="{53c500a8-b682-4625-97f9-e9f8c7bf8a5f}" filter=" &quot;type&quot; =2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="військовий полігон чи стрільбище існуючий" key="{0440cc1c-e3d2-4bd8-8272-b0058603cf03}" filter=" &quot;type&quot; =3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="військова інженерна фортифікаційна споруда існуюча" key="{b3777cb4-6b56-42e4-a254-0a529e77be98}" filter=" &quot;type&quot; =4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="4" label="будівля виправного закладу, в'язниці чи слідчого ізолятора проектна" key="{14dc549b-5b82-4549-92ab-62ff1567f158}" filter=" &quot;type&quot; =1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="військовий випробувальний центр проектний" key="{c72154e3-500b-4f68-90a6-6237b571a6c2}" filter=" &quot;type&quot; =2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="військовий полігон чи стрільбище проектний" key="{46693927-f153-4b02-a4df-5a1fc00970de}" filter=" &quot;type&quot; =3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="військова інженерна фортифікаційна споруда проектна" key="{fd905e85-df92-4f3f-97f2-d79700bca826}" filter=" &quot;type&quot; =4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="будівля виправного закладу, в'язниці чи слідчого ізолятора проєктна" key="{14dc549b-5b82-4549-92ab-62ff1567f158}" filter=" &quot;type&quot; =1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="військовий випробувальний центр проєктний" key="{c72154e3-500b-4f68-90a6-6237b571a6c2}" filter=" &quot;type&quot; =2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="військовий полігон чи стрільбище проєктний" key="{46693927-f153-4b02-a4df-5a1fc00970de}" filter=" &quot;type&quot; =3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="військова інженерна фортифікаційна споруда проєктна" key="{fd905e85-df92-4f3f-97f2-d79700bca826}" filter=" &quot;type&quot; =4 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="8" label="не визначено" key="{5fe7fccd-6db8-4c23-817f-23ed4289d277}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1300,7 +1300,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип спеціалізованої інженерної споруди"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>

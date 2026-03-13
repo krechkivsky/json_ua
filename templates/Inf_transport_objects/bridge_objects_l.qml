@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{5378dfb8-980e-4471-9094-2c076f38649a}">
       <rule symbol="0" label="існуючі" key="{ef21479f-a6e6-4f19-8897-bc3a72e01326}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектні" key="{70808049-a02d-4e34-9df9-47708967d2fa}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктні" key="{70808049-a02d-4e34-9df9-47708967d2fa}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{973fb4c9-ba81-4968-a4d3-12e07819f360}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1174,7 +1174,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип мосту"/>
     <alias field="length" index="14" name="довжина, м"/>
     <alias field="width" index="15" name="ширина, м"/>

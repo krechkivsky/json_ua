@@ -150,10 +150,10 @@
       <rule symbol="1" label="аеродром  існуючий" key="{a823ccfe-b9d5-4892-ba19-706ddd08e582}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="злітно-посадковий майданчик  існуючий" key="{0343fb08-bfc0-41e2-84d4-1b764c681125}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="гелікоптерний майданчик  існуючий" key="{b2c8a558-fdb9-4f5c-8959-20d4237ae7a0}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="4" label="аеропорт проектний" key="{cbd929dc-5bb9-405e-ad5d-77a3a4eedc97}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="аеродром  проектний" key="{8b14b315-1f70-4681-b9db-d497c6eeb3cd}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="злітно-посадковий майданчик  проектний" key="{4b130571-6f44-47cb-af51-884f924ac4d6}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="гелікоптерний майданчик  проектний" key="{ef3e3197-8a6b-4441-9a43-002f3a59098e}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="аеропорт проєктний" key="{cbd929dc-5bb9-405e-ad5d-77a3a4eedc97}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="аеродром  проєктний" key="{8b14b315-1f70-4681-b9db-d497c6eeb3cd}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="злітно-посадковий майданчик  проєктний" key="{4b130571-6f44-47cb-af51-884f924ac4d6}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="гелікоптерний майданчик  проєктний" key="{ef3e3197-8a6b-4441-9a43-002f3a59098e}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="8" label="інші" key="{e7ca29ae-19a9-4e05-a99a-fff49f0ac50c}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1511,16 +1511,16 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту авіатранспортних перевезень"/>
     <alias field="name" index="14" name="назва"/>
     <alias field="signific" index="15" name="значення об'єкту"/>
     <alias field="category" index="16" name="категорія"/>
     <alias field="area" index="17" name="площа"/>
     <alias field="dep_in" index="18" name="кількість відправлень, існуюча"/>
-    <alias field="dep_pr" index="19" name="кількість відправлень, проектна на короткостроковий період"/>
-    <alias field="dep_pro" index="20" name="кількість відправлень, проектна на середньостроковий період"/>
-    <alias field="dep_ext" index="21" name="кількість відправлень, проектна на довгостроковий період"/>
+    <alias field="dep_pr" index="19" name="кількість відправлень, проєктна на короткостроковий період"/>
+    <alias field="dep_pro" index="20" name="кількість відправлень, проєктна на середньостроковий період"/>
+    <alias field="dep_ext" index="21" name="кількість відправлень, проєктна на довгостроковий період"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

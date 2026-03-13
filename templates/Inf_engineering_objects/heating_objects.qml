@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{5b0aa5fc-8e8a-4817-bb2f-9b1a0e1b136c}">
       <rule symbol="0" label="насосна станція на мережах теплопостачання існуюча" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="насосна станція на мережах теплопостачання проектна" key="{2aa8b8be-8f8d-4506-9730-e05d1483c757}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="насосна станція на мережах теплопостачання проєктна" key="{2aa8b8be-8f8d-4506-9730-e05d1483c757}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -702,7 +702,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="san_gap" index="14" name="санітарний (інший) відступ, м"/>
   </aliases>

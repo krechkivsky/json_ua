@@ -152,12 +152,12 @@
       <rule symbol="3" label="санітарно-захисна зона навколо (уздовж) об'єкта енергетичної системи існуюча" key="{33a6e177-a6a3-4a73-8c85-b0feb2b687b6}" filter=" &quot;res_code&quot; ='01.05.1' and status =1"/>
       <rule symbol="4" label="санітарно-захисні смуги навколо інженерних комунікацій існуюча" key="{6c6b0d11-a829-4d77-bdb9-e21c69138a74}" filter=" &quot;res_code&quot; ='01.08.1' and status =1"/>
       <rule symbol="5" label="санітарно-захисна смуга навколо промислового об'єкта існуюча" key="{a1045161-d9b8-48e5-8b9f-90bc49c5c4b8}" filter=" &quot;res_code&quot; ='01.09.1' and status =1"/>
-      <rule symbol="6" label="санітарно-захисна зона навколо об'єкта проектна" key="{d6a8bb30-09bf-4c02-ba71-2e49c32da9cc}" filter=" &quot;res_code&quot; ='03.01' and status in (2,3,4,5)"/>
-      <rule symbol="7" label="санітарно-захисна зона навколо (уздовж) об'єкта транспорту проектна" key="{4b6a3fd4-cd1a-48e5-ac56-7a004f1602b7}" filter=" &quot;res_code&quot; ='01.03.1' and status in (2,3,4,5)"/>
-      <rule symbol="8" label="санітарно-захисна зона навколо (уздовж) об'єкта електрозв'язку проектна" key="{98fcf6d3-0b58-4577-b1b7-59c823b59b41}" filter=" &quot;res_code&quot; ='01.04.2' and status in (2,3,4,5)"/>
-      <rule symbol="9" label="санітарно-захисна зона навколо (уздовж) об'єкта енергетичної системи проектна" key="{c0bf65f4-3247-4077-9990-8e39f7a7d386}" filter=" &quot;res_code&quot; ='01.05.1' and status in (2,3,4,5)"/>
-      <rule symbol="10" label="санітарно-захисні смуги навколо інженерних комунікацій проектна" key="{2a43f9d3-aea2-430a-b242-1e15238f5ca1}" filter=" &quot;res_code&quot; ='01.08.1' and status in (2,3,4,5)"/>
-      <rule symbol="11" label="санітарно-захисна смуга навколо промислового об'єкта проектна" key="{2c9f178e-4e0e-4cae-a47f-d19fd723cef4}" filter=" &quot;res_code&quot; ='01.09.1' and status in (2,3,4,5)"/>
+      <rule symbol="6" label="санітарно-захисна зона навколо об'єкта проєктна" key="{d6a8bb30-09bf-4c02-ba71-2e49c32da9cc}" filter=" &quot;res_code&quot; ='03.01' and status in (2,3,4,5)"/>
+      <rule symbol="7" label="санітарно-захисна зона навколо (уздовж) об'єкта транспорту проєктна" key="{4b6a3fd4-cd1a-48e5-ac56-7a004f1602b7}" filter=" &quot;res_code&quot; ='01.03.1' and status in (2,3,4,5)"/>
+      <rule symbol="8" label="санітарно-захисна зона навколо (уздовж) об'єкта електрозв'язку проєктна" key="{98fcf6d3-0b58-4577-b1b7-59c823b59b41}" filter=" &quot;res_code&quot; ='01.04.2' and status in (2,3,4,5)"/>
+      <rule symbol="9" label="санітарно-захисна зона навколо (уздовж) об'єкта енергетичної системи проєктна" key="{c0bf65f4-3247-4077-9990-8e39f7a7d386}" filter=" &quot;res_code&quot; ='01.05.1' and status in (2,3,4,5)"/>
+      <rule symbol="10" label="санітарно-захисні смуги навколо інженерних комунікацій проєктна" key="{2a43f9d3-aea2-430a-b242-1e15238f5ca1}" filter=" &quot;res_code&quot; ='01.08.1' and status in (2,3,4,5)"/>
+      <rule symbol="11" label="санітарно-захисна смуга навколо промислового об'єкта проєктна" key="{2c9f178e-4e0e-4cae-a47f-d19fd723cef4}" filter=" &quot;res_code&quot; ='01.09.1' and status in (2,3,4,5)"/>
       <rule symbol="12" label="інші" key="{35dcd77e-2ac6-488a-af35-fd6307839176}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2041,7 +2041,7 @@
     <alias field="size" index="16" name="розмір санітарно-захисної зони, м"/>
     <alias field="abidance" index="17" name="стан дотримання"/>
     <alias field="status" index="18" name="статус"/>
-    <alias field="change" index="19" name="проектна зміна статусу"/>
+    <alias field="change" index="19" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

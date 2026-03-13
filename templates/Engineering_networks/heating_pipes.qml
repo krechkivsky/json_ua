@@ -148,8 +148,8 @@
     <rules key="{6f016b2b-eace-4d39-8b1c-b77fb7c8c6ab}">
       <rule symbol="0" label="гарячого водопостачання існуюча" key="{36e2e44d-e7b2-4a91-b404-85cda843453e}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="опалення існуюча" key="{751f189a-21b1-4fa4-8198-cea914b4e2c6}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="2" label="гарячого водопостачання проектна" key="{79ac04dd-6191-4c96-9163-fcd6512a08ba}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="опалення проектна" key="{5d5852eb-7d19-4a53-a4b2-6dd1da327fce}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="гарячого водопостачання проєктна" key="{79ac04dd-6191-4c96-9163-fcd6512a08ba}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="опалення проєктна" key="{5d5852eb-7d19-4a53-a4b2-6dd1da327fce}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інші" key="{229e6f2b-98fa-4e7d-812e-6aabc4d8955d}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1042,7 +1042,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="тип теплопостачання"/>
     <alias field="transfer" index="15" name="вид теплоносія"/>

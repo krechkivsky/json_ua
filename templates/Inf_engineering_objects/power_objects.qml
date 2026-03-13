@@ -148,8 +148,8 @@
     <rules key="{847b3597-c428-47f0-9288-76f72b3fb9c4}">
       <rule symbol="0" label="трансформаторна електростанція існуюча" key="{82c7e11d-4c6c-4992-9006-54d7e576207b}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="трансформаторна електропідстанція існуюча" key="{34b0a485-31cf-4a7e-bda8-63bac99aff20}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="2" label="трансформаторна електростанція проектна" key="{8990ab83-a377-43d3-807f-daf2039969c5}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="трансформаторна електропідстанція проектна" key="{6bd61774-4e7a-4ce0-8900-62c3a0f386c5}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="трансформаторна електростанція проєктна" key="{8990ab83-a377-43d3-807f-daf2039969c5}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="трансформаторна електропідстанція проєктна" key="{6bd61774-4e7a-4ce0-8900-62c3a0f386c5}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інші" key="{93ed9769-9ce6-442d-9bf4-0bd8d287d1a0}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1093,7 +1093,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="volt_in" index="14" name="напруга вхідна, кВ"/>
     <alias field="volt_out" index="15" name="напруга вихідна, кВ"/>

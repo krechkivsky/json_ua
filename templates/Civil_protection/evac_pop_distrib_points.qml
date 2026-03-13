@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{8ddf2547-b046-4e50-8540-19166d6604ad}">
       <rule symbol="0" label="існуючі" key="{19bb2e38-bdc4-4dc2-ae36-227d4698cccb}" filter="status =1"/>
-      <rule symbol="1" label="проектні" key="{fb07d496-35d7-4dc9-a6e7-26b10b8b313e}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="проєктні" key="{fb07d496-35d7-4dc9-a6e7-26b10b8b313e}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{0f4d09bb-a38a-47bf-94f6-700fd1954a89}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1193,7 +1193,7 @@
     <alias field="cap_pr" index="13" name="ємність на короткостроковий період, осіб"/>
     <alias field="cap_pro" index="14" name="ємність на середньостроковий період, осіб"/>
     <alias field="cap_ext" index="15" name="ємність на довгостроковий період, осіб"/>
-    <alias field="change" index="16" name="проектна зміна статусу"/>
+    <alias field="change" index="16" name="проєктна зміна статусу"/>
     <alias field="status" index="17" name="статус"/>
   </aliases>
   <splitPolicies>

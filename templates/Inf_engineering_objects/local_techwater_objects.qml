@@ -154,14 +154,14 @@
       <rule symbol="5" label="фонтан існуючий" key="{ebe6a121-b30a-401d-ba5c-512ed8eca403}" filter="type=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="пожежний гідрант існуючий" key="{d938359f-3379-4d21-a991-ac07fafee134}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="7" label="водяна свердловина технічного водопостачання існуюча" key="{11f8b725-fb71-4775-824d-8c6fa6ab04a6}" filter="type=8 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="8" label="поверхневий водозабір технічного водопостачання проектний" key="{083136f6-598c-4d64-a0f7-6aec43e40f22}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="підземний водозабір технічного водопостачання проектний" key="{50d69c64-accc-4604-b4df-da3d3d5614d3}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="насосна станція на водопроводах технічного водопостачання проектний" key="{3e1a3437-b2b9-4151-9a2e-5e291d5c148b}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="водонапірна башта технічного водопостачання проектна" key="{2cf8ae5f-73d4-4347-990f-9e42d28cb64b}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="резервуар для зберігання технічної води проектний" key="{eb034707-3e1c-4161-8605-7b35d499aec8}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="фонтан проектний" key="{b257fc19-02f0-41ed-ae29-d26fa779709e}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="пожежний гідрант проектний" key="{2452b71a-76e6-423f-9f55-fecd33eddec5}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="водяна свердловина технічного водопостачання проектна" key="{581e6e11-c6af-4a2b-8e1e-96f047d75abe}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="поверхневий водозабір технічного водопостачання проєктний" key="{083136f6-598c-4d64-a0f7-6aec43e40f22}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="підземний водозабір технічного водопостачання проєктний" key="{50d69c64-accc-4604-b4df-da3d3d5614d3}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="насосна станція на водопроводах технічного водопостачання проєктний" key="{3e1a3437-b2b9-4151-9a2e-5e291d5c148b}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="водонапірна башта технічного водопостачання проєктна" key="{2cf8ae5f-73d4-4347-990f-9e42d28cb64b}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="резервуар для зберігання технічної води проєктний" key="{eb034707-3e1c-4161-8605-7b35d499aec8}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="фонтан проєктний" key="{b257fc19-02f0-41ed-ae29-d26fa779709e}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="пожежний гідрант проєктний" key="{2452b71a-76e6-423f-9f55-fecd33eddec5}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="водяна свердловина технічного водопостачання проєктна" key="{581e6e11-c6af-4a2b-8e1e-96f047d75abe}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="16" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2208,7 +2208,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="outr_in" index="14" name="потужність існуюча, куб. м на добу"/>
     <alias field="outr_pr" index="15" name="потужність на короткостроковий період, куб. м на добу"/>

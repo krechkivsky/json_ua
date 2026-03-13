@@ -148,8 +148,8 @@
     <rules key="{6f016b2b-eace-4d39-8b1c-b77fb7c8c6ab}">
       <rule symbol="0" label="кабельна існуюча" key="{6a9c280c-a48c-4115-bbe5-c78c8bc7e8aa}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="повітряна існуюча" key="{c6ba20bb-2605-494b-af23-52dc26b4de7f}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="2" label="кабельна проектна" key="{df53fbfe-f6cf-4eda-bd89-4f83ef15f670}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="повітряна проектна" key="{36eeecf8-41ac-4bb5-9d9b-5d0e2fd7ed91}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="кабельна проєктна" key="{df53fbfe-f6cf-4eda-bd89-4f83ef15f670}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="повітряна проєктна" key="{36eeecf8-41ac-4bb5-9d9b-5d0e2fd7ed91}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інші" key="{c8ae0c4c-2139-43cd-b419-e01cf7902db6}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1299,7 +1299,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="тип ліній електропередачі"/>
     <alias field="voltage" index="15" name="напруга, кВ"/>

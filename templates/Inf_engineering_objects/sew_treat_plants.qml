@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{847b3597-c428-47f0-9288-76f72b3fb9c4}">
       <rule symbol="0" label="існуючі" key="{82c7e11d-4c6c-4992-9006-54d7e576207b}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектні" key="{8990ab83-a377-43d3-807f-daf2039969c5}" filter=" &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктні" key="{8990ab83-a377-43d3-807f-daf2039969c5}" filter=" &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{93ed9769-9ce6-442d-9bf4-0bd8d287d1a0}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -950,7 +950,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="kind" index="14" name="характер стоків"/>
     <alias field="outr_in" index="15" name="потужність існуюча, куб. м на добу"/>

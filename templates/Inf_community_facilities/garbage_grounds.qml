@@ -150,10 +150,10 @@
       <rule symbol="1" label="полігон твердих побутових відходів (ТПВ) існуючий" key="{98ef3a01-42ca-4bb7-b742-458e949b622c}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="полігон промислових відходів існуючий" key="{1db31d48-3107-4793-9231-deb94d334f75}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="несанкціоновані звалища відходів існуючі" key="{abe627d5-4624-4299-95de-0cafc6897d51}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="4" label="сміттєзвалище проектне" key="{b61513d0-01ef-42e2-b626-a69253bc031c}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="полігон твердих побутових відходів (ТПВ) проектний" key="{ef6ede9d-4c15-4987-82dd-463aea313fcc}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="полігон промислових відходів проектний" key="{2d5ed6e4-54ed-4f8c-a745-cae0d6600d3e}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="несанкціоновані звалища відходів проектні" key="{fd254898-28f1-4564-a625-c96a7a0fe3b3}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="сміттєзвалище проєктне" key="{b61513d0-01ef-42e2-b626-a69253bc031c}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="полігон твердих побутових відходів (ТПВ) проєктний" key="{ef6ede9d-4c15-4987-82dd-463aea313fcc}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="полігон промислових відходів проєктний" key="{2d5ed6e4-54ed-4f8c-a745-cae0d6600d3e}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="несанкціоновані звалища відходів проєктні" key="{fd254898-28f1-4564-a625-c96a7a0fe3b3}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="8" label="інші" key="{83c7ec10-c1cf-4369-bab6-8f85498023b1}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2921,7 +2921,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип місця накопичення відходів"/>
     <alias field="passport" index="14" name="номер паспорту МВВ"/>
     <alias field="capacity" index="15" name="потужність, тис. куб. м на рік"/>

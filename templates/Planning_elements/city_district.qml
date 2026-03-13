@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{5979a6b5-ea17-4479-8f44-473750f8fd48}">
       <rule symbol="0" label="райони у містах існуючі" key="{c1f5c5ad-3958-4bee-8541-e34703dcb04d}" filter=" &quot;status&quot; =1"/>
-      <rule symbol="1" label="райони у містах проектні" key="{a3d7da60-2aaf-47b7-9e61-c978c557f2ab}" filter=" &quot;status&quot; in (2,3,4,5)"/>
+      <rule symbol="1" label="райони у містах проєктні" key="{a3d7da60-2aaf-47b7-9e61-c978c557f2ab}" filter=" &quot;status&quot; in (2,3,4,5)"/>
       <rule symbol="2" label="райони у містах - (не визначено)" key="{87a69253-f3c9-4896-956c-e9bc661c9987}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -963,9 +963,9 @@
     <alias field="set_guid" index="13" name=""/>
     <alias field="area" index="14" name="площа,га"/>
     <alias field="pop_in" index="15" name="кількість населення існуюча, осіб"/>
-    <alias field="pop_pr" index="16" name="кількість населення, проектна на короткостроковий період, осіб"/>
-    <alias field="pop_pro" index="17" name="кількість населення, проектна на середньостроковий період, осіб"/>
-    <alias field="pop_ext" index="18" name="кількість населення, проектна на довгостроковий період, осіб"/>
+    <alias field="pop_pr" index="16" name="кількість населення, проєктна на короткостроковий період, осіб"/>
+    <alias field="pop_pro" index="17" name="кількість населення, проєктна на середньостроковий період, осіб"/>
+    <alias field="pop_ext" index="18" name="кількість населення, проєктна на довгостроковий період, осіб"/>
     <alias field="status" index="19" name="статус межі"/>
   </aliases>
   <splitPolicies>

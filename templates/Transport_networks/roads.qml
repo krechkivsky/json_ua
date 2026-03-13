@@ -152,12 +152,12 @@
       <rule symbol="3" label="територіальна існуюча" key="{ab1da4c1-d117-42a3-bce5-446b36904383}" filter="type_in=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="4" label="обласна існуюча" key="{c04c6823-083e-42f0-abd4-f2ad852c4d81}" filter="type_in=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="5" label="районна існуюча" key="{00965d0a-0f4e-4cc5-bc7e-b48ea6e1403c}" filter="type_in=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="6" label="міжнародна проектна" key="{e9550784-a48d-47ea-b41b-3c960f69d121}" filter="type_in=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="національна проектна" key="{99afc39f-8231-40f9-b484-305dd3cc1858}" filter="type_in=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="регіональна проектна" key="{5ed5200f-a178-491d-9c22-4a19d658ba85}" filter="type_in=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="територіальна проектна" key="{568c113f-e883-4d0f-9e81-92d021d4886c}" filter="type_in=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="обласна проектна" key="{8ba702b3-70e6-4588-9f16-e7e046844fe6}" filter="type_in=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="районна проектна" key="{ae329b58-9299-4195-aa1d-75e5f63e5aa4}" filter="type_in=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="міжнародна проєктна" key="{e9550784-a48d-47ea-b41b-3c960f69d121}" filter="type_in=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="національна проєктна" key="{99afc39f-8231-40f9-b484-305dd3cc1858}" filter="type_in=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="регіональна проєктна" key="{5ed5200f-a178-491d-9c22-4a19d658ba85}" filter="type_in=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="територіальна проєктна" key="{568c113f-e883-4d0f-9e81-92d021d4886c}" filter="type_in=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="обласна проєктна" key="{8ba702b3-70e6-4588-9f16-e7e046844fe6}" filter="type_in=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="районна проєктна" key="{ae329b58-9299-4195-aa1d-75e5f63e5aa4}" filter="type_in=6 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="12" label="не визначено" key="{bbba63c3-ee2f-4032-89d6-2fbf351f25d5}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2206,22 +2206,22 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="name" index="13" name="назва"/>
     <alias field="index" index="14" name="індекс"/>
     <alias field="sign_in" index="15" name="значення існуюче"/>
-    <alias field="sign_pr" index="16" name="значення проектне на короткостроковий період"/>
-    <alias field="sign_pro" index="17" name="значення проектне на середньостроковий період"/>
-    <alias field="sign_ext" index="18" name="значення проектне на довгостроковий період"/>
+    <alias field="sign_pr" index="16" name="значення проєктне на короткостроковий період"/>
+    <alias field="sign_pro" index="17" name="значення проєктне на середньостроковий період"/>
+    <alias field="sign_ext" index="18" name="значення проєктне на довгостроковий період"/>
     <alias field="type_in" index="19" name="тип дороги існуючий"/>
-    <alias field="type_pr" index="20" name="тип дороги проектний на короткостроковий період"/>
-    <alias field="type_pro" index="21" name="тип дороги проектний на середньостроковий період"/>
-    <alias field="type_ext" index="22" name="тип дороги проектний на довгостроковий період"/>
+    <alias field="type_pr" index="20" name="тип дороги проєктний на короткостроковий період"/>
+    <alias field="type_pro" index="21" name="тип дороги проєктний на середньостроковий період"/>
+    <alias field="type_ext" index="22" name="тип дороги проєктний на довгостроковий період"/>
     <alias field="dkbscode" index="23" name="код за ДК 018-2000"/>
     <alias field="cat_in" index="24" name="категорія існуюча"/>
-    <alias field="cat_pr" index="25" name="категорія проектна на короткостроковий період"/>
-    <alias field="cat_pro" index="26" name="категорія проектна на середньостроковий період"/>
-    <alias field="cat_ext" index="27" name="категорія проектна на довгостроковий період"/>
+    <alias field="cat_pr" index="25" name="категорія проєктна на короткостроковий період"/>
+    <alias field="cat_pro" index="26" name="категорія проєктна на середньостроковий період"/>
+    <alias field="cat_ext" index="27" name="категорія проєктна на довгостроковий період"/>
     <alias field="material" index="28" name="матеріал покриття"/>
     <alias field="traf_in" index="29" name="середньодобова інтенсивність руху існуюча, ТЗ на добу"/>
     <alias field="traf_pr" index="30" name="середньодобова інтенсивність руху на короткостроковий період, ТЗ на добу"/>

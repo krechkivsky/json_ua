@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{9debc488-622b-428f-b19a-112034670fc7}">
       <rule symbol="0" label="території старостинських округів існуюча" key="{433d179a-82ae-4398-9a95-06d3577ca07b}" filter=" &quot;status&quot; =1"/>
-      <rule symbol="1" label="території старостинських округів проектна" key="{bba6d5b9-adce-47b7-8244-45c91eda2922}" filter=" &quot;status&quot; in (2,3,4,5)"/>
+      <rule symbol="1" label="території старостинських округів проєктна" key="{bba6d5b9-adce-47b7-8244-45c91eda2922}" filter=" &quot;status&quot; in (2,3,4,5)"/>
       <rule symbol="2" label="території старостинських округів (не визначено)" key="{a9896bcc-3369-47a0-8058-28bc8da40de3}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -983,9 +983,9 @@
     <alias field="name_lat" index="13" name="name"/>
     <alias field="area" index="14" name="площа,га"/>
     <alias field="pop_in" index="15" name="кількість населення існуюча, осіб"/>
-    <alias field="pop_pr" index="16" name="кількість населення, проектна на короткостроковий період, осіб"/>
-    <alias field="pop_pro" index="17" name="кількість населення, проектна на середньостроковий період, осіб"/>
-    <alias field="pop_ext" index="18" name="кількість населення, проектна на довгостроковий період, осіб"/>
+    <alias field="pop_pr" index="16" name="кількість населення, проєктна на короткостроковий період, осіб"/>
+    <alias field="pop_pro" index="17" name="кількість населення, проєктна на середньостроковий період, осіб"/>
+    <alias field="pop_ext" index="18" name="кількість населення, проєктна на довгостроковий період, осіб"/>
     <alias field="status" index="19" name="статус межі"/>
   </aliases>
   <splitPolicies>

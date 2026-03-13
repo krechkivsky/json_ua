@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{10283ee7-c652-4425-907b-7a97817b2694}">
       <rule symbol="0" label="прибережна захисна смуга існуюча" key="{ff4638df-bcff-4f2a-bac0-97b068ce0d77}" filter="status=1"/>
-      <rule symbol="1" label="прибережна захисна смуга проектна" key="{a383807b-b7d9-42e2-a3d4-8a58281977c7}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="прибережна захисна смуга проєктна" key="{a383807b-b7d9-42e2-a3d4-8a58281977c7}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{9b81031b-3326-4286-8822-32b3142949f3}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -868,7 +868,7 @@
     <alias field="obj_name" index="14" name="назва водного об'єкту"/>
     <alias field="obj_guid" index="15" name=""/>
     <alias field="status" index="16" name="статус"/>
-    <alias field="change" index="17" name="проектна зміна статусу"/>
+    <alias field="change" index="17" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

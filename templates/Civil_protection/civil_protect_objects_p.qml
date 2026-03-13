@@ -149,9 +149,9 @@
       <rule symbol="0" label="першої категорії існуючі" key="{71b8ebf3-14ce-48b6-8934-0921897ddb4f}" filter="category=1 and status=1"/>
       <rule symbol="1" label="другої категорії існуючі" key="{7d4b7de5-bff8-4452-b8c9-bfe46b377600}" filter="category=2 and status=1"/>
       <rule symbol="2" label="особливої важливості існуючі" key="{badf2f4d-472f-4f9e-9532-6a74ec045e5a}" filter="category=3 and status=1"/>
-      <rule symbol="3" label="першої категорії проектні" key="{370cbf2a-2fed-47e4-b7e3-7e3e2b305e16}" filter="category=1 and status in (2,3,4,5)"/>
-      <rule symbol="4" label="другої категорії проектні" key="{b7b8bb94-e23f-4464-b77a-a1b5c9f1eb35}" filter="category=2 and  status in (2,3,4,5)"/>
-      <rule symbol="5" label="особливої важливості категорії проектні" key="{3ef017cd-16d7-42ac-8c3e-0dbdde2ac122}" filter="category=3 and  status in (2,3,4,5)"/>
+      <rule symbol="3" label="першої категорії проєктні" key="{370cbf2a-2fed-47e4-b7e3-7e3e2b305e16}" filter="category=1 and status in (2,3,4,5)"/>
+      <rule symbol="4" label="другої категорії проєктні" key="{b7b8bb94-e23f-4464-b77a-a1b5c9f1eb35}" filter="category=2 and  status in (2,3,4,5)"/>
+      <rule symbol="5" label="особливої важливості категорії проєктні" key="{3ef017cd-16d7-42ac-8c3e-0dbdde2ac122}" filter="category=3 and  status in (2,3,4,5)"/>
       <rule symbol="6" label="інші" key="{444f764c-e6e6-49c0-839c-679e5b8458fc}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1306,7 +1306,7 @@
     <alias field="empl_pr" index="14" name="чисельність найбільшої працюючої зміни на короткостроковий період, осіб"/>
     <alias field="empl_pro" index="15" name="чисельність найбільшої працюючої зміни на середньостроковий період, осіб"/>
     <alias field="empl_ext" index="16" name="чисельність найбільшої працюючої зміни на довгостроковий період, осіб"/>
-    <alias field="change" index="17" name="проектна зміна статусу"/>
+    <alias field="change" index="17" name="проєктна зміна статусу"/>
     <alias field="status" index="18" name="статус"/>
   </aliases>
   <splitPolicies>

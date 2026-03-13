@@ -24,10 +24,11 @@
 import configparser
 import json
 import uuid
+import re
 
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl
 from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices
-from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog
+from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog, QProgressDialog
 from qgis.PyQt.QtWidgets import (
     QFileDialog, QMessageBox,
     QDialog, QVBoxLayout, QHBoxLayout,
@@ -60,6 +61,9 @@ from .resources import *
 from . import common
 from .opened_projects import OpenedProjects
 
+
+PROJECT_FOLDER_PATTERN = re.compile(r"^BGD_(GP|KP|DPT)_UA\d{17}(?:_[^\s]+)?$")
+
 # Import the code for the DockWidget
 from .json_ua_dockwidget import GeoJsonUaDockWidget
 import os
@@ -85,6 +89,23 @@ class GeoJsonUa:
         self.plugin_dir = os.path.dirname(__file__)
         self._schema_cache = None
         self._enums_cache = None
+        self._class_group_cache = None
+        self._attributes_enum_cache = None
+        self._cyrillic_fix_map = {
+            "а": "a",
+            "с": "c",
+            "о": "o",
+            "е": "e",
+            "р": "p",
+            "х": "x",
+            "у": "y",
+            "к": "k",
+            "м": "m",
+            "т": "t",
+            "н": "h",
+            "і": "i",
+        }
+        self._cyrillic_fix_map.update({k.upper(): v.upper() for k, v in self._cyrillic_fix_map.items()})
         self._normative_style_cache = None
         self._missing_style_reported = set()
 
@@ -282,20 +303,30 @@ class GeoJsonUa:
             self.action_help.setShortcutContext(Qt.WindowShortcut)
         self.action_help.triggered.connect(self.on_open_help)
 
-        self.action_new_geojson = QAction(self.tr(u"Новий проект"), main_window)
+        self.action_new_geojson = QAction(self.tr(u"Новий проєкт"), main_window)
         self.action_new_geojson.setIcon(style.standardIcon(QStyle.SP_FileIcon))
         self.action_new_geojson.triggered.connect(self.on_new_geojson)
 
-        self.action_open = QAction(self.tr(u"Відкрити проект"), main_window)
+        self.action_open = QAction(self.tr(u"Відкрити проєкт"), main_window)
         self.action_open.setIcon(style.standardIcon(QStyle.SP_DirOpenIcon))
         self.action_open.triggered.connect(self.on_open)
 
-        self.action_save = QAction(self.tr(u"Зберегти проект"), main_window)
+        check_icon_path = QgsApplication.iconPath("mActionCheckQgis.svg")
+        if check_icon_path and os.path.exists(check_icon_path):
+            check_icon = QIcon(check_icon_path)
+        else:
+            check_icon = style.standardIcon(QStyle.SP_DialogApplyButton)
+        self.action_validate = QAction(self.tr(u"Перевірити проєкт"), main_window)
+        self.action_validate.setIcon(check_icon)
+        self.action_validate.triggered.connect(self.on_validate_project)
+        self._update_validate_action()
+
+        self.action_save = QAction(self.tr(u"Зберегти проєкт"), main_window)
         self.action_save.setIcon(style.standardIcon(QStyle.SP_DialogSaveButton))
         self.action_save.setEnabled(False)
         self.action_save.triggered.connect(self.on_save)
 
-        self.action_close = QAction(self.tr(u"Закрити проект"), main_window)
+        self.action_close = QAction(self.tr(u"Закрити проєкт"), main_window)
         self.action_close.setIcon(style.standardIcon(QStyle.SP_DialogCloseButton))
         self.action_close.triggered.connect(self.on_close)
         self._update_close_action()
@@ -314,8 +345,9 @@ class GeoJsonUa:
         self.tools_menu.addSeparator()
         self.tools_menu.addAction(self.action_new_geojson)
         self.tools_menu.addAction(self.action_open)
-        self.tools_menu.addAction(self.action_save)
+        self.tools_menu.addAction(self.action_validate)
         self.tools_menu.addAction(self.action_close)
+        self.tools_menu.addAction(self.action_save)
         self.tools_menu.addAction(self.action_normative_style)
         self.tools_menu.addSeparator()
         self.tools_menu.addAction(self.action_debug_mode)
@@ -430,13 +462,14 @@ class GeoJsonUa:
         if label is None:
             return
         if name:
-            text = self.tr(u"Поточний проект: {0}").format(name)
+            text = self.tr(u"Поточний проєкт: {0}").format(name)
         elif not getattr(self.opened_projects, "projects", []):
-            text = self.tr(u"Немає поточного проекту")
+            text = self.tr(u"Немає поточного проєкту")
         else:
-            text = self.tr(u"Немає поточного проекту")
+            text = self.tr(u"Немає поточного проєкту")
         label.setText(text)
         self._update_close_action()
+        self._update_validate_action()
         if getattr(self, "dockwidget", None) is not None:
             try:
                 self.dockwidget.setWindowTitle(text)
@@ -444,13 +477,20 @@ class GeoJsonUa:
                 pass
             self._ensure_dockwidget_panel_name()
 
-    def _is_katotth_prefix(self, name: str) -> bool:
+    def _is_project_folder_name(self, name: str) -> bool:
         if not name:
             return False
-        name = name.strip().upper()
-        if len(name) < 19:
+        candidate = name.strip().upper()
+        if " " in candidate:
             return False
-        return name.startswith("UA") and name[2:19].isdigit()
+        return bool(PROJECT_FOLDER_PATTERN.fullmatch(candidate))
+
+    def _extract_katotth(self, name: str) -> str:
+        if not name:
+            return ""
+        candidate = name.strip().upper()
+        match = re.search(r"UA\d{17}", candidate)
+        return match.group(0) if match else ""
 
     def _create_project_group(self, project_name: str):
         try:
@@ -560,13 +600,13 @@ class GeoJsonUa:
 
         if epsg_code in lcs_regions:
             self._push_info(
-                self.tr(u"Ваш проект буде створено у регіоні {0}").format(lcs_regions[epsg_code])
+                self.tr(u"Ваш проєкт буде створено у регіоні {0}").format(lcs_regions[epsg_code])
             )
             return True
 
         regions = list(lcs_regions.values())
-        title = self.tr(u"Виберіть регіон проекту")
-        label = self.tr(u"Регіон проекту:")
+        title = self.tr(u"Виберіть регіон проєкту")
+        label = self.tr(u"Регіон проєкту:")
         region, ok = QInputDialog.getItem(parent, title, label, regions, 0, False)
         if not ok or not region:
             return False
@@ -624,6 +664,16 @@ class GeoJsonUa:
 
     def _update_close_action(self) -> None:
         action = getattr(self, "action_close", None)
+        if action is None:
+            return
+        try:
+            current_group = self.opened_projects.current_project
+        except Exception:
+            current_group = None
+        action.setEnabled(current_group is not None)
+
+    def _update_validate_action(self) -> None:
+        action = getattr(self, "action_validate", None)
         if action is None:
             return
         try:
@@ -790,10 +840,452 @@ class GeoJsonUa:
                 mapping = self._extract_enum_mapping(prop_schema)
                 if mapping:
                     enums[field_name] = mapping
+        if self._uses_state_change(class_key):
+            for field_name in ("state", "change"):
+                mapping = self._attributes_enum_mapping(field_name)
+                if mapping:
+                    enums.setdefault(field_name, mapping)
         if common.LOG:
             common.log_calls(common.logFile, f"GeoJsonUa._load_enums_cache(class={class_key}): fields={len(enums)}")
         self._enums_cache[class_key] = enums
         return enums
+
+    def _load_class_group_cache(self):
+        if self._class_group_cache is not None:
+            return self._class_group_cache
+        mapping = {}
+        ini_path = os.path.join(self.plugin_dir, "ini", "layer_names.ini")
+        parser = configparser.ConfigParser()
+        parser.optionxform = str
+        try:
+            parser.read(ini_path, encoding="utf-8")
+        except Exception:
+            self._class_group_cache = mapping
+            return mapping
+        for section in parser.sections():
+            if section == "LayerGroups":
+                continue
+            for key in parser[section].keys():
+                mapping[key] = section
+        self._class_group_cache = mapping
+        return mapping
+
+    def _class_group_name(self, class_key: str):
+        if not class_key:
+            return None
+        mapping = self._load_class_group_cache()
+        return mapping.get(class_key)
+
+    def _uses_state_change(self, class_key: str) -> bool:
+        group = self._class_group_name(class_key)
+        return group in {
+            "Structures",
+            "Transport_networks",
+            "Engineering_networks",
+            "Inf_social_objects",
+            "Inf_tourism_objects",
+            "Inf_community_facilities",
+            "Inf_enterprise_objects",
+            "Inf_transport_objects",
+            "Inf_engineering_objects",
+        }
+
+    def _load_attributes_enum_cache(self):
+        if self._attributes_enum_cache is not None:
+            return self._attributes_enum_cache
+        mapping = {}
+        ini_path = os.path.join(self.plugin_dir, "ini", "attributes_enums.ini")
+        parser = configparser.ConfigParser()
+        parser.optionxform = str
+        try:
+            parser.read(ini_path, encoding="utf-8")
+        except Exception:
+            self._attributes_enum_cache = mapping
+            return mapping
+        for section in parser.sections():
+            section_map = {}
+            section_keys = set()
+            for key, label in parser[section].items():
+                key = key.strip()
+                label = label.strip()
+                try:
+                    value = int(key)
+                except Exception:
+                    value = key
+                section_keys.add(str(value))
+                section_map[str(label)] = value
+            mapping[section] = {"labels": section_map, "keys": section_keys}
+        self._attributes_enum_cache = mapping
+        return mapping
+
+    def _attributes_enum_mapping(self, name: str):
+        cache = self._load_attributes_enum_cache()
+        if not name:
+            return None
+        entry = cache.get(name)
+        if isinstance(entry, dict):
+            return entry.get("labels")
+        return None
+
+    def _attributes_enum_keys(self, name: str):
+        if not name:
+            return None
+        cache = self._load_attributes_enum_cache()
+        entry = cache.get(name)
+        if isinstance(entry, dict):
+            return entry.get("keys")
+        return None
+
+    def _normalize_cyrillic_key(self, key: str) -> str:
+        if not key:
+            return key
+        return "".join(self._cyrillic_fix_map.get(ch, ch) for ch in key)
+
+    def _allowed_props_for_class(self, class_key: str):
+        if not class_key:
+            return set()
+        schema, common_schema = self._load_schema_cache()
+        props_schema = self._collect_properties_schema(class_key, schema)
+        if not props_schema:
+            return set()
+        allowed = set()
+        for name in props_schema.keys():
+            allowed.add(self._normalize_cyrillic_key(name))
+        return allowed
+
+    def _find_cyrillic_property_keys(self, data: dict, allowed_props: set) -> bool:
+        if not isinstance(data, dict):
+            return False
+        features = None
+        geo_type = data.get("type")
+        if geo_type == "FeatureCollection":
+            features = data.get("features")
+        elif geo_type == "Feature":
+            features = [data]
+        if not isinstance(features, list):
+            return False
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            props = feature.get("properties")
+            if not isinstance(props, dict):
+                continue
+            for key in props.keys():
+                normalized = self._normalize_cyrillic_key(key)
+                if allowed_props and normalized not in allowed_props:
+                    continue
+                if normalized != key and any(ch in self._cyrillic_fix_map for ch in key):
+                    return True
+        return False
+
+    def _apply_cyrillic_fix_to_geojson(self, data: dict, allowed_props: set) -> bool:
+        if not isinstance(data, dict):
+            return False
+        features = None
+        geo_type = data.get("type")
+        if geo_type == "FeatureCollection":
+            features = data.get("features")
+        elif geo_type == "Feature":
+            features = [data]
+        if not isinstance(features, list):
+            return False
+        changed = False
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            props = feature.get("properties")
+            if not isinstance(props, dict):
+                continue
+            new_props = {}
+            local_changed = False
+            for key, value in props.items():
+                normalized = self._normalize_cyrillic_key(key)
+                if allowed_props and normalized not in allowed_props:
+                    new_props[key] = value
+                    continue
+                new_key = normalized
+                if new_key != key:
+                    local_changed = True
+                if new_key in new_props:
+                    # Prefer already-present corrected key.
+                    continue
+                new_props[new_key] = value
+            if local_changed:
+                feature["properties"] = new_props
+                changed = True
+        return changed
+
+    def _prompt_fix_cyrillic_geojson(self, paths_by_class):
+        if not paths_by_class:
+            return
+        paths = list(paths_by_class.keys())
+        if not paths:
+            return
+        prompt = QMessageBox.question(
+            self.iface.mainWindow(),
+            self.tr(u"Автовиправлення атрибутів"),
+            self.tr(u"Виявлено кириличні символи в іменах атрибутів. Виконати автоматичне виправлення у файлах GeoJSON?"),
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+        if prompt != QMessageBox.Yes:
+            return
+        for path, class_key in paths_by_class.items():
+            data = self._read_json_file(path)
+            if not isinstance(data, dict):
+                continue
+            allowed_props = self._allowed_props_for_class(class_key)
+            if not self._apply_cyrillic_fix_to_geojson(data, allowed_props):
+                continue
+            backup_path = f"{path}_"
+            if os.path.exists(backup_path):
+                try:
+                    os.replace(backup_path, f"{backup_path}1")
+                except Exception:
+                    pass
+            try:
+                os.replace(path, backup_path)
+            except Exception:
+                continue
+            try:
+                with open(path, "w", encoding="utf-8") as handle:
+                    json.dump(data, handle, ensure_ascii=False, indent=2)
+            except Exception:
+                pass
+
+    def _read_text_file(self, path: str):
+        for encoding in ("utf-8", "cp1251"):
+            try:
+                with open(path, "r", encoding=encoding) as handle:
+                    return handle.read()
+            except UnicodeDecodeError:
+                continue
+            except Exception:
+                break
+        return ""
+
+    def _load_topo_rules(self):
+        rules = []
+        rules_path = os.path.join(self.plugin_dir, "templates", "topo_rules.txt")
+        content = self._read_text_file(rules_path)
+        if not content:
+            return rules
+        phrases = [
+            ("не повинні перекриватися самі себе", "no_overlap_self"),
+            ("не повинні перекриватися з", "no_overlap"),
+            ("не повинні перекриватися", "no_overlap"),
+            ("не повинні мати проміжків", "no_gaps"),
+            ("не повинні мати висячих вузлів", "no_dangling"),
+            ("мають складатися з однієї частини", "singlepart"),
+            ("мають суміщатися з об'єктами", "must_intersect"),
+        ]
+        for raw in content.splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#"):
+                continue
+            src = line.split()[0]
+            rule_type = None
+            target = None
+            for phrase, rtype in phrases:
+                if phrase in line:
+                    rule_type = rtype
+                    if rtype in {"no_overlap", "must_intersect"}:
+                        target = line.split()[-1]
+                    elif rtype == "no_overlap_self":
+                        target = src
+                    else:
+                        target = src
+                    break
+            if rule_type:
+                rules.append({"src": src, "type": rule_type, "target": target, "raw": line})
+        return rules
+
+    def _geometry_to_geojson(self, geom: QgsGeometry):
+        if geom is None or geom.isEmpty():
+            return None
+        try:
+            return json.loads(geom.asJson())
+        except Exception:
+            return None
+
+    def _topo_error_entry(self, class_key: str, geom: QgsGeometry, message: str):
+        return {
+            "layer": class_key,
+            "feature_index": None,
+            "feature_id": None,
+            "geometry": self._geometry_to_geojson(geom),
+            "messages": [message],
+        }
+
+    def _topo_check_must_intersect(self, layer_a, layer_b, name_b: str):
+        entries = []
+        if layer_a is None or layer_b is None:
+            return entries
+        index_b = QgsSpatialIndex(layer_b.getFeatures())
+        for feature in layer_a.getFeatures():
+            geom = feature.geometry()
+            if geom is None or geom.isEmpty():
+                continue
+            hits = index_b.intersects(geom.boundingBox())
+            ok = False
+            for fid in hits:
+                other = layer_b.getFeature(fid)
+                if other is None:
+                    continue
+                other_geom = other.geometry()
+                if other_geom is not None and geom.intersects(other_geom):
+                    ok = True
+                    break
+            if not ok:
+                entries.append(self._topo_error_entry(layer_a.name(), geom, f"Топологія: не суміщується з {name_b}."))
+        return entries
+
+    def _topo_check_no_overlap(self, layer_a, layer_b, name_b: str, same_layer: bool = False):
+        entries = []
+        if layer_a is None or layer_b is None:
+            return entries
+        index_b = QgsSpatialIndex(layer_b.getFeatures())
+        for feature in layer_a.getFeatures():
+            geom = feature.geometry()
+            if geom is None or geom.isEmpty():
+                continue
+            hits = index_b.intersects(geom.boundingBox())
+            for fid in hits:
+                if same_layer and fid == feature.id():
+                    continue
+                other = layer_b.getFeature(fid)
+                if other is None:
+                    continue
+                other_geom = other.geometry()
+                if other_geom is None or other_geom.isEmpty():
+                    continue
+                if geom.overlaps(other_geom) or geom.equals(other_geom):
+                    entries.append(self._topo_error_entry(layer_a.name(), geom, f"Топологія: перекривання з {name_b}."))
+                    break
+        return entries
+
+    def _topo_check_no_dangling(self, layer_a):
+        entries = []
+        if layer_a is None:
+            return entries
+        index = QgsSpatialIndex(layer_a.getFeatures())
+        for feature in layer_a.getFeatures():
+            geom = feature.geometry()
+            if geom is None or geom.isEmpty():
+                continue
+            try:
+                line = geom.constGet()
+                start = geom.vertexAt(0)
+                end = geom.vertexAt(geom.vertexCount() - 1)
+            except Exception:
+                continue
+            for point in (start, end):
+                try:
+                    pgeom = QgsGeometry.fromPointXY(point)
+                except Exception:
+                    continue
+                hits = index.intersects(pgeom.boundingBox())
+                has_other = False
+                for fid in hits:
+                    if fid == feature.id():
+                        continue
+                    other = layer_a.getFeature(fid)
+                    if other is None:
+                        continue
+                    other_geom = other.geometry()
+                    if other_geom is not None and pgeom.intersects(other_geom):
+                        has_other = True
+                        break
+                if not has_other:
+                    entries.append(self._topo_error_entry(layer_a.name(), pgeom, "Топологія: висячий вузол."))
+        return entries
+
+    def _topo_check_singlepart(self, layer_a):
+        entries = []
+        if layer_a is None:
+            return entries
+        for feature in layer_a.getFeatures():
+            geom = feature.geometry()
+            if geom is None or geom.isEmpty():
+                continue
+            if geom.isMultipart():
+                entries.append(self._topo_error_entry(layer_a.name(), geom, "Топологія: має бути одна частина."))
+        return entries
+
+    def _topo_check_no_gaps(self, layer_a):
+        entries = []
+        if layer_a is None:
+            return entries
+        geoms = [f.geometry() for f in layer_a.getFeatures() if f.geometry() and not f.geometry().isEmpty()]
+        if not geoms:
+            return entries
+        try:
+            union_geom = QgsGeometry.unaryUnion(geoms)
+        except Exception:
+            return entries
+        if union_geom is None or union_geom.isEmpty():
+            return entries
+        try:
+            if union_geom.isMultipart():
+                polygons = union_geom.asMultiPolygon()
+            else:
+                polygons = [union_geom.asPolygon()]
+        except Exception:
+            return entries
+        for poly in polygons:
+            if not poly or len(poly) < 2:
+                continue
+            for ring in poly[1:]:
+                try:
+                    hole_geom = QgsGeometry.fromPolygonXY([ring])
+                except Exception:
+                    continue
+                if hole_geom is None or hole_geom.isEmpty():
+                    continue
+                entries.append(self._topo_error_entry(layer_a.name(), hole_geom, "Топологія: проміжок."))
+        return entries
+
+    def _run_topology_checks(self, rules=None, progress=None):
+        errors_by_class = {}
+        if rules is None:
+            rules = self._load_topo_rules()
+        if not rules:
+            return errors_by_class
+        total = len(rules)
+        for idx, rule in enumerate(rules, start=1):
+            if progress is not None:
+                if progress.wasCanceled():
+                    break
+                progress.setLabelText(self.tr(u"Топологія: {0}/{1}").format(idx, total))
+                progress.setValue(idx - 1)
+                QCoreApplication.processEvents()
+            src = rule["src"]
+            target = rule["target"]
+            rtype = rule["type"]
+            layer_a = self._get_layer_for_class(src)
+            if layer_a is None:
+                continue
+            if rtype == "must_intersect":
+                layer_b = self._get_layer_for_class(target)
+                entries = self._topo_check_must_intersect(layer_a, layer_b, target)
+            elif rtype == "no_overlap":
+                layer_b = self._get_layer_for_class(target)
+                entries = self._topo_check_no_overlap(layer_a, layer_b, target, same_layer=(src == target))
+            elif rtype == "no_overlap_self":
+                entries = self._topo_check_no_overlap(layer_a, layer_a, src, same_layer=True)
+            elif rtype == "no_dangling":
+                entries = self._topo_check_no_dangling(layer_a)
+            elif rtype == "singlepart":
+                entries = self._topo_check_singlepart(layer_a)
+            elif rtype == "no_gaps":
+                entries = self._topo_check_no_gaps(layer_a)
+            else:
+                entries = []
+            if entries:
+                errors_by_class.setdefault(src, []).extend(entries)
+        if progress is not None:
+            progress.setValue(total)
+        return errors_by_class
 
     def _apply_enum_widgets(self, layer, class_key: str = None) -> None:
         if layer is None:
@@ -985,69 +1477,295 @@ class GeoJsonUa:
                     return collected
         return None
 
-    def _validate_geojson_file(self, source_path: str, class_key: str, project_dir: str, schema: dict, common_schema: dict):
+    def _validate_geojson_file(
+        self,
+        source_path: str,
+        class_key: str,
+        project_dir: str,
+        schema: dict,
+        common_schema: dict,
+        data: dict = None,
+    ):
         errors = []
-        data = self._read_json_file(source_path)
+        error_entries = []
+        if data is None:
+            data = self._read_json_file(source_path)
         if not isinstance(data, dict):
-            return ["Файл не є валідним JSON або не є об'єктом."]
+            return ["Файл не є валідним JSON або не є об'єктом."], []
         geo_type = data.get("type")
         if geo_type == "FeatureCollection":
             features = data.get("features")
         elif geo_type == "Feature":
             features = [data]
         else:
-            return [f"Невідомий тип GeoJSON: {geo_type!r}."]
+            return [f"Невідомий тип GeoJSON: {geo_type!r}."], []
         if not isinstance(features, list):
-            return ["Поле 'features' має бути масивом."]
+            return ["Поле 'features' має бути масивом."], []
         props_schema = self._collect_properties_schema(class_key, schema)
         required_props = self._collect_required_properties_schema(class_key, schema, common_schema)
         if not props_schema:
-            return [f"Схема для класу {class_key!r} не знайдена."]
-        allowed_props = set(props_schema.keys())
+            return [f"Схема для класу {class_key!r} не знайдена."], []
+        normalized_props = {}
+        for name, node in props_schema.items():
+            normalized = self._normalize_cyrillic_key(name)
+            if normalized not in normalized_props:
+                normalized_props[normalized] = node
+        allowed_props = set(normalized_props.keys())
+        required_norm = set()
+        required_map = {}
+        for name in required_props:
+            normalized = self._normalize_cyrillic_key(name)
+            required_norm.add(normalized)
+            if normalized not in required_map:
+                required_map[normalized] = name
+        if self._uses_state_change(class_key):
+            allowed_props.update({"state", "change"})
         for index, feature in enumerate(features, start=1):
+            feature_errors = []
             if not isinstance(feature, dict):
-                errors.append(f"[{index}] Feature не є об'єктом.")
+                message = f"[{index}] Feature не є об'єктом."
+                errors.append(message)
+                feature_errors.append(message)
+                error_entries.append(
+                    {
+                        "layer": class_key,
+                        "feature_index": index,
+                        "feature_id": None,
+                        "geometry": None,
+                        "messages": feature_errors,
+                    }
+                )
                 continue
             props = feature.get("properties")
             if not isinstance(props, dict):
-                errors.append(f"[{index}] Відсутній або некоректний 'properties'.")
+                message = f"[{index}] Відсутній або некоректний 'properties'."
+                errors.append(message)
+                feature_errors.append(message)
+                error_entries.append(
+                    {
+                        "layer": class_key,
+                        "feature_index": index,
+                        "feature_id": feature.get("id"),
+                        "geometry": feature.get("geometry"),
+                        "messages": feature_errors,
+                    }
+                )
                 continue
+            normalized_prop_keys = {self._normalize_cyrillic_key(k) for k in props.keys()}
             for key in props.keys():
-                if key not in allowed_props:
-                    errors.append(f"[{index}] Невідоме поле '{key}'.")
-            for key in required_props:
-                if key not in props:
-                    errors.append(f"[{index}] Відсутнє обов'язкове поле '{key}'.")
+                normalized_key = self._normalize_cyrillic_key(key)
+                if normalized_key not in allowed_props:
+                    message = f"[{index}] Невідоме поле '{key}'."
+                    errors.append(message)
+                    feature_errors.append(message)
+            for key in required_norm:
+                if key not in normalized_prop_keys:
+                    name = required_map.get(key, key)
+                    message = f"[{index}] Відсутнє обов'язкове поле '{name}'."
+                    errors.append(message)
+                    feature_errors.append(message)
             for key, value in props.items():
-                if key not in props_schema:
+                normalized_key = self._normalize_cyrillic_key(key)
+                if normalized_key not in normalized_props:
+                    if normalized_key in ("state", "change") and self._uses_state_change(class_key):
+                        allowed_values = self._attributes_enum_keys(normalized_key)
+                        if allowed_values is not None and value is not None:
+                            value_key = str(int(value)) if isinstance(value, float) and value.is_integer() else str(value)
+                            if value_key not in allowed_values:
+                                message = f"[{index}] Поле '{key}' має значення {value!r}, якого немає у списку enum."
+                                errors.append(message)
+                                feature_errors.append(message)
                     continue
-                schema_node = props_schema.get(key)
+                schema_node = normalized_props.get(normalized_key)
                 schema_type = self._schema_simple_type(schema_node, schema, common_schema)
                 if value is not None:
                     if schema_type == "integer" and not isinstance(value, int):
-                        errors.append(f"[{index}] Поле '{key}' має бути integer, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути integer, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                     elif schema_type == "number" and not isinstance(value, (int, float)):
-                        errors.append(f"[{index}] Поле '{key}' має бути number, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути number, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                     elif schema_type == "boolean" and not isinstance(value, bool):
-                        errors.append(f"[{index}] Поле '{key}' має бути boolean, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути boolean, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                     elif schema_type == "string" and not isinstance(value, str):
-                        errors.append(f"[{index}] Поле '{key}' має бути string, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути string, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                     elif schema_type == "array" and not isinstance(value, list):
-                        errors.append(f"[{index}] Поле '{key}' має бути array, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути array, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                     elif schema_type == "object" and not isinstance(value, dict):
-                        errors.append(f"[{index}] Поле '{key}' має бути object, але отримано {type(value).__name__}.")
+                        message = f"[{index}] Поле '{key}' має бути object, але отримано {type(value).__name__}."
+                        errors.append(message)
+                        feature_errors.append(message)
                 enum_values = self._schema_enum_values(schema_node, schema, common_schema)
                 if enum_values is not None and value is not None and value not in enum_values:
-                    errors.append(f"[{index}] Поле '{key}' має значення {value!r}, якого немає у списку enum.")
-        if errors and project_dir:
-            base_name = os.path.splitext(os.path.basename(source_path))[0]
-            log_path = os.path.join(project_dir, f"{base_name}_errors.txt")
+                    message = f"[{index}] Поле '{key}' має значення {value!r}, якого немає у списку enum."
+                    errors.append(message)
+                    feature_errors.append(message)
+                if value is not None:
+                    allowed_values = self._attributes_enum_keys(normalized_key)
+                    if allowed_values is not None:
+                        value_key = str(int(value)) if isinstance(value, float) and value.is_integer() else str(value)
+                        if value_key not in allowed_values:
+                            message = f"[{index}] Поле '{key}' має значення {value!r}, якого немає у списку enum."
+                            errors.append(message)
+                            feature_errors.append(message)
+            if feature_errors:
+                feature_id = feature.get("id")
+                if feature_id is None and isinstance(props, dict):
+                    feature_id = props.get("id")
+                error_entries.append(
+                    {
+                        "layer": class_key,
+                        "feature_index": index,
+                        "feature_id": feature_id,
+                        "geometry": feature.get("geometry"),
+                        "messages": feature_errors,
+                    }
+                )
+        return errors, error_entries
+
+    def _ensure_errors_group(self, parent_group=None):
+        try:
+            project = QgsProject.instance()
+            root = project.layerTreeRoot()
+        except Exception:
+            return None
+        parent = parent_group or getattr(self.opened_projects, "current_project", None)
+        if parent is None:
+            parent = root
+        if parent is None:
+            return None
+        existing = None
+        try:
+            for child in parent.children():
+                if getattr(child, "name", None) and callable(child.name) and child.name() == "Errors":
+                    existing = child
+                    break
+        except Exception:
+            existing = None
+        if existing is not None:
             try:
-                with open(log_path, "w", encoding="utf-8") as handle:
-                    handle.write("\n".join(errors))
+                parent.removeChildNode(existing)
+                parent.insertChildNode(0, existing)
             except Exception:
                 pass
-        return errors
+            return existing
+        try:
+            return parent.insertGroup(0, "Errors")
+        except Exception:
+            try:
+                return parent.addGroup("Errors")
+            except Exception:
+                return None
+
+    def _write_error_geojson_files(self, error_entries, errors_dir: str, class_key: str):
+        if not error_entries or not errors_dir or not class_key:
+            return []
+        layer_name = f"{class_key}_err"
+        file_path = os.path.join(errors_dir, f"{layer_name}.geojson")
+        features = []
+        for entry in error_entries:
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": entry.get("geometry"),
+                    "properties": {
+                        "layer": entry.get("layer"),
+                        "feature_id": entry.get("feature_id"),
+                        "feature_index": entry.get("feature_index"),
+                        "error": "\n".join(entry.get("messages", [])),
+                    },
+                }
+            )
+        geojson = {"type": "FeatureCollection", "features": features}
+        try:
+            with open(file_path, "w", encoding="utf-8") as handle:
+                json.dump(geojson, handle, ensure_ascii=False, indent=2)
+            return [(layer_name, file_path)]
+        except Exception:
+            return []
+
+    def _apply_error_style(self, layer: QgsVectorLayer) -> None:
+        if layer is None:
+            return
+        try:
+            geom_type = QgsWkbTypes.geometryType(layer.wkbType())
+        except Exception:
+            return
+        symbol = None
+        if geom_type == QgsWkbTypes.PolygonGeometry:
+            symbol = QgsFillSymbol.createSimple({
+                "color": "255,0,0,40",
+                "outline_color": "255,0,0,255",
+                "outline_width": "0.2",
+            })
+        elif geom_type == QgsWkbTypes.LineGeometry:
+            symbol = QgsLineSymbol.createSimple({
+                "color": "255,0,0,255",
+                "width": "0.2",
+            })
+        else:
+            symbol = QgsMarkerSymbol.createSimple({
+                "name": "circle",
+                "color": "255,0,0,255",
+                "outline_color": "255,0,0,255",
+                "size": "2.0",
+            })
+        if symbol is None:
+            return
+        try:
+            layer.setRenderer(QgsSingleSymbolRenderer(symbol))
+            layer.triggerRepaint()
+        except Exception:
+            return
+
+    def _add_error_layers(self, layers, errors_group) -> None:
+        if not layers or errors_group is None:
+            return
+        try:
+            project = QgsProject.instance()
+        except Exception:
+            return
+        for layer_name, file_path in layers:
+            try:
+                for existing in list(project.mapLayers().values()):
+                    if existing is not None and existing.name() == layer_name:
+                        project.removeMapLayer(existing.id())
+            except Exception:
+                pass
+            try:
+                layer = QgsVectorLayer(file_path, layer_name, "ogr")
+            except Exception:
+                layer = None
+            if layer is None or not layer.isValid():
+                continue
+            try:
+                base_name = layer_name[:-4] if layer_name.endswith("_err") else ""
+                base_layer = self._get_layer_for_class(base_name) if base_name else None
+                if base_layer is not None:
+                    layer.setCrs(base_layer.crs())
+                else:
+                    layer.setCrs(project.crs())
+            except Exception:
+                pass
+            project.addMapLayer(layer, False)
+            try:
+                errors_group.addLayer(layer)
+            except Exception:
+                project.addMapLayer(layer)
+            self._apply_error_style(layer)
+            try:
+                layer.updateExtents()
+                layer.triggerRepaint()
+            except Exception:
+                pass
 
     def _apply_property_aliases(self, class_key: str, props: dict, source_field_names: set, feature) -> None:
         if class_key == "hromada":
@@ -1064,6 +1782,9 @@ class GeoJsonUa:
         props = {}
         for name, prop_schema in props_schema.items():
             props[name] = self._default_value(prop_schema, schema, common_schema)
+        if self._uses_state_change(class_key):
+            props.setdefault("state", 0)
+            props.setdefault("change", 0)
         props["class"] = class_key
         if "guid" in props:
             props["guid"] = str(uuid.uuid4())
@@ -1480,93 +2201,113 @@ class GeoJsonUa:
 
     def load_folder(self, folder_path: str) -> None:
         if not folder_path or not os.path.isdir(folder_path):
-            self._push_message(self.tr(u"Папка не знайдена: {0}").format(folder_path), level=Qgis.Warning)
             return
         files = sorted(
             name for name in os.listdir(folder_path)
             if name.lower().endswith(".geojson")
         )
         if not files:
-            self._push_message(self.tr(u"У папці немає .geojson файлів."), level=Qgis.Info)
             return
+        progress = QProgressDialog(
+            self.tr(u"Відкриття проєкту..."),
+            self.tr(u"Скасувати"),
+            0,
+            len(files),
+            self.iface.mainWindow(),
+        )
+        progress.setWindowModality(Qt.WindowModal)
+        progress.setMinimumDuration(0)
+        progress.setValue(0)
         schema, common_schema = self._load_schema_cache()
         loaded = 0
-        for name in files:
-            class_key = os.path.splitext(name)[0]
-            if self._get_layer_for_class(class_key) is not None:
-                continue
-            source_path = os.path.join(folder_path, name)
-            errors = self._validate_geojson_file(source_path, class_key, folder_path, schema, common_schema)
-            if errors:
-                self._push_message(
-                    self.tr(u"Виявлено невідповідності схемі у файлі {0}. Деталі у {1}_errors.txt.")
-                    .format(name, os.path.splitext(name)[0]),
-                    level=Qgis.Warning,
+        canvas = self.iface.mapCanvas() if getattr(self, "iface", None) is not None else None
+        prev_render = None
+        if canvas is not None:
+            try:
+                prev_render = canvas.renderFlag()
+                canvas.setRenderFlag(False)
+            except Exception:
+                prev_render = None
+        try:
+            for index, name in enumerate(files, start=1):
+                if progress.wasCanceled():
+                    break
+                progress.setLabelText(self.tr(u"Завантаження {0}").format(name))
+                progress.setValue(index - 1)
+                QCoreApplication.processEvents()
+                class_key = os.path.splitext(name)[0]
+                if self._get_layer_for_class(class_key) is not None:
+                    continue
+                source_path = os.path.join(folder_path, name)
+                item = self._show_status(self.tr(u"{0}: парсинг geojson").format(name))
+                source_layer = QgsVectorLayer(source_path, class_key, "ogr")
+                if not source_layer.isValid():
+                    self._close_status(item)
+                    continue
+                target_layer = self._ensure_memory_layer_for_class(
+                    class_key,
+                    folder_path,
+                    source_layer=source_layer,
+                    source_path=source_path,
+                    loaded_from_disk=True,
                 )
-            item = self._show_status(self.tr(u"{0}: парсинг geojson").format(name))
-            source_layer = QgsVectorLayer(source_path, class_key, "ogr")
-            if not source_layer.isValid():
-                self._close_status(item)
-                self._push_message(self.tr(u"Не вдалося відкрити файл: {0}").format(name), level=Qgis.Warning)
-                continue
-            target_layer = self._ensure_memory_layer_for_class(
-                class_key,
-                folder_path,
-                source_layer=source_layer,
-                source_path=source_path,
-                loaded_from_disk=True,
-            )
-            if target_layer is None:
-                self._close_status(item)
-                continue
-            props_template = {}
-            if schema and f"{class_key}Feature" in schema.get("$defs", {}):
-                props_template = self._build_feature_properties(class_key, "", schema, common_schema)
-            target_fields = target_layer.fields()
-            source_field_names = set()
-            try:
-                source_field_names = set(source_layer.fields().names())
-            except Exception:
+                if target_layer is None:
+                    self._close_status(item)
+                    continue
+                props_template = {}
+                if schema and f"{class_key}Feature" in schema.get("$defs", {}):
+                    props_template = self._build_feature_properties(class_key, "", schema, common_schema)
+                target_fields = target_layer.fields()
                 source_field_names = set()
-            new_features = []
-            for feature in source_layer.getFeatures():
-                new_feature = QgsFeature(target_fields)
-                geometry = self._coerce_geometry(feature.geometry(), target_layer.wkbType())
-                if geometry is not None:
-                    new_feature.setGeometry(geometry)
-                if props_template:
-                    props = dict(props_template)
-                    for name in source_field_names:
-                        if name in props:
-                            try:
-                                props[name] = feature[name]
-                            except Exception:
-                                pass
-                    self._apply_property_aliases(class_key, props, source_field_names, feature)
-                    attributes = [props.get(field.name()) for field in target_fields]
-                else:
-                    attributes = feature.attributes()
-                new_feature.setAttributes(attributes)
-                new_features.append(new_feature)
-            try:
-                if not target_layer.isEditable():
-                    target_layer.startEditing()
-            except Exception:
-                pass
-            try:
-                target_layer.dataProvider().addFeatures(new_features)
-            except Exception:
+                try:
+                    source_field_names = set(source_layer.fields().names())
+                except Exception:
+                    source_field_names = set()
+                new_features = []
+                for feature in source_layer.getFeatures():
+                    new_feature = QgsFeature(target_fields)
+                    geometry = self._coerce_geometry(feature.geometry(), target_layer.wkbType())
+                    if geometry is not None:
+                        new_feature.setGeometry(geometry)
+                    if props_template:
+                        props = dict(props_template)
+                        for name in source_field_names:
+                            if name in props:
+                                try:
+                                    props[name] = feature[name]
+                                except Exception:
+                                    pass
+                        self._apply_property_aliases(class_key, props, source_field_names, feature)
+                        attributes = [props.get(field.name()) for field in target_fields]
+                    else:
+                        attributes = feature.attributes()
+                    new_feature.setAttributes(attributes)
+                    new_features.append(new_feature)
+                try:
+                    if not target_layer.isEditable():
+                        target_layer.startEditing()
+                except Exception:
+                    pass
+                try:
+                    target_layer.dataProvider().addFeatures(new_features)
+                except Exception:
+                    self._close_status(item)
+                    continue
+                target_layer.updateExtents()
+                self._update_status(item, self.tr(u"{0}: побудова просторового індекса").format(name))
+                self.build_index(target_layer)
                 self._close_status(item)
-                self._push_message(self.tr(u"Не вдалося імпортувати об'єкти з {0}.").format(name), level=Qgis.Warning)
-                continue
-            target_layer.updateExtents()
-            self._update_status(item, self.tr(u"{0}: побудова просторового індекса").format(name))
-            self.build_index(target_layer)
-            self._close_status(item)
-            self.mark_dirty(target_layer.id(), False)
-            loaded += 1
+                self.mark_dirty(target_layer.id(), False)
+                loaded += 1
+        finally:
+            if canvas is not None and prev_render is not None:
+                try:
+                    canvas.setRenderFlag(prev_render)
+                except Exception:
+                    pass
+        progress.setValue(len(files))
         if loaded:
-            self._push_info(self.tr(u"Імпортовано шарів: {0}").format(loaded))
+            pass
 
     def save_layer(self, layer_id: str) -> bool:
         meta = self.layer_registry.get(layer_id)
@@ -1639,8 +2380,8 @@ class GeoJsonUa:
         parent = self.iface.mainWindow() if self.iface is not None else None
         dialog = QMessageBox(parent)
         dialog.setIcon(QMessageBox.Question)
-        dialog.setWindowTitle(self.tr(u"Додати GeoJSON у проект"))
-        dialog.setText(self.tr(u"Додати збережений GeoJSON файл у проект?"))
+        dialog.setWindowTitle(self.tr(u"Додати GeoJSON у проєкт"))
+        dialog.setText(self.tr(u"Додати збережений GeoJSON файл у проєкт?"))
         add_button = dialog.addButton(self.tr(u"Додати"), QMessageBox.AcceptRole)
         dialog.addButton(self.tr(u"Не додавати"), QMessageBox.RejectRole)
         dialog.setDefaultButton(add_button)
@@ -1648,11 +2389,11 @@ class GeoJsonUa:
         if dialog.clickedButton() != add_button:
             return
         if self._geojson_layer_exists(source_path):
-            self._push_message(self.tr(u"GeoJSON файл вже додано у проект."), level=Qgis.Info)
+            self._push_message(self.tr(u"GeoJSON файл вже додано у проєкт."), level=Qgis.Info)
             return
         layer = QgsVectorLayer(source_path, f"{class_name}_file", "ogr")
         if not layer.isValid():
-            self._push_message(self.tr(u"Не вдалося додати GeoJSON файл у проект."), level=Qgis.Warning)
+            self._push_message(self.tr(u"Не вдалося додати GeoJSON файл у проєкт."), level=Qgis.Warning)
             return
         group = getattr(self.opened_projects, "current_project", None)
         project = QgsProject.instance()
@@ -1766,8 +2507,9 @@ class GeoJsonUa:
     def _is_katotth_group_name(self, name: str) -> bool:
         if not name:
             return False
-        base = name.split("_", 1)[0].upper()
-        return len(base) == 19 and base.startswith("UA") and base[2:].isdigit()
+        if name.startswith("old_"):
+            return False
+        return self._is_project_folder_name(name)
 
     def _rename_existing_project_groups(self) -> None:
         try:
@@ -1805,7 +2547,7 @@ class GeoJsonUa:
             return
 
         # --- ЕТАП 1: вибір батьківської папки ---
-        caption = self.tr(u"Виберіть папку у якій буде створено папку проекту.")
+        caption = self.tr(u"Виберіть папку у якій буде створено папку проєкту.")
         last_dir = QSettings().value("json_ua/new_project_dir", "")
         base_dir = QFileDialog.getExistingDirectory(parent, caption, last_dir)
         if not base_dir:
@@ -1816,18 +2558,18 @@ class GeoJsonUa:
         # --- ЕТАП 2: власний діалог для вводу назви ---
         while True:
             dialog = QDialog(parent)
-            dialog.setWindowTitle(self.tr(u"Введіть коду КАТОТТГ проекту"))
+            dialog.setWindowTitle(self.tr(u"Введіть назву папки проєкту"))
 
             # збільшуємо ширину вікна
             dialog.resize(550, 150)
 
             layout = QVBoxLayout(dialog)
 
-            label = QLabel(self.tr(u"КАТОТТГ проекту:"))
+            label = QLabel(self.tr(u"Назва папки проєкту:"))
             layout.addWidget(label)
 
             line_edit = QLineEdit()
-            line_edit.setPlaceholderText("UAООРРГГГПППММУУУУУ")
+            line_edit.setPlaceholderText("BGD_GP_UA00000000000000000")
             layout.addWidget(line_edit)
 
             # кнопки
@@ -1847,16 +2589,16 @@ class GeoJsonUa:
             if dialog.exec_() != QDialog.Accepted:
                 return
 
-            katotth = line_edit.text().strip().upper()
+            project_name = line_edit.text().strip().upper()
 
-            if len(katotth) == 19 and katotth.startswith("UA") and katotth[2:].isdigit():
-                project_name = katotth
+            if self._is_project_folder_name(project_name):
+                katotth = self._extract_katotth(project_name)
                 break
 
             retry = QMessageBox.warning(
                 parent,
-                self.tr(u"Новий проект"),
-                self.tr(u"Код має починатися з UA і містити ще 17 цифр."),
+                self.tr(u"Новий проєкт"),
+                self.tr(u"Назва має відповідати шаблону: BGD_{GP/KP/DPT}_UA<17 цифр>[_версія/дата] і не містити пробілів."),
                 QMessageBox.Retry | QMessageBox.Cancel,
                 QMessageBox.Retry,
             )
@@ -1879,12 +2621,12 @@ class GeoJsonUa:
         try:
             os.makedirs(project_dir, exist_ok=False)
         except Exception as e:
-            QMessageBox.critical(parent, self.tr(u"Новий проект"),
+            QMessageBox.critical(parent, self.tr(u"Новий проєкт"),
                                  self.tr(u"Не вдалося створити папку:\n{0}\n\nПомилка: {1}")
                                  .format(project_dir, str(e)))
             return
 
-        self._push_info(self.tr(u"Створено папку проекту: {0}").format(project_dir))
+        self._push_info(self.tr(u"Створено папку проєкту: {0}").format(project_dir))
         self._create_project_group(project_name)
         self.opened_projects.new_project(project_name, project_dir, katotth=katotth)
 
@@ -1894,7 +2636,7 @@ class GeoJsonUa:
         parent = self.iface.mainWindow()
         if not self._ensure_project_crs(parent):
             return
-        caption = self.tr(u"Виберіть папку проекту")
+        caption = self.tr(u"Виберіть папку проєкту")
         last_dir = QSettings().value("json_ua/open_project_dir", "")
         project_dir = QFileDialog.getExistingDirectory(parent, caption, last_dir)
         if not project_dir:
@@ -1902,11 +2644,11 @@ class GeoJsonUa:
         QSettings().setValue("json_ua/open_project_dir", project_dir)
 
         folder_name = os.path.basename(project_dir)
-        if not self._is_katotth_prefix(folder_name):
+        if not self._is_project_folder_name(folder_name):
             QMessageBox.warning(
                 parent,
-                self.tr(u"Відкрити проект"),
-                self.tr(u"Назва папки має починатися з коду КАТОТТГ (UA + 17 цифр)."),
+                self.tr(u"Відкрити проєкт"),
+                self.tr(u"Назва папки має відповідати шаблону: BGD_{GP/KP/DPT}_UA<17 цифр>[_версія/дата] і не містити пробілів."),
             )
             return
 
@@ -1919,7 +2661,7 @@ class GeoJsonUa:
                 if root.findGroup(folder_name) is not None:
                     QMessageBox.information(
                         parent,
-                        self.tr(u"Відкрити проект"),
+                        self.tr(u"Відкрити проєкт"),
                         self.tr(u"Група з іменем вже існує: {0}").format(folder_name),
                     )
                     return
@@ -1933,11 +2675,140 @@ class GeoJsonUa:
             except Exception:
                 group = None
 
-        katotth = folder_name.strip().upper()[:19]
+        katotth = self._extract_katotth(folder_name)
         self.opened_projects.new_project(folder_name, project_dir, katotth=katotth)
         self._select_group_in_tree(group)
         self.opened_projects.set_current_project_group(group)
         self.load_folder(project_dir)
+
+    def on_validate_project(self):
+        if common.LOG:
+            common.log_calls(common.logFile, "GeoJsonUa.on_validate_project()")
+        current_group = getattr(self.opened_projects, "current_project", None)
+        if current_group is None:
+            return
+        info = self._current_project_info()
+        project_dir = self._resolve_project_dir(info)
+        if not project_dir:
+            return
+        files = sorted(
+            name for name in os.listdir(project_dir)
+            if name.lower().endswith(".geojson")
+        )
+        if not files:
+            return
+        try:
+            root = QgsProject.instance().layerTreeRoot()
+        except Exception:
+            root = None
+        parent_group = current_group
+        if parent_group is None and root is not None:
+            try:
+                parent_group = root.findGroup(os.path.basename(project_dir))
+            except Exception:
+                parent_group = None
+        schema, common_schema = self._load_schema_cache()
+        progress = QProgressDialog(
+            self.tr(u"Перевірка проєкту..."),
+            self.tr(u"Скасувати"),
+            0,
+            len(files),
+            self.iface.mainWindow(),
+        )
+        progress.setWindowModality(Qt.WindowModal)
+        progress.setMinimumDuration(0)
+        progress.setValue(0)
+        errors_dir = os.path.join(project_dir, "Errors")
+        error_entries_by_class = {}
+        c_errors = {}
+        canvas = self.iface.mapCanvas() if getattr(self, "iface", None) is not None else None
+        prev_render = None
+        if canvas is not None:
+            try:
+                prev_render = canvas.renderFlag()
+                canvas.setRenderFlag(False)
+            except Exception:
+                prev_render = None
+        try:
+            for index, name in enumerate(files, start=1):
+                if progress.wasCanceled():
+                    break
+                progress.setLabelText(self.tr(u"Перевірка {0}").format(name))
+                progress.setValue(index - 1)
+                QCoreApplication.processEvents()
+                class_key = os.path.splitext(name)[0]
+                source_path = os.path.join(project_dir, name)
+                data = self._read_json_file(source_path)
+                _, error_entries = self._validate_geojson_file(
+                    source_path,
+                    class_key,
+                    project_dir,
+                    schema,
+                    common_schema,
+                    data=data,
+                )
+                if error_entries:
+                    error_entries_by_class.setdefault(class_key, []).extend(error_entries)
+                allowed_props = self._allowed_props_for_class(class_key)
+                if allowed_props and isinstance(data, dict) and self._find_cyrillic_property_keys(data, allowed_props):
+                    c_errors[f"{class_key}_err"] = source_path
+                    error_entries_by_class.setdefault(class_key, []).append(
+                        {
+                            "layer": class_key,
+                            "feature_index": None,
+                            "feature_id": None,
+                            "geometry": None,
+                            "messages": [
+                                "C: Виявлено кириличні символи в іменах атрибутів.",
+                            ],
+                        }
+                    )
+        finally:
+            if canvas is not None and prev_render is not None:
+                try:
+                    canvas.setRenderFlag(prev_render)
+                except Exception:
+                    pass
+        progress.setValue(len(files))
+        topo_rules = self._load_topo_rules()
+        topo_errors_by_class = {}
+        if topo_rules:
+            topo_progress = QProgressDialog(
+                self.tr(u"Перевірка топології..."),
+                self.tr(u"Скасувати"),
+                0,
+                len(topo_rules),
+                self.iface.mainWindow(),
+            )
+            topo_progress.setWindowModality(Qt.WindowModal)
+            topo_progress.setMinimumDuration(0)
+            topo_progress.setValue(0)
+            topo_errors_by_class = self._run_topology_checks(topo_rules, topo_progress)
+        for class_key, entries in topo_errors_by_class.items():
+            error_entries_by_class.setdefault(class_key, []).extend(entries)
+        created_layers = []
+        if error_entries_by_class:
+            try:
+                os.makedirs(errors_dir, exist_ok=True)
+            except Exception:
+                errors_dir = ""
+            for class_key, entries in error_entries_by_class.items():
+                if not errors_dir:
+                    break
+                created_layers.extend(self._write_error_geojson_files(entries, errors_dir, class_key))
+        errors_group = None
+        if created_layers:
+            errors_group = self._ensure_errors_group(parent_group)
+            if errors_group is not None:
+                self._add_error_layers(created_layers, errors_group)
+        paths_to_fix = {}
+        for layer_name, source_path in c_errors.items():
+            base = layer_name[:-4] if layer_name.endswith("_err") else layer_name
+            if not os.path.exists(source_path):
+                continue
+            paths_to_fix[source_path] = base
+        if paths_to_fix:
+            self._prompt_fix_cyrillic_geojson(paths_to_fix)
 
     def on_save(self):
         if common.LOG:

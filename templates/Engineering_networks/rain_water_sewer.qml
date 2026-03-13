@@ -149,9 +149,9 @@
       <rule symbol="0" label="напірний існуючий" key="{bef78524-0dbf-44a8-b037-584bc4a5778d}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="самопливний існуючий" key="{21876802-8daa-4941-abce-bfe33c744003}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="каналізаційний тунель існуючий" key="{17931f54-d0e6-499d-bcd0-c348d2b7e86f}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="3" label="напірний проектний" key="{2fc6dc23-8ca7-4c0b-afab-fa9d098d866f}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="самопливний проектний" key="{c296d74a-f6c3-4859-9af5-d9e2d8f54b9c}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="каналізаційний тунель проектний" key="{2060caa0-462a-4280-84c8-581c93e78da7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="напірний проєктний" key="{2fc6dc23-8ca7-4c0b-afab-fa9d098d866f}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="самопливний проєктний" key="{c296d74a-f6c3-4859-9af5-d9e2d8f54b9c}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="каналізаційний тунель проєктний" key="{2060caa0-462a-4280-84c8-581c93e78da7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="інший" key="{bde75c62-8079-4adf-9bf5-6f3528319de8}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1525,7 +1525,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="тип каналізаційного колектору"/>
     <alias field="outr_in" index="15" name="потужність існуюча, куб. м на добу"/>

@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{ceed6784-946d-46d7-b4a2-e77142c2ee10}">
       <rule symbol="0" label="існуюча" key="{7d3bf957-7154-452f-82f7-52b335b810e8}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектна" key="{b802dc70-dc1a-4da2-858a-0ad2cb424a87}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктна" key="{b802dc70-dc1a-4da2-858a-0ad2cb424a87}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інша" key="{275df20e-9594-4550-918c-3c33a7c7e1f7}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -915,7 +915,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип тунелю"/>
     <alias field="length" index="14" name="довжина, м"/>
     <alias field="width" index="15" name="ширина, м"/>

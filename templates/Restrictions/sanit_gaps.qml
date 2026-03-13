@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{beff8ce0-d371-4eaa-b061-9b1a209e3132}">
       <rule symbol="0" label="Санітарні відстані (розриви) від об'єкту існуючі" key="{2efc4d53-1799-41ee-a2d5-87e84cab5211}" filter=" &quot;status&quot; =1"/>
-      <rule symbol="1" label="Санітарні відстані (розриви) від об'єкту проектна" key="{28e40859-5822-4c4e-9dc1-666d6e5f369d}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="Санітарні відстані (розриви) від об'єкту проєктна" key="{28e40859-5822-4c4e-9dc1-666d6e5f369d}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{700e7de7-6424-4950-b4f8-254209e469c1}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -879,7 +879,7 @@
     <alias field="z_kind" index="15" name="характер встановлення відстані"/>
     <alias field="size" index="16" name="розмір, м"/>
     <alias field="status" index="17" name="статус"/>
-    <alias field="change" index="18" name="проектна зміна статусу"/>
+    <alias field="change" index="18" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

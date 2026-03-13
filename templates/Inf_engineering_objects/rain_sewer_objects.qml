@@ -149,7 +149,7 @@
       <rule symbol="0" label="насосна станція дощової каналізації існуюча" key="{c60df379-3446-475c-b89f-6792f729a1ac}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="скиди дощової каналізації існуючі" key="{b9adc16d-db21-4bf5-bee6-fa58358e2f25}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="насосна станція дощової каналізації проекнта" key="{6fafb714-b6bd-4882-8ed3-2ac946436562}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="скиди дощової каналізації проектні" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="скиди дощової каналізації проєктні" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -848,7 +848,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="outr_in" index="14" name="потужність існуюча, куб. м на годину"/>
     <alias field="outr_pr" index="15" name="потужність на короткостроковий період, куб. м на годину"/>

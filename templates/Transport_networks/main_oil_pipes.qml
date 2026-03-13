@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{b8caa457-2e4a-49e1-9d68-4a7171c976d7}">
       <rule symbol="0" label="існуючі" key="{3b9c6dbf-74f6-42f0-a174-9c3553cfa1eb}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектні" key="{37a1d117-c8fb-48cc-adfa-817d7183bc5a}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктні" key="{37a1d117-c8fb-48cc-adfa-817d7183bc5a}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{15d21118-4c13-4cc8-83eb-c5d4631e1fd5}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -923,7 +923,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="_class" index="14" name="клас нафтопроводу"/>
     <alias field="name" index="15" name="назва"/>

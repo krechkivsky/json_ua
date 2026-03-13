@@ -152,12 +152,12 @@
       <rule symbol="3" label="магістральна вулиця загальноміського значення регульованого руху існуюча" key="{c6a6df6f-427c-47f5-9668-1a744ff83c4b}" filter="signific=4  and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="4" label="магістральна вулиця районного значення існуюча" key="{44fc7965-cd28-428f-a715-270fc1e93f57}" filter="signific=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="5" label="вулиця (дорога) міцевого значення існуюча" key="{e88fe75a-e139-4e68-b588-5c7579439fea}" filter="signific=6  and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="6" label="магістральна дорога безперервного руху проектна" key="{8f1661a1-a996-4997-ad06-b51278ca1756}" filter="signific=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="магістральна дорога регульованого руху проектна" key="{12b0187a-e9ee-428b-b6af-ec7db0388e90}" filter="signific=2  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="магістральна вулиця загальноміського значення безперервного руху проектна" key="{5e8bd0c5-73d2-42e7-a49f-29b374f685c9}" filter="signific=3  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="магістральна вулиця загальноміського значення регульованого руху проектна" key="{853c4077-3185-4c58-a178-be5575d37cc0}" filter="signific=4  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="магістральна вулиця районного значення проектна" key="{22891bcf-0e20-4eba-b073-2711bba5ae90}" filter="signific=5  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="вулиця (дорога) міцевого значення проектна" key="{ac66f2c1-cec7-463c-b4dc-2fde8bd21450}" filter="signific=6  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="магістральна дорога безперервного руху проєктна" key="{8f1661a1-a996-4997-ad06-b51278ca1756}" filter="signific=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="магістральна дорога регульованого руху проєктна" key="{12b0187a-e9ee-428b-b6af-ec7db0388e90}" filter="signific=2  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="магістральна вулиця загальноміського значення безперервного руху проєктна" key="{5e8bd0c5-73d2-42e7-a49f-29b374f685c9}" filter="signific=3  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="магістральна вулиця загальноміського значення регульованого руху проєктна" key="{853c4077-3185-4c58-a178-be5575d37cc0}" filter="signific=4  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="магістральна вулиця районного значення проєктна" key="{22891bcf-0e20-4eba-b073-2711bba5ae90}" filter="signific=5  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="вулиця (дорога) міцевого значення проєктна" key="{ac66f2c1-cec7-463c-b4dc-2fde8bd21450}" filter="signific=6  and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="12" label="інші" key="{09fc7122-a827-44cc-96d5-b22451df2b27}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1543,7 +1543,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="signific" index="13" name="значення вулиці"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="kind" index="15" name="тип вулиці"/>

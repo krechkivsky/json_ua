@@ -149,9 +149,9 @@
       <rule symbol="0" label="компресорна станція існуюча" key="{474309ad-c5c1-45f3-a963-bc690044b533}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="газорозподільча станція існуюча" key="{9ab8f4c7-7108-4955-a4de-de2022b52e99}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="газорозподільчий пункт існуючий" key="{955fcf5f-99ba-4caa-91c3-1662bb7f1250}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="3" label="компресорна станція проектна" key="{476d670e-43b5-489d-90e9-fa597a7c2965}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="газорозподільча станція проектна" key="{4f01e9a8-cf63-4520-bbf9-e0ea794e2464}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="газорозподільчий пункт проектний" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="компресорна станція проєктна" key="{476d670e-43b5-489d-90e9-fa597a7c2965}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="газорозподільча станція проєктна" key="{4f01e9a8-cf63-4520-bbf9-e0ea794e2464}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="газорозподільчий пункт проєктний" key="{bbefb474-cb03-4368-a536-dd3c5dba6cd7}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -972,7 +972,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="outr_in" index="14" name="потужність існуюча, куб. м на добу"/>
     <alias field="outr_pr" index="15" name="потужність на короткостроковий період, куб. м на добу"/>

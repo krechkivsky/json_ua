@@ -148,7 +148,7 @@
     <rules key="{6d11cce4-3958-40d6-8380-c2b4cbfa7246}">
       <rule symbol="0" label="зона можливого розповсюдження небезпечної речовини до від 0 до 2,5 км існуюча" key="{a4810002-b827-4a59-b29f-d52ea6eddc7a}" filter="type=1 and status=1"/>
       <rule symbol="1" label="зона можливого розповсюдження небезпечної речовини до від 2,5 до 5,0 км існуюча" key="{a828d572-15a1-455c-9bd6-f8d00023f482}" filter="type=2 and status=1"/>
-      <rule symbol="2" label="зона можливого розповсюдження небезпечної речовини до від 0 до 2,5 км проектна" key="{6d018a23-9f6d-467e-be2e-7075e7100e5d}" filter="type=1 and status in (2,3,4,5)"/>
+      <rule symbol="2" label="зона можливого розповсюдження небезпечної речовини до від 0 до 2,5 км проєктна" key="{6d018a23-9f6d-467e-be2e-7075e7100e5d}" filter="type=1 and status in (2,3,4,5)"/>
       <rule symbol="3" label="зона можливого розповсюдження небезпечної речовини до від 2,5 до 5,0 км існуюча" key="{9042bbeb-a4f6-4596-9c7d-2aa74a5996b1}" filter="type=2 and status in (2,3,4,5)"/>
       <rule symbol="4" label="інші" key="{2c81a9d5-ffce-4f5c-9acc-9cb13a5c3e07}" filter="ELSE"/>
     </rules>
@@ -1162,7 +1162,7 @@
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="type" index="11" name="підклас зон можливого хімічного забруднення від ХНО лінійної протяжності"/>
     <alias field="chm_guid" index="12" name="код ХНО"/>
-    <alias field="change" index="13" name="проектна зміна статусу"/>
+    <alias field="change" index="13" name="проєктна зміна статусу"/>
     <alias field="status" index="14" name="статус"/>
   </aliases>
   <splitPolicies>

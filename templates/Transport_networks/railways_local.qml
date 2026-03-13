@@ -148,7 +148,7 @@
     <rules key="{9df97b80-7088-45c2-a537-d842f8806818}">
       <rule symbol="0" label="електрифікована" key="{bd379c78-511a-405a-9cb4-801b8872f040}" filter="el_in=1"/>
       <rule symbol="1" label="неелектрифікована" key="{e55be4fb-6a67-4441-a2b3-424112845d97}" filter="el_in=2"/>
-      <rule symbol="2" label="проектна електрифікація" key="{18bcfc05-276e-41ab-a5ed-904ebea37303}" filter="el_in=3"/>
+      <rule symbol="2" label="проєктна електрифікація" key="{18bcfc05-276e-41ab-a5ed-904ebea37303}" filter="el_in=3"/>
       <rule symbol="3" label="інші" key="{c84608a1-ac3b-4425-9d89-e4713b34a47f}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1354,7 +1354,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="різновид місцевої залізниці"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="track_in" index="15" name="колійність існуюча"/>

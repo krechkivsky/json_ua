@@ -148,8 +148,8 @@
     <rules key="{17ae804f-21f5-4edf-976d-4cce8356811e}">
       <rule symbol="0" label="збірний пункт евакуації існуючий" key="{b84b98ea-0002-4ff8-b645-dc67fee32d97}" filter="type=1 and status=1"/>
       <rule symbol="1" label="приймальний пункт евакуації існуючий" key="{1c2e41f9-f6a6-48e3-a72c-8c94ccd56f59}" filter="type=2 and status=1"/>
-      <rule symbol="2" label="збірний пункт евакуації проектний" key="{7b4a836b-658c-402b-a550-d59af82aa73f}" filter="type=1 and status in (2,3,4,5)"/>
-      <rule symbol="3" label="приймальний пункт евакуації проектний" key="{f867ab66-f1cb-4dce-bb33-8e4b6202f1b6}" filter="type=2 and status in (2,3,4,5)"/>
+      <rule symbol="2" label="збірний пункт евакуації проєктний" key="{7b4a836b-658c-402b-a550-d59af82aa73f}" filter="type=1 and status in (2,3,4,5)"/>
+      <rule symbol="3" label="приймальний пункт евакуації проєктний" key="{f867ab66-f1cb-4dce-bb33-8e4b6202f1b6}" filter="type=2 and status in (2,3,4,5)"/>
       <rule symbol="4" label="інший" key="{a3f0da68-a4c3-45cc-bb81-82ab0360de5f}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1675,7 +1675,7 @@
     <alias field="cap_pr" index="14" name="ємність на короткостроковий період, осіб"/>
     <alias field="cap_pro" index="15" name="ємність на середньостроковий період, осіб"/>
     <alias field="cap_ext" index="16" name="ємність на довгостроковий період, осіб"/>
-    <alias field="change" index="17" name="проектна зміна статусу"/>
+    <alias field="change" index="17" name="проєктна зміна статусу"/>
     <alias field="status" index="18" name="статус"/>
   </aliases>
   <splitPolicies>

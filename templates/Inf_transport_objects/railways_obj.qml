@@ -151,11 +151,11 @@
       <rule symbol="2" label="будівля для чергових по переїзду існуюча" key="{b5337d6d-87c0-4639-ac25-2b98c1f6e52d}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="стрілочний пост існуючий" key="{afdf2af5-52b4-47d5-b6de-ce3522510cc2}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="4" label="інший об'єкт на залізничних мережах існуючий" key="{0f678de8-6b71-4a5d-98b2-8d6e286a7e7e}" filter="type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="5" label="переїзд залізничний проектний" key="{288194dc-faa7-4493-98f4-c384a1c718a1}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="пост електричної централізації проектний" key="{dbc82285-c6f8-4070-98d6-2667b24eb16d}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="будівля для чергових по переїзду проектна" key="{9ae6fd53-b1cd-4705-b234-afd2ab3e9e2b}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="стрілочний пост проектний" key="{7038a5c2-924b-4bb2-85cb-8a22cbf030ae}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="інший об'єкт на залізничних мережах проектний" key="{32de76c3-8ec5-4b16-ba86-c33197135eb9}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="переїзд залізничний проєктний" key="{288194dc-faa7-4493-98f4-c384a1c718a1}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="пост електричної централізації проєктний" key="{dbc82285-c6f8-4070-98d6-2667b24eb16d}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="будівля для чергових по переїзду проєктна" key="{9ae6fd53-b1cd-4705-b234-afd2ab3e9e2b}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="стрілочний пост проєктний" key="{7038a5c2-924b-4bb2-85cb-8a22cbf030ae}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="інший об'єкт на залізничних мережах проєктний" key="{32de76c3-8ec5-4b16-ba86-c33197135eb9}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="10" label="інші" key="{6ba56824-27a8-44d6-83e5-70b0b1a9c647}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1752,7 +1752,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="name" index="14" name="назва"/>
   </aliases>

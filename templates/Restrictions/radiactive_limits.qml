@@ -934,7 +934,7 @@
     <alias field="type" index="11" name="тип обмеження"/>
     <alias field="res_code" index="12" name="код обмеження"/>
     <alias field="act" index="13" name="підстава виникнення обмеження"/>
-    <alias field="change" index="14" name="проектна зміна статусу"/>
+    <alias field="change" index="14" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

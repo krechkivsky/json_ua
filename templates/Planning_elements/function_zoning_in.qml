@@ -153,7 +153,7 @@
       <rule symbol="4" label="території громадської забудови" key="{9a4bc292-6ce4-4e9d-a4bf-04eb5c83bfc6}" filter=" &quot;type&quot; = '10200.0' "/>
       <rule symbol="5" label="території адміністративно-офісної забудови" key="{b5073276-0ca2-4ed2-8967-07d65dd31e05}" filter=" &quot;type&quot; = '10201.0' "/>
       <rule symbol="6" label="території адміністративно-управлінських закладів" key="{4784788a-5e27-41de-b9c9-0985506a162c}" filter=" &quot;type&quot; = '10201.1' "/>
-      <rule symbol="7" label="території науково-дослідних, проектних та вишукувальних закладів" key="{9c7b775e-5870-4181-80d2-81cb4205ff60}" filter=" &quot;type&quot; = '10201.2' "/>
+      <rule symbol="7" label="території науково-дослідних, проєктних та вишукувальних закладів" key="{9c7b775e-5870-4181-80d2-81cb4205ff60}" filter=" &quot;type&quot; = '10201.2' "/>
       <rule symbol="8" label="території фінансових установ та офісної забудови" key="{4eacd236-4567-47e0-9cf8-ed926e5470fd}" filter=" &quot;type&quot; = '10201.3' "/>
       <rule symbol="9" label="території закладів освіти" key="{627ddec4-8cfa-4a53-a9e5-314ab4ddf6c4}" filter=" &quot;type&quot; = '10202.0' "/>
       <rule symbol="10" label="території закладів охорони здоров'я та соціального захисту" key="{edc06ac9-f808-4a37-94e3-9f518dcce18e}" filter=" &quot;type&quot; = '10203.0' "/>

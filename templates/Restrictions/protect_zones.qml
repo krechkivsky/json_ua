@@ -154,14 +154,14 @@
       <rule symbol="5" label="охоронна зона навколо геодезичного пункту існуюча" key="{7ddc707a-e132-46b6-99b7-63e275bae592}" filter=" &quot;res_code&quot; ='01.07' and status=1"/>
       <rule symbol="6" label="охоронна зона навколо інженерних комунікацій існуюча" key="{038170dd-56f9-43ca-b48e-2237530e8db6}" filter=" &quot;res_code&quot; ='01.08' and status=1"/>
       <rule symbol="7" label="охоронна зона навколо промислового об'єкта існуюча" key="{b2e9950d-36c2-4b13-9907-cd9ce99a2890}" filter=" &quot;res_code&quot; ='01.09' and status=1"/>
-      <rule symbol="8" label="охоронна зона навколо (вздовж) об'єкта транспорту проектна" key="{7e624c17-c13d-4693-a3a7-df9c350913dc}" filter=" &quot;res_code&quot; ='01.03' and status in (2,3,4,5)"/>
-      <rule symbol="9" label="охоронна зона навколо (вздовж) об'єкта зв'язку проектна" key="{92f93457-7e0c-41ae-85f5-5b03872f1266}" filter=" &quot;res_code&quot; ='01.04' and status in (2,3,4,5)"/>
-      <rule symbol="10" label="охоронна зона навколо (уздовж) об'єкта електрозв'язку проектна" key="{6b9f05cf-1dd5-4edb-9a07-732c62decd1b}" filter=" &quot;res_code&quot; ='01.04.1' and status in (2,3,4,5)"/>
-      <rule symbol="11" label="охоронна зона навколо (вздовж) об'єкта енергетичної системи проектна" key="{4c9ddd7f-fb1d-4c75-9ced-4e30c23843f4}" filter=" &quot;res_code&quot; ='01.05' and status in (2,3,4,5)"/>
-      <rule symbol="12" label="охоронна зона навколо об'єкта гідрометеорологічної діяльності проектна" key="{c5e20872-80c8-4f02-875d-7077fe14397b}" filter=" &quot;res_code&quot; ='01.06' and status in (2,3,4,5)"/>
-      <rule symbol="13" label="охоронна зона навколо геодезичного пункту проектна" key="{e2935f89-748a-4a5e-83ac-fa1ee1325e9c}" filter=" &quot;res_code&quot; ='01.07' and status in (2,3,4,5)"/>
-      <rule symbol="14" label="охоронна зона навколо інженерних комунікацій проектна" key="{e9377f30-22ae-47da-843e-16b70c0adcf9}" filter=" &quot;res_code&quot; ='01.08' and status in (2,3,4,5)"/>
-      <rule symbol="15" label="охоронна зона навколо промислового об'єкта проектна" key="{a71c1e87-f791-4e62-a94a-21f81bd475e4}" filter=" &quot;res_code&quot; ='01.09' and status in (2,3,4,5)"/>
+      <rule symbol="8" label="охоронна зона навколо (вздовж) об'єкта транспорту проєктна" key="{7e624c17-c13d-4693-a3a7-df9c350913dc}" filter=" &quot;res_code&quot; ='01.03' and status in (2,3,4,5)"/>
+      <rule symbol="9" label="охоронна зона навколо (вздовж) об'єкта зв'язку проєктна" key="{92f93457-7e0c-41ae-85f5-5b03872f1266}" filter=" &quot;res_code&quot; ='01.04' and status in (2,3,4,5)"/>
+      <rule symbol="10" label="охоронна зона навколо (уздовж) об'єкта електрозв'язку проєктна" key="{6b9f05cf-1dd5-4edb-9a07-732c62decd1b}" filter=" &quot;res_code&quot; ='01.04.1' and status in (2,3,4,5)"/>
+      <rule symbol="11" label="охоронна зона навколо (вздовж) об'єкта енергетичної системи проєктна" key="{4c9ddd7f-fb1d-4c75-9ced-4e30c23843f4}" filter=" &quot;res_code&quot; ='01.05' and status in (2,3,4,5)"/>
+      <rule symbol="12" label="охоронна зона навколо об'єкта гідрометеорологічної діяльності проєктна" key="{c5e20872-80c8-4f02-875d-7077fe14397b}" filter=" &quot;res_code&quot; ='01.06' and status in (2,3,4,5)"/>
+      <rule symbol="13" label="охоронна зона навколо геодезичного пункту проєктна" key="{e2935f89-748a-4a5e-83ac-fa1ee1325e9c}" filter=" &quot;res_code&quot; ='01.07' and status in (2,3,4,5)"/>
+      <rule symbol="14" label="охоронна зона навколо інженерних комунікацій проєктна" key="{e9377f30-22ae-47da-843e-16b70c0adcf9}" filter=" &quot;res_code&quot; ='01.08' and status in (2,3,4,5)"/>
+      <rule symbol="15" label="охоронна зона навколо промислового об'єкта проєктна" key="{a71c1e87-f791-4e62-a94a-21f81bd475e4}" filter=" &quot;res_code&quot; ='01.09' and status in (2,3,4,5)"/>
       <rule symbol="16" label="інші" key="{02bc9cc3-3bb3-4add-aa7a-78d043f791c1}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -3605,7 +3605,7 @@
     <alias field="z_kind" index="15" name="характер встановлення зони"/>
     <alias field="size" index="16" name="розмір охоронної зони, м"/>
     <alias field="status" index="17" name="статус"/>
-    <alias field="change" index="18" name="проектна зміна статусу"/>
+    <alias field="change" index="18" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

@@ -149,9 +149,9 @@
       <rule symbol="0" label="загального користування існуючі" key="{97b8e829-6e7a-4f3d-933e-c9861fc27985}" filter="kind=1 and status=1"/>
       <rule symbol="1" label="спеціального призначення існуючі" key="{7bda35df-149a-4b15-b4ef-6ca8d3aa0226}" filter="kind=2 and status=1"/>
       <rule symbol="2" label="обмеженого призначення існуючі" key="{5c5ff49e-5823-47df-aba5-cec19a4b4af8}" filter="kind=3 and status=1"/>
-      <rule symbol="3" label="загального користування проектні" key="{d833b2ed-bfaf-4800-8688-f48f86e63a10}" filter="kind=1 and status in (2,3,4,5)"/>
-      <rule symbol="4" label="спеціального призначення проектні" key="{3d2ec8c6-50cb-4d1e-a643-b221dc782fed}" filter="kind=2 and status in (2,3,4,5)"/>
-      <rule symbol="5" label="обмеженого призначення проектні" key="{82253dfc-193b-4b2d-a537-02bfe9696a5a}" filter="kind=3 and status in (2,3,4,5)"/>
+      <rule symbol="3" label="загального користування проєктні" key="{d833b2ed-bfaf-4800-8688-f48f86e63a10}" filter="kind=1 and status in (2,3,4,5)"/>
+      <rule symbol="4" label="спеціального призначення проєктні" key="{3d2ec8c6-50cb-4d1e-a643-b221dc782fed}" filter="kind=2 and status in (2,3,4,5)"/>
+      <rule symbol="5" label="обмеженого призначення проєктні" key="{82253dfc-193b-4b2d-a537-02bfe9696a5a}" filter="kind=3 and status in (2,3,4,5)"/>
       <rule symbol="6" label="інші" key="{074e9c8d-260e-4623-9a4e-9d1ad7da03fd}" filter="ELSE"/>
     </rules>
     <symbols>

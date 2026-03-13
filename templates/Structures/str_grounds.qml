@@ -153,13 +153,13 @@
       <rule symbol="4" label="паркувальний існуючий" key="{5a39d4e8-5c02-40f7-9030-77e645171f15}" filter="type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="5" label="для вигулу тварин існуючий" key="{e6d84df7-67a9-4c59-9ae0-c5b01d04dd7e}" filter="type=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="інший спеціалізований майданчик існуючий" key="{4bd0dae7-ce99-4d70-a9f2-f713e9d22903}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="7" label="дитячий ігровий проектний" key="{59c9f86a-0ed2-4c5e-a24d-a48e8cf0bb79}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="відпочинку проектний" key="{35285d8b-7e33-4966-a5a3-0e443e4d875d}" filter="type=2  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="спортивний проектний" key="{34c0e5f8-619c-42a8-9a11-006d6380cd77}" filter="type=3  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="господарський проектний" key="{f0976dd9-087e-45c9-9a32-5d45caf209b5}" filter="type=4  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="паркувальний проектний" key="{3dbb0370-0a2c-4573-a310-7562176ff9d0}" filter="type=5  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="для вигулу тварин проектний" key="{e8fe8857-82f4-441f-8d11-6dcf379ee0c5}" filter="type=6  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="інший спеціалізований майданчик проектний" key="{eafa85da-9f93-4d76-aa32-a17da69a8418}" filter="type=7  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="дитячий ігровий проєктний" key="{59c9f86a-0ed2-4c5e-a24d-a48e8cf0bb79}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="відпочинку проєктний" key="{35285d8b-7e33-4966-a5a3-0e443e4d875d}" filter="type=2  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="спортивний проєктний" key="{34c0e5f8-619c-42a8-9a11-006d6380cd77}" filter="type=3  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="господарський проєктний" key="{f0976dd9-087e-45c9-9a32-5d45caf209b5}" filter="type=4  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="паркувальний проєктний" key="{3dbb0370-0a2c-4573-a310-7562176ff9d0}" filter="type=5  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="для вигулу тварин проєктний" key="{e8fe8857-82f4-441f-8d11-6dcf379ee0c5}" filter="type=6  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="інший спеціалізований майданчик проєктний" key="{eafa85da-9f93-4d76-aa32-a17da69a8418}" filter="type=7  and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="14" label="не визначено" key="{67e9b093-5ad7-438f-b4e4-b5d8ffe35099}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2916,7 +2916,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип спеціалізованої інженерної споруди"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="square" index="15" name="площа забудови, м2"/>

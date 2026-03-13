@@ -148,8 +148,8 @@
     <rules key="{3cbc5e3b-8386-43e8-843f-7ee62eee899a}">
       <rule symbol="0" label="діюче кладовище на існуючий стан" key="{93e7853a-2ef5-449c-8f8d-fb1107c2b9dc}" filter="type in (1,2) and &quot;state&quot; in (1)"/>
       <rule symbol="1" label="закрите кладовище на існуючий стан" key="{dbd40575-4ded-4d66-9b28-16be85b7075d}" filter="type in (3,4) and &quot;state&quot; in (1)"/>
-      <rule symbol="2" label="діюче кладовище на проектний стан" key="{5ee706ff-3d95-4bdd-afb5-5d66c28f7e1d}" filter="type in (1,2) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="закрите кладовище на проектний стан" key="{5fefac67-8626-4599-b52f-3275b0efc2ae}" filter="type in (3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="діюче кладовище на проєктний стан" key="{5ee706ff-3d95-4bdd-afb5-5d66c28f7e1d}" filter="type in (1,2) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="закрите кладовище на проєктний стан" key="{5fefac67-8626-4599-b52f-3275b0efc2ae}" filter="type in (3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інший" key="{bee45377-7497-4dc9-8635-4094a3cad864}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1091,7 +1091,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип кладовища"/>
     <alias field="name" index="14" name="назва"/>
     <alias field="f_year" index="15" name="рік останнього поховання"/>

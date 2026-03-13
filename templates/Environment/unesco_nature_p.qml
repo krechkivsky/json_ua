@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{d3bfce9b-1eeb-4daf-a66b-322fffb0f0e9}">
       <rule symbol="0" label="існуючі" key="{e0f5c3ca-7b0e-46a2-a360-bbefb579b5dc}" filter="status=1"/>
-      <rule symbol="1" label="проектні" key="{629d75c1-66ec-4518-aac3-273750b75c17}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="проєктні" key="{629d75c1-66ec-4518-aac3-273750b75c17}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{23089efd-8ce2-45b1-a555-bbe2f5b7ea8c}" filter="ELSE"/>
     </rules>
     <symbols>

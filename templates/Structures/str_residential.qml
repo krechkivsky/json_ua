@@ -147,8 +147,8 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{81f9316a-a421-4332-9e58-0dfc50e3962f}">
       <rule symbol="0" label="будівлі житлові існуючі" key="{d518f891-4347-4208-98ed-3e9ae5d63eb2}" filter=" &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="будівлі житлові проектні" key="{b75132f2-c69f-4370-b7cf-f9061137f995}" filter=" &quot;state&quot; in (8,9,10,11)"/>
-      <rule symbol="2" label="будівлі житлові запроектовані раніше" key="{1a203898-3b5d-4051-a1d3-14fcd5de4d0e}" filter=" &quot;state&quot; in (12)"/>
+      <rule symbol="1" label="будівлі житлові проєктні" key="{b75132f2-c69f-4370-b7cf-f9061137f995}" filter=" &quot;state&quot; in (8,9,10,11)"/>
+      <rule symbol="2" label="будівлі житлові запроєктовані раніше" key="{1a203898-3b5d-4051-a1d3-14fcd5de4d0e}" filter=" &quot;state&quot; in (12)"/>
       <rule symbol="3" label="будівлі житлові інші" key="{dcb4a70d-4fc2-436a-830e-d4d721c723df}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1865,7 +1865,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="function" index="13" name="функціональне призначення"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="ad_guid" index="15" name=""/>

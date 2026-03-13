@@ -1,0 +1,113 @@
+starostynstvo мають суміщатися з об'єктами hromada
+starostynstvo не повинні перекриватися starostynstvo
+settlement мають суміщатися з об'єктами hromada
+settlement не повинні перекриватися settlement
+city_district мають суміщатися з об'єктами settlement
+city_district не повинні перекриватися city_district
+function_zoning_in мають суміщатися з об'єктами hromada
+function_zoning_in не повинні перекриватися function_zoning_in
+function_zoning_in не повинні мати проміжків function_zoning_in
+function_zoning_pr мають суміщатися з об'єктами hromada
+function_zoning_pr не повинні перекриватися function_zoning_pr
+function_zoning_pr не повинні мати проміжків function_zoning_pr
+transport_corridors не повинні перекривати самі себе transport_corridors
+transport_corridors не повинні мати висячих вузлів transport_corridors
+transport_corridors мають складатися з однієї частини transport_corridors
+sublease мають суміщатися з об'єктами parcel
+agro_landscape_groups не повинні перекриватися agro_landscape_groups
+agro_soil не повинні перекриватися agro_soil
+areas_in_red_lines не повинні перекриватися areas_in_red_lines
+areas_in_blue_lines не повинні перекриватися areas_in_blue_lines
+areas_in_green_lines не повинні перекриватися areas_in_green_lines
+areas_in_yellow_lines_pg не повинні перекриватися areas_in_yellow_lines_pg
+building_reg_lines не повинні перекриватися building_reg_lines
+pzf_zon мають суміщатися з об'єктами pzf_pg
+pzf_zon не повинні перекриватися pzf_zon
+pzf_reserve не повинні перекриватися з pzf_pg
+pzf_reserve не повинні перекриватися з pzf_zon
+roads не повинні перекривати самі себе roads
+roads не повинні мати висячих вузлів roads
+roads мають складатися з однієї частини roads
+streets не повинні перекривати самі себе streets
+streets не повинні мати висячих вузлів streets
+streets мають складатися з однієї частини streets
+spec_roads не повинні перекривати самі себе spec_roads
+spec_roads не повинні мати висячих вузлів spec_roads
+spec_roads мають складатися з однієї частини spec_roads
+forest_roads не повинні перекривати самі себе forest_roads
+forest_roads не повинні мати висячих вузлів forest_roads
+forest_roads мають складатися з однієї частини forest_roads
+trails не повинні перекривати самі себе trails
+trails не повинні мати висячих вузлів trails
+trails мають складатися з однієї частини trails
+railways_main не повинні перекривати самі себе railways_main
+railways_main не повинні мати висячих вузлів railways_main
+railways_main мають складатися з однієї частини railways_main
+railways_local не повинні перекривати самі себе railways_local
+railways_local не повинні мати висячих вузлів railways_local
+railways_local мають складатися з однієї частини railways_local
+trolleybus_lines не повинні перекривати самі себе trolleybus_lines
+trolleybus_lines не повинні мати висячих вузлів trolleybus_lines
+trolleybus_lines мають складатися з однієї частини trolleybus_lines
+main_oil_pipes не повинні перекривати самі себе main_oil_pipes
+main_oil_pipes не повинні мати висячих вузлів main_oil_pipes
+main_oil_pipes мають складатися з однієї частини main_oil_pipes
+main_gas_pipes не повинні перекривати самі себе main_gas_pipes
+main_gas_pipes не повинні мати висячих вузлів main_gas_pipes
+main_gas_pipes мають складатися з однієї частини main_gas_pipes
+main_products_pipes не повинні перекривати самі себе main_products_pipes
+main_products_pipes не повинні мати висячих вузлів main_products_pipes
+main_products_pipes мають складатися з однієї частини main_products_pipes
+main_water_pipes не повинні перекривати самі себе main_water_pipes
+main_water_pipes не повинні мати висячих вузлів main_water_pipes
+main_water_pipes мають складатися з однієї частини main_water_pipes
+main_power_lines не повинні перекривати самі себе main_power_lines
+main_power_lines не повинні мати висячих вузлів main_power_lines
+main_power_lines мають складатися з однієї частини main_power_lines
+local_power_lines не повинні перекривати самі себе local_power_lines
+local_power_lines не повинні мати висячих вузлів local_power_lines
+local_power_lines мають складатися з однієї частини local_power_lines
+local_gas_pipes не повинні перекривати самі себе local_gas_pipes
+local_gas_pipes не повинні мати висячих вузлів local_gas_pipes
+local_gas_pipes мають складатися з однієї частини local_gas_pipes
+heating_pipes не повинні перекривати самі себе heating_pipes
+heating_pipes не повинні мати висячих вузлів heating_pipes
+heating_pipes мають складатися з однієї частини heating_pipes
+water_supply не повинні перекривати самі себе water_supply
+water_supply не повинні мати висячих вузлів water_supply
+water_supply мають складатися з однієї частини water_supply
+water_tech_supply не повинні перекривати самі себе water_tech_supply
+water_tech_supply не повинні мати висячих вузлів water_tech_supply
+water_tech_supply мають складатися з однієї частини water_tech_supply
+sewerage не повинні перекривати самі себе sewerage
+sewerage не повинні мати висячих вузлів sewerage
+sewerage мають складатися з однієї частини sewerage
+rain_water_sewer не повинні перекривати самі себе rain_water_sewer
+rain_water_sewer не повинні мати висячих вузлів rain_water_sewer
+rain_water_sewer мають складатися з однієї частини rain_water_sewer
+main_telecom_lines не повинні перекривати самі себе main_telecom_lines
+main_telecom_lines не повинні мати висячих вузлів main_telecom_lines
+main_telecom_lines мають складатися з однієї частини main_telecom_lines
+local_telecom_lines не повинні перекривати самі себе local_telecom_lines
+local_telecom_lines не повинні мати висячих вузлів local_telecom_lines
+local_telecom_lines мають складатися з однієї частини local_telecom_lines
+main_melioration_nets не повинні перекривати самі себе main_melioration_nets
+main_melioration_nets не повинні мати висячих вузлів main_melioration_nets
+main_melioration_nets мають складатися з однієї частини main_melioration_nets
+countur не повинні перекривати самі себе countur
+countur не повинні мати висячих вузлів countur
+countur мають складатися з однієї частини countur
+river не повинні перекривати самі себе river
+river не повинні мати висячих вузлів river
+river мають складатися з однієї частини river
+watershed не повинні перекриватися watershed
+degraded_soils не повинні перекриватися degraded_soils
+radionuclide_hazard не повинні перекриватися radionuclide_hazard
+techno_load не повинні перекриватися techno_load
+econet не повинні перекриватися econet
+emerald_network не повинні перекриватися emerald_network
+green_pg не повинні перекриватися green_pg
+slope не повинні перекриватися slope
+loess_sediments_pg не повинні перекриватися loess_sediments_pg
+melioration не повинні перекриватися melioration
+historic_rajon не повинні перекриватися historic_rajon

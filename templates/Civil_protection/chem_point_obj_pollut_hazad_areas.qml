@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{e6a549ce-aec3-47ff-adb6-6ed159a47c3d}">
       <rule symbol="0" label="існуючі" key="{3b666686-dcda-47c4-aa68-e43e6e0a471a}" filter="status=1"/>
-      <rule symbol="1" label="проектні" key="{5f6e3fb1-d1ea-4264-a461-031d4bec4a70}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="проєктні" key="{5f6e3fb1-d1ea-4264-a461-031d4bec4a70}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{d29b3989-96c0-4973-86cb-7aa316904dc9}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -764,7 +764,7 @@
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="depth" index="11" name="глибина зони можливого хімічного забруднення, км"/>
     <alias field="chm_guid" index="12" name="код ХНО"/>
-    <alias field="change" index="13" name="проектна зміна статусу"/>
+    <alias field="change" index="13" name="проєктна зміна статусу"/>
     <alias field="status" index="14" name="статус"/>
   </aliases>
   <splitPolicies>

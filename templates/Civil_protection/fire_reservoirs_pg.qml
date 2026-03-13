@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{934932ca-0303-4410-8c19-7b837fa6b7c1}">
       <rule symbol="0" label="існуючі" key="{f1099915-e723-4141-82f5-af424af00058}" filter="status=1"/>
-      <rule symbol="1" label="проектні" key="{d08efb45-308a-4f4a-bec2-82fe1dc4674a}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="проєктні" key="{d08efb45-308a-4f4a-bec2-82fe1dc4674a}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{30bc7269-c1d0-4910-9925-4f5ccef55717}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -658,7 +658,7 @@
     <alias field="label" index="8" name="підпис об'єкта"/>
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
-    <alias field="change" index="11" name="проектна зміна статусу"/>
+    <alias field="change" index="11" name="проєктна зміна статусу"/>
     <alias field="status" index="12" name="статус межі"/>
   </aliases>
   <splitPolicies>

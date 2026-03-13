@@ -148,8 +148,8 @@
     <rules key="{5b0aa5fc-8e8a-4817-bb2f-9b1a0e1b136c}">
       <rule symbol="0" label="насосна станція на магістральному водопроводі існуюча" key="{31a039f2-c3ee-4ade-b01f-0fe3fbb1d573}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="фільтраційна станція на магістральному водопроводі існуюча" key="{e2f61ef1-94b5-4f2c-b599-c33f2a86bacf}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="2" label="насосна станція на магістральному водопроводі проектна" key="{10b2d406-bd55-41ca-88eb-d520737ac1d0}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="фільтраційна станція на магістральному водопроводі проектна" key="{b57c97f6-4b93-4349-b6c6-b821e004364d}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="насосна станція на магістральному водопроводі проєктна" key="{10b2d406-bd55-41ca-88eb-d520737ac1d0}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="фільтраційна станція на магістральному водопроводі проєктна" key="{b57c97f6-4b93-4349-b6c6-b821e004364d}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -921,7 +921,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="z_kind" index="14" name="характер встановлення зони"/>
     <alias field="zso" index="15" name="розмір зони санітарної охорони, м"/>

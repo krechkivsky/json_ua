@@ -153,13 +153,13 @@
       <rule symbol="4" label="резервуар для зберігання питної води існуюча" key="{eb034707-3e1c-4161-8605-7b35d499aec8}" filter="type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="5" label="водонапірна башта питного водопостачання існуюча" key="{b257fc19-02f0-41ed-ae29-d26fa779709e}" filter="type=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="водяна свердловина, колодязь, бювет існуюча" key="{581e6e11-c6af-4a2b-8e1e-96f047d75abe}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="7" label="поверхневий водозабір питного водопостачання проектна" key="{d07ea94c-59a6-4513-bb37-6e498c9c65a1}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="підземний водозабір питного водопостачання проектна" key="{83e54fc2-7992-4dd9-a742-efc86c204aee}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="насосна станція на водопроводах питного водопостачання проектна" key="{ed1d0bc0-9e2a-4c9f-8a90-d133890e97e1}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="станція водопідготовки проектна" key="{99c1530a-2252-4b38-824e-151b57a9888d}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="резервуар для зберігання питної води проектна" key="{f8f85fc8-d797-4c33-bbb5-49db5a6520f3}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="водонапірна башта питного водопостачання проектна" key="{d607ad40-a954-4444-ba53-e526af8359c8}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="водяна свердловина, колодязь, бювет проектна" key="{df1313da-99c3-4b9e-8b11-f9362f87300e}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="поверхневий водозабір питного водопостачання проєктна" key="{d07ea94c-59a6-4513-bb37-6e498c9c65a1}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="підземний водозабір питного водопостачання проєктна" key="{83e54fc2-7992-4dd9-a742-efc86c204aee}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="насосна станція на водопроводах питного водопостачання проєктна" key="{ed1d0bc0-9e2a-4c9f-8a90-d133890e97e1}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="станція водопідготовки проєктна" key="{99c1530a-2252-4b38-824e-151b57a9888d}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="резервуар для зберігання питної води проєктна" key="{f8f85fc8-d797-4c33-bbb5-49db5a6520f3}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="водонапірна башта питного водопостачання проєктна" key="{d607ad40-a954-4444-ba53-e526af8359c8}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="водяна свердловина, колодязь, бювет проєктна" key="{df1313da-99c3-4b9e-8b11-f9362f87300e}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="14" label="інші" key="{f7fc76c1-6086-482f-9386-d0dd496e31ff}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1651,7 +1651,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту"/>
     <alias field="outr_in" index="14" name="потужність існуюча, куб. м на добу"/>
     <alias field="outr_pr" index="15" name="потужність на короткостроковий період, куб. м на добу"/>

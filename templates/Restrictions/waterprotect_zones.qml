@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{bc9246fb-cbba-47a0-a272-c4ecc203bf4d}">
       <rule symbol="0" label="водоохоронна зона існуюча" key="{48a08b4a-d386-43f2-b019-f7b2f215cb3c}" filter="status=1"/>
-      <rule symbol="1" label="водоохоронна зона проектна" key="{3c05e6fc-054c-4b2d-9e7e-20abd4b7064c}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="водоохоронна зона проєктна" key="{3c05e6fc-054c-4b2d-9e7e-20abd4b7064c}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{6db8719a-fe99-4eec-820f-3041460bca98}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -843,7 +843,7 @@
     <alias field="obj_name" index="13" name="назва водного об'єкту"/>
     <alias field="obj_guid" index="14" name=""/>
     <alias field="status" index="15" name="статус"/>
-    <alias field="change" index="16" name="проектна зміна статусу"/>
+    <alias field="change" index="16" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

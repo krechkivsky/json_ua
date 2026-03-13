@@ -236,7 +236,7 @@
   </selection>
   <labeling type="rule-based">
     <rules key="{935e3a15-3a4a-4ecc-a510-75806fe5e54e}">
-      <rule description="Проектна позначка висоти" key="{4859eae5-5fa4-4c16-8c28-9ccbd3814309}">
+      <rule description="проєктна позначка висоти" key="{4859eae5-5fa4-4c16-8c28-9ccbd3814309}">
         <settings calloutType="simple">
           <text-style fontItalic="0" namedStyle="??????????" allowHtml="0" forcedBold="0" previewBkgrdColor="255,255,255,255" forcedItalic="0" fontWeight="75" fontSizeMapUnitScale="3x:0,0,0,0,0,0" legendString="Aa" fontUnderline="0" fontSize="3" fontLetterSpacing="0" isExpression="1" multilineHeight="1" textOpacity="1" fontWordSpacing="0" textColor="227,26,28,255" multilineHeightUnit="Percentage" capitalization="0" fontSizeUnit="MM" fieldName="format_number(&quot;heig_pr&quot;,2)&#xd;&#xa;" blendMode="0" fontFamily="Arial" fontStrikeout="0" fontKerning="1" textOrientation="horizontal" useSubstitutions="0">
             <families/>
@@ -740,7 +740,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="heig_in" index="11" name="висотні відмітки при існуючому природному рельєфі, м"/>
-    <alias field="heig_pr" index="12" name="проектні висотні відмітки, м"/>
+    <alias field="heig_pr" index="12" name="проєктні висотні відмітки, м"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

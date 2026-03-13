@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{b8caa457-2e4a-49e1-9d68-4a7171c976d7}">
       <rule symbol="0" label="існуючі" key="{a9bfe483-48f9-4406-b379-b1a261d3da35}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектні" key="{37a1d117-c8fb-48cc-adfa-817d7183bc5a}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктні" key="{37a1d117-c8fb-48cc-adfa-817d7183bc5a}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{75d4d230-8c6f-4456-a7c7-6675a148f33a}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1053,7 +1053,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="_class" index="14" name="клас газопроводу"/>
     <alias field="category" index="15" name="категорія газопроводу"/>

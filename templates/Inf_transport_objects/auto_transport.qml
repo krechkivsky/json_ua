@@ -150,8 +150,8 @@
       <rule symbol="1" label="автостанція існуюча" key="{1bb11b6e-8774-4f33-ad83-3ccee9112ce5}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="диспетчерський пункт існуюча" key="{0829c9d6-27ea-48f0-a18b-85182e61c6b5}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="автовокзал проеткний" key="{5e071474-973a-42ac-84c0-b6feff9dd928}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="автостанція проектна" key="{2d7f0bac-73ac-4a1b-9faf-4b58baf2c239}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="диспетчерський пункт проектний" key="{42d81b91-d901-413f-b4cb-9b37e76fb8dc}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="автостанція проєктна" key="{2d7f0bac-73ac-4a1b-9faf-4b58baf2c239}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="диспетчерський пункт проєктний" key="{42d81b91-d901-413f-b4cb-9b37e76fb8dc}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="інші" key="{f209d67f-f221-4df4-9764-a7b178b450a0}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1699,29 +1699,29 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип об'єкту автотранспортних перевезень"/>
     <alias field="name" index="14" name="назва"/>
     <alias field="signific" index="15" name="значення об'єкту"/>
     <alias field="as_class" index="16" name="клас"/>
     <alias field="kind" index="17" name="вид сполучення"/>
     <alias field="pass_in" index="18" name="кількість відправлених пасажирів, існуюча, осіб на добу"/>
-    <alias field="pass_pr" index="19" name="кількість відправлених пасажирів, проектна на короткостроковий період, осіб на добу"/>
-    <alias field="pass_pro" index="20" name="кількість відправлених пасажирів, проектна на середньостроковий період, осіб на добу"/>
-    <alias field="pass_ext" index="21" name="кількість відправлених пасажирів, проектна на довгостроковий період, осіб на добу"/>
+    <alias field="pass_pr" index="19" name="кількість відправлених пасажирів, проєктна на короткостроковий період, осіб на добу"/>
+    <alias field="pass_pro" index="20" name="кількість відправлених пасажирів, проєктна на середньостроковий період, осіб на добу"/>
+    <alias field="pass_ext" index="21" name="кількість відправлених пасажирів, проєктна на довгостроковий період, осіб на добу"/>
     <alias field="veh_in" index="22" name="кількість відправлень існуюча, авт. на добу"/>
-    <alias field="veh_pr" index="23" name="кількість відправлень проектна на короткостроковий період, авт. на добу"/>
-    <alias field="veh_pro" index="24" name="кількість відправлень проектна на середньостроковий період, авт. на добу"/>
-    <alias field="veh_ext" index="25" name="кількість відправлень проектна на довгостроковий період, авт. на добу"/>
+    <alias field="veh_pr" index="23" name="кількість відправлень проєктна на короткостроковий період, авт. на добу"/>
+    <alias field="veh_pro" index="24" name="кількість відправлень проєктна на середньостроковий період, авт. на добу"/>
+    <alias field="veh_ext" index="25" name="кількість відправлень проєктна на довгостроковий період, авт. на добу"/>
     <alias field="plat_in" index="26" name="кількість платформ існуюча"/>
-    <alias field="plat_pr" index="27" name="кількість платформ проектна на короткостроковий період"/>
-    <alias field="plat_pro" index="28" name="кількість платформ проектна на середньостроковий період"/>
-    <alias field="plat_ext" index="29" name="кількість платформ проектна на довгостроковий період"/>
+    <alias field="plat_pr" index="27" name="кількість платформ проєктна на короткостроковий період"/>
+    <alias field="plat_pro" index="28" name="кількість платформ проєктна на середньостроковий період"/>
+    <alias field="plat_ext" index="29" name="кількість платформ проєктна на довгостроковий період"/>
     <alias field="z_kind" index="30" name="характер встановлення зони"/>
     <alias field="szz_in" index="31" name="розмір санітарно-захисної зони існуючий, м"/>
-    <alias field="szz_pr" index="32" name="розмір санітарно-захисної зони, проектний на короткостроковий період, м"/>
-    <alias field="szz_pro" index="33" name="розмір санітарно-захисної зони, проектний на середньостроковий період, м"/>
-    <alias field="szz_ext" index="34" name="розмір санітарно-захисної зони, проектний на довгостроковий період, м"/>
+    <alias field="szz_pr" index="32" name="розмір санітарно-захисної зони, проєктний на короткостроковий період, м"/>
+    <alias field="szz_pro" index="33" name="розмір санітарно-захисної зони, проєктний на середньостроковий період, м"/>
+    <alias field="szz_ext" index="34" name="розмір санітарно-захисної зони, проєктний на довгостроковий період, м"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

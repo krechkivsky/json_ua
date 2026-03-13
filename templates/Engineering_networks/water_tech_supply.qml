@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{6f016b2b-eace-4d39-8b1c-b77fb7c8c6ab}">
       <rule symbol="0" label="існуючий" key="{bde75c62-8079-4adf-9bf5-6f3528319de8}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектний" key="{e94d635c-9c49-47b3-ac52-5f1c9bad31a8}" filter=" &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктний" key="{e94d635c-9c49-47b3-ac52-5f1c9bad31a8}" filter=" &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{36e2e44d-e7b2-4a91-b404-85cda843453e}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -814,7 +814,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="kind" index="14" name="різновид водопроводу"/>
     <alias field="outr_in" index="15" name="потужність існуюча, куб. м на добу"/>

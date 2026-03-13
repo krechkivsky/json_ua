@@ -153,13 +153,13 @@
       <rule symbol="4" label="гідроакумулююча існуюча" key="{e47d69cb-f1f5-4938-bd7e-7ff31212bcc9}" filter="&quot;type&quot;=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="5" label="сонячна існуюча" key="{1a64fa07-ff57-4699-bb14-c600573c9cda}" filter="&quot;type&quot;=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="вітрова існуюча" key="{6155077d-5ade-437b-8a3a-4449d42de344}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="7" label="атомна проектна" key="{a1defde6-4b17-4a77-8409-2d5813c0c641}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="теплова проектна" key="{44bf6d8f-7d8d-421f-8ecf-115bdbb676a1}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="теплоелектроцентраль проектна" key="{aa27b214-629a-47f6-8c24-ce6d9e24b3d3}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="гідроелектростанція проектна" key="{01dd4329-62cd-453d-80d6-a517b45949f1}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="гідроакумулююча проектна" key="{897b8e76-f7d5-444e-b135-4a4861a222fd}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="сонячна проектна" key="{07ebf7d6-a855-4d76-8319-019853960b49}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="вітрова проектна" key="{bd4954bd-e979-496b-96c4-a9dff4d0bef7}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="атомна проєктна" key="{a1defde6-4b17-4a77-8409-2d5813c0c641}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="теплова проєктна" key="{44bf6d8f-7d8d-421f-8ecf-115bdbb676a1}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="теплоелектроцентраль проєктна" key="{aa27b214-629a-47f6-8c24-ce6d9e24b3d3}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="гідроелектростанція проєктна" key="{01dd4329-62cd-453d-80d6-a517b45949f1}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="гідроакумулююча проєктна" key="{897b8e76-f7d5-444e-b135-4a4861a222fd}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="сонячна проєктна" key="{07ebf7d6-a855-4d76-8319-019853960b49}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="вітрова проєктна" key="{bd4954bd-e979-496b-96c4-a9dff4d0bef7}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="14" label="інші" key="{ced48d85-ffa9-4c76-b4c4-ad5c8413352c}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2524,7 +2524,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип електростанції"/>
     <alias field="name" index="14" name="назва"/>
     <alias field="_source" index="15" name="вид енергоносія"/>

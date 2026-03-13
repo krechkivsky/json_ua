@@ -147,8 +147,8 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{81f9316a-a421-4332-9e58-0dfc50e3962f}">
       <rule symbol="0" label="виробничі будівлі та споруди існуючі" key="{834355e3-a1b2-461b-8750-ac7ba6895d11}" filter=" &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="виробничі будівлі та споруди проектні" key="{9ea23bc5-af0a-403c-ab4b-cb233169d9c2}" filter=" &quot;state&quot; in (8,9,10,11)"/>
-      <rule symbol="2" label="виробничі будівлі та споруди запроектовані раніше" key="{d518f891-4347-4208-98ed-3e9ae5d63eb2}" filter=" &quot;state&quot; in (12)"/>
+      <rule symbol="1" label="виробничі будівлі та споруди проєктні" key="{9ea23bc5-af0a-403c-ab4b-cb233169d9c2}" filter=" &quot;state&quot; in (8,9,10,11)"/>
+      <rule symbol="2" label="виробничі будівлі та споруди запроєктовані раніше" key="{d518f891-4347-4208-98ed-3e9ae5d63eb2}" filter=" &quot;state&quot; in (12)"/>
       <rule symbol="3" label="виробничі будівлі та споруди існуючі" key="{69058eef-8e1c-4e51-86b0-e151e7472765}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2183,14 +2183,14 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="function" index="13" name="функціональне призначення"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>
     <alias field="szz_in" index="16" name="розмір санітарно-захисної зони існуючий, м"/>
-    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проектний на короткостроковий період, м"/>
-    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проектний на середньостроковий період, м"/>
-    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проектний на довгостроковий період, м"/>
+    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проєктний на короткостроковий період, м"/>
+    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проєктний на середньостроковий період, м"/>
+    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проєктний на довгостроковий період, м"/>
     <alias field="san_gap" index="20" name="санітарний (інший) відступ, м"/>
     <alias field="ad_guid" index="21" name=""/>
     <alias field="square" index="22" name="площа забудови, м2"/>

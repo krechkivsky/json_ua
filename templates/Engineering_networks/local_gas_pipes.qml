@@ -150,10 +150,10 @@
       <rule symbol="1" label="високого тиску II категорії існуючий" key="{352f4777-8e82-4356-8f04-ebdc39d77f4d}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="середнього тиску існуючий" key="{b7e6c821-f1fd-4ba6-9954-f5c4100b8f1d}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="низького тиску існуючий" key="{14ac8d0b-3484-4446-a187-14000718e8d6}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="4" label="високого тиску I категорії проектний" key="{d229b379-4156-4dc3-8215-982addc8f7f9}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="високого тиску II категорії проектний" key="{c1db63d3-9a8e-46a5-8c8f-ebe0e0fa28f5}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="середнього тиску проектний" key="{6de0d203-8943-42ca-a59f-4c96620bf1d2}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="низького тиску проектний" key="{27d01a79-f1a9-44a1-b129-f11a5b685706}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="високого тиску I категорії проєктний" key="{d229b379-4156-4dc3-8215-982addc8f7f9}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="високого тиску II категорії проєктний" key="{c1db63d3-9a8e-46a5-8c8f-ebe0e0fa28f5}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="середнього тиску проєктний" key="{6de0d203-8943-42ca-a59f-4c96620bf1d2}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="низького тиску проєктний" key="{27d01a79-f1a9-44a1-b129-f11a5b685706}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="8" label="інші" key="{6a9c280c-a48c-4115-bbe5-c78c8bc7e8aa}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1733,7 +1733,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="категорія розподільного газопроводу"/>
     <alias field="diameter" index="15" name="переважний діаметр трубопроводу, мм"/>

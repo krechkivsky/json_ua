@@ -169,29 +169,29 @@
       <rule symbol="20" label="повітряний внутрішнього транспорту існуючий" key="{37fca81a-8218-4bfc-8fc0-78fa4195c0dc}" filter="t_type=11  and r_type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="21" label="фунікулер внутрішнього транспорту існуючий" key="{d1b3014a-fdb1-4edc-9813-78ba079d1f20}" filter="t_type=12  and r_type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="22" label="канатний внутрішнього транспорту існуючий" key="{a4f5eb61-0a53-4153-b693-b5a5bf787eff}" filter="t_type=13 and r_type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="23" label="автобусний зовнішнього транспорту проектний" key="{5dd185c2-24eb-48fe-a337-12ca9aeec5c4}" filter="t_type=1 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="24" label="трамвайний зовнішнього транспорту проектний" key="{947ddadc-94f1-4a8a-95fa-33a2c60c925b}" filter="t_type=2 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="25" label="швидкісний трамвайний зовнішнього транспорту проектний" key="{ca49a895-d7c7-4dc0-a17a-ee7da7bba538}" filter="t_type=3 and r_type in (1,2,3,4)  and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="26" label="тролейбусний зовнішнього транспорту проектний" key="{14c43123-3c10-4e09-82e3-5299be6dbd4e}" filter="t_type=4 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="27" label="залізничний зовнішнього транспорту проектний" key="{bf4f3ab4-8478-4c9e-8563-80687233839e}" filter="t_type=6 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="28" label="маршрутне таксі зовнішнього транспорту проектний" key="{6dd8f27d-9633-4419-8546-6ff9c0bfc123}" filter="t_type=7 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="29" label="шкільний автобус зовнішнього транспорту проектний" key="{7d1bbd25-ec5b-4985-94ce-5c8bf827bed3}" filter="t_type=8 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="30" label="річковий зовнішнього транспорту проектний" key="{92a4fcba-d9a8-4ff9-b278-11ee7a1c581a}" filter="t_type=9 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="31" label="морський зовнішнього транспорту проектний" key="{c248f81c-b34f-4deb-a68c-6a9ad372b805}" filter="t_type=10 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="32" label="повітряний зовнішнього транспорту проектний" key="{a586cac4-8f2d-43b5-8575-15863ec37b05}" filter="t_type=11 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="33" label="автобусний внутрішнього транспорту проектний" key="{cc0c611a-2a77-4df5-b3e1-26047d6d522a}" filter="t_type=1  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="34" label="трамвайний внутрішнього транспорту проектний" key="{73b23e14-9681-4961-8c07-99973bf7d22d}" filter="t_type=2  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="35" label="швидкісний трамвайний внутрішнього транспорту проектний" key="{decfeaa2-1518-449c-a1de-83ba5450d499}" filter="t_type=3  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="36" label="тролейбусний внутрішнього транспорту проектний" key="{82e6573a-bcfd-474f-a600-063b65903a36}" filter="t_type=4 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="37" label="метрополітен внутрішнього транспорту проектний" key="{ee3a312e-a6c8-4d61-9650-e26b9484165e}" filter="t_type=5  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="38" label="залізничний внутрішнього транспорту проектний" key="{db0cea92-6600-4be4-94be-762aedcc1e9e}" filter="t_type=6  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="39" label="маршрутне таксі внутрішнього транспорту проектний" key="{31ec25f8-f45d-4168-a564-d35de8ad934f}" filter="t_type=7  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="40" label="шкільний автобус  внутрішнього транспорту проектний" key="{6d8d341c-70cb-465e-9fd9-66c8acc500f5}" filter="t_type=8 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="41" label="річковий внутрішнього транспорту проектний" key="{1e1c07fc-6100-4dd8-bd0e-2db8b0053b21}" filter="t_type=9  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="42" label="морський внутрішнього транспорту проектний" key="{f8983255-6318-4303-aea0-dfffce9233d5}" filter="t_type=10 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="43" label="повітряний внутрішнього транспорту проектний" key="{cb8bfa79-020e-4d20-9412-c836306f936f}" filter="t_type=11  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="44" label="фунікулер внутрішнього транспорту проектний" key="{0abfe38f-e9fc-4ac9-a72b-1a0c3cb02f2f}" filter="t_type=12  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="45" label="канатний внутрішнього транспорту проектний" key="{55907612-76e0-4f03-93f7-78f37258a04e}" filter="t_type=13 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="23" label="автобусний зовнішнього транспорту проєктний" key="{5dd185c2-24eb-48fe-a337-12ca9aeec5c4}" filter="t_type=1 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="24" label="трамвайний зовнішнього транспорту проєктний" key="{947ddadc-94f1-4a8a-95fa-33a2c60c925b}" filter="t_type=2 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="25" label="швидкісний трамвайний зовнішнього транспорту проєктний" key="{ca49a895-d7c7-4dc0-a17a-ee7da7bba538}" filter="t_type=3 and r_type in (1,2,3,4)  and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="26" label="тролейбусний зовнішнього транспорту проєктний" key="{14c43123-3c10-4e09-82e3-5299be6dbd4e}" filter="t_type=4 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="27" label="залізничний зовнішнього транспорту проєктний" key="{bf4f3ab4-8478-4c9e-8563-80687233839e}" filter="t_type=6 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="28" label="маршрутне таксі зовнішнього транспорту проєктний" key="{6dd8f27d-9633-4419-8546-6ff9c0bfc123}" filter="t_type=7 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="29" label="шкільний автобус зовнішнього транспорту проєктний" key="{7d1bbd25-ec5b-4985-94ce-5c8bf827bed3}" filter="t_type=8 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="30" label="річковий зовнішнього транспорту проєктний" key="{92a4fcba-d9a8-4ff9-b278-11ee7a1c581a}" filter="t_type=9 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="31" label="морський зовнішнього транспорту проєктний" key="{c248f81c-b34f-4deb-a68c-6a9ad372b805}" filter="t_type=10 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="32" label="повітряний зовнішнього транспорту проєктний" key="{a586cac4-8f2d-43b5-8575-15863ec37b05}" filter="t_type=11 and r_type in (1,2,3,4) and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="33" label="автобусний внутрішнього транспорту проєктний" key="{cc0c611a-2a77-4df5-b3e1-26047d6d522a}" filter="t_type=1  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="34" label="трамвайний внутрішнього транспорту проєктний" key="{73b23e14-9681-4961-8c07-99973bf7d22d}" filter="t_type=2  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="35" label="швидкісний трамвайний внутрішнього транспорту проєктний" key="{decfeaa2-1518-449c-a1de-83ba5450d499}" filter="t_type=3  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="36" label="тролейбусний внутрішнього транспорту проєктний" key="{82e6573a-bcfd-474f-a600-063b65903a36}" filter="t_type=4 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="37" label="метрополітен внутрішнього транспорту проєктний" key="{ee3a312e-a6c8-4d61-9650-e26b9484165e}" filter="t_type=5  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="38" label="залізничний внутрішнього транспорту проєктний" key="{db0cea92-6600-4be4-94be-762aedcc1e9e}" filter="t_type=6  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="39" label="маршрутне таксі внутрішнього транспорту проєктний" key="{31ec25f8-f45d-4168-a564-d35de8ad934f}" filter="t_type=7  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="40" label="шкільний автобус  внутрішнього транспорту проєктний" key="{6d8d341c-70cb-465e-9fd9-66c8acc500f5}" filter="t_type=8 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="41" label="річковий внутрішнього транспорту проєктний" key="{1e1c07fc-6100-4dd8-bd0e-2db8b0053b21}" filter="t_type=9  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="42" label="морський внутрішнього транспорту проєктний" key="{f8983255-6318-4303-aea0-dfffce9233d5}" filter="t_type=10 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="43" label="повітряний внутрішнього транспорту проєктний" key="{cb8bfa79-020e-4d20-9412-c836306f936f}" filter="t_type=11  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="44" label="фунікулер внутрішнього транспорту проєктний" key="{0abfe38f-e9fc-4ac9-a72b-1a0c3cb02f2f}" filter="t_type=12  and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="45" label="канатний внутрішнього транспорту проєктний" key="{55907612-76e0-4f03-93f7-78f37258a04e}" filter="t_type=13 and r_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="46" label="інші" key="{ebbb2535-295e-4fbb-b7db-e4fda7950f0e}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -8127,7 +8127,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="name" index="13" name="назва"/>
     <alias field="t_type" index="14" name="тип транспорту"/>
     <alias field="r_type" index="15" name="тип маршруту"/>

@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{10283ee7-c652-4425-907b-7a97817b2694}">
       <rule symbol="0" label="смуги відведення гідротехнічних споруд існуючі" key="{9b81031b-3326-4286-8822-32b3142949f3}" filter="status=1"/>
-      <rule symbol="1" label="смуги відведення гідротехнічних споруд проектні" key="{6da4d143-28e0-46fb-b0dc-a507d81fd61e}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="смуги відведення гідротехнічних споруд проєктні" key="{6da4d143-28e0-46fb-b0dc-a507d81fd61e}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{d42a1c12-0a59-4988-926b-4b1418887c45}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -846,7 +846,7 @@
     <alias field="obj_name" index="13" name="назва гідротехнічної споруди"/>
     <alias field="obj_guid" index="14" name=""/>
     <alias field="status" index="15" name="статус"/>
-    <alias field="change" index="16" name="проектна зміна статусу"/>
+    <alias field="change" index="16" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

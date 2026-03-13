@@ -155,15 +155,15 @@
       <rule symbol="6" label="дюкер існуючий" key="{f0200000-f828-493d-978e-fc29eb6ff1d3}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="7" label="споруда систем водозабезпечення землеробства існуюча" key="{b65d8ba5-f940-4931-8eef-698016137f85}" filter="type=8 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="8" label="споруда осушувальних систем існуюча" key="{d756e68b-db9e-466e-b0c2-00c9414425ba}" filter="type=9 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="9" label="канал судноплавний проектний" key="{e83d7c9e-982e-4055-848a-62622f755e11}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="шлюз або інша судноплавна споруда на річках та каналах проектний" key="{b45a186d-e9b1-4c65-8b00-8461c0f0045b}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="гребля проектна" key="{c5b00806-7144-45fd-becf-7702f2eda4cc}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="дамба проектна" key="{4055d2a4-81b0-45b5-a334-3eda6a759aa2}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="берегоукріплювальна споруда проектна" key="{438fecbf-f176-4b80-a2d7-20efa0a708df}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="акведук проектний" key="{c3732198-1701-442f-b10b-f0f3ae7b9691}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="дюкер проектний" key="{ed6e2c81-f88a-4c14-92f8-309e67f753ca}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="16" label="споруда систем водозабезпечення землеробства проектна" key="{ee2e5832-de1d-457c-ba91-26ae35243252}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="17" label="споруда осушувальних систем проектна" key="{a8ac1193-d225-446c-97f0-348dae2bbb56}" filter="type=9 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="канал судноплавний проєктний" key="{e83d7c9e-982e-4055-848a-62622f755e11}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="шлюз або інша судноплавна споруда на річках та каналах проєктний" key="{b45a186d-e9b1-4c65-8b00-8461c0f0045b}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="гребля проєктна" key="{c5b00806-7144-45fd-becf-7702f2eda4cc}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="дамба проєктна" key="{4055d2a4-81b0-45b5-a334-3eda6a759aa2}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="берегоукріплювальна споруда проєктна" key="{438fecbf-f176-4b80-a2d7-20efa0a708df}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="акведук проєктний" key="{c3732198-1701-442f-b10b-f0f3ae7b9691}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="дюкер проєктний" key="{ed6e2c81-f88a-4c14-92f8-309e67f753ca}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="16" label="споруда систем водозабезпечення землеробства проєктна" key="{ee2e5832-de1d-457c-ba91-26ae35243252}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="17" label="споруда осушувальних систем проєктна" key="{a8ac1193-d225-446c-97f0-348dae2bbb56}" filter="type=9 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="18" label="не визначено" key="{0ecd3ab5-2e4e-4992-bcb6-fa943ab1ef4b}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -5284,7 +5284,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип гідроінженерної споруди"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>

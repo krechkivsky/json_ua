@@ -157,17 +157,17 @@
       <rule symbol="8" label="зоологічний парк існуючий" key="{368de0bc-2b5c-4986-abe3-868aafd682b0}" filter="category=9 and status=1"/>
       <rule symbol="9" label="дендрологічний парк існуючий" key="{37c1f1f9-07d0-446a-aaf9-aa9f059d4917}" filter="category=10 and status=1"/>
       <rule symbol="10" label="парк-пам'ятка садово-паркового мистецтва існуючий" key="{5a3044fd-e37a-4dc7-be17-42b7cf411a38}" filter="category=11 and status=1"/>
-      <rule symbol="11" label="природний заповідник проектний" key="{7fbd1d23-ec02-4f7f-a455-bb3e5e7cf395}" filter="category=1 and status in (2,3,4,5)"/>
-      <rule symbol="12" label="біосферний заповідник проектний" key="{ccead535-5c0a-4ba8-a9cf-e94805dc760a}" filter="category=2 and status in (2,3,4,5)"/>
-      <rule symbol="13" label="національний природний парк проектний" key="{635f2bf6-263f-40bc-ad9c-52e2f05d05b3}" filter="category=3 and status in (2,3,4,5)"/>
-      <rule symbol="14" label="регіональний ландшафтний парк проектний" key="{e61e5ba4-74a7-40e2-9a1e-bd63628cbf03}" filter="category=4 and status in (2,3,4,5)"/>
-      <rule symbol="15" label="заказник проектний" key="{9ecbe11c-e4c8-4e2a-b8da-1b17df7b8d06}" filter="category=5 and status in (2,3,4,5)"/>
-      <rule symbol="16" label="пам'ятка природи проектний" key="{d61bc960-7edf-4f0e-922e-3e9e058172c4}" filter="category=6 and status in (2,3,4,5)"/>
-      <rule symbol="17" label="заповідне урочище проектне" key="{ede3d01f-c90f-4468-87e8-36d690bc096c}" filter="category=7 and status in (2,3,4,5)"/>
-      <rule symbol="18" label="ботанічний сад проектний" key="{bb163aef-f28d-4c4f-abcd-529d67bdcdc6}" filter="category=8 and status in (2,3,4,5)"/>
-      <rule symbol="19" label="зоологічний парк проектний" key="{e9bdfc99-25bc-4fc2-9531-eae3d96c4978}" filter="category=9 and status in (2,3,4,5)"/>
-      <rule symbol="20" label="дендрологічний парк проектний" key="{5113d32c-5aba-47ce-9c37-51c87dc2e9fd}" filter="category=10 and status in (2,3,4,5)"/>
-      <rule symbol="21" label="парк-пам'ятка садово-паркового мистецтва проектний" key="{7667efde-91c0-401a-9860-a7d80710ff20}" filter="category=11 and status in (2,3,4,5)"/>
+      <rule symbol="11" label="природний заповідник проєктний" key="{7fbd1d23-ec02-4f7f-a455-bb3e5e7cf395}" filter="category=1 and status in (2,3,4,5)"/>
+      <rule symbol="12" label="біосферний заповідник проєктний" key="{ccead535-5c0a-4ba8-a9cf-e94805dc760a}" filter="category=2 and status in (2,3,4,5)"/>
+      <rule symbol="13" label="національний природний парк проєктний" key="{635f2bf6-263f-40bc-ad9c-52e2f05d05b3}" filter="category=3 and status in (2,3,4,5)"/>
+      <rule symbol="14" label="регіональний ландшафтний парк проєктний" key="{e61e5ba4-74a7-40e2-9a1e-bd63628cbf03}" filter="category=4 and status in (2,3,4,5)"/>
+      <rule symbol="15" label="заказник проєктний" key="{9ecbe11c-e4c8-4e2a-b8da-1b17df7b8d06}" filter="category=5 and status in (2,3,4,5)"/>
+      <rule symbol="16" label="пам'ятка природи проєктний" key="{d61bc960-7edf-4f0e-922e-3e9e058172c4}" filter="category=6 and status in (2,3,4,5)"/>
+      <rule symbol="17" label="заповідне урочище проєктне" key="{ede3d01f-c90f-4468-87e8-36d690bc096c}" filter="category=7 and status in (2,3,4,5)"/>
+      <rule symbol="18" label="ботанічний сад проєктний" key="{bb163aef-f28d-4c4f-abcd-529d67bdcdc6}" filter="category=8 and status in (2,3,4,5)"/>
+      <rule symbol="19" label="зоологічний парк проєктний" key="{e9bdfc99-25bc-4fc2-9531-eae3d96c4978}" filter="category=9 and status in (2,3,4,5)"/>
+      <rule symbol="20" label="дендрологічний парк проєктний" key="{5113d32c-5aba-47ce-9c37-51c87dc2e9fd}" filter="category=10 and status in (2,3,4,5)"/>
+      <rule symbol="21" label="парк-пам'ятка садово-паркового мистецтва проєктний" key="{7667efde-91c0-401a-9860-a7d80710ff20}" filter="category=11 and status in (2,3,4,5)"/>
     </rules>
     <symbols>
       <symbol type="marker" clip_to_extent="1" force_rhr="0" alpha="1" name="0" frame_rate="10" is_animated="0">

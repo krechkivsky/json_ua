@@ -151,11 +151,11 @@
       <rule symbol="2" label="другий пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (обмеження) існуючий" key="{2d8df51b-9344-4538-a1f1-3d8dfc2bad0c}" filter=" &quot;res_code&quot; ='02.01.2' and status =1"/>
       <rule symbol="3" label="третій пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (спостереження) існуючий" key="{6734afb3-1d44-4ff0-855d-5995cc1a8adc}" filter=" &quot;res_code&quot; ='02.01.3' and status =1"/>
       <rule symbol="4" label="санітарно-захисна смуга об'єкта водопостачання існуюча" key="{8719e22d-4c27-498d-a660-5fc133827465}" filter=" &quot;res_code&quot; ='02.01.4' and status =1"/>
-      <rule symbol="5" label="зона санітарної охорони джерел та об'єктів централізованого питного водопостачання проектна" key="{ddca2e0d-f98d-4fb8-a2f0-b8b6f5c4d49e}" filter=" &quot;res_code&quot; ='02.01' and status in (2,3,4,5)"/>
-      <rule symbol="6" label="перший пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (суворого режиму) проектний" key="{f52027f0-44bd-48e2-ae16-21fe19a9fc3c}" filter=" &quot;res_code&quot; ='02.01.1' and status in (2,3,4,5)"/>
-      <rule symbol="7" label="другий пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (обмеження) проектний" key="{4cc14c19-000d-4de2-ad80-5694f363dc03}" filter=" &quot;res_code&quot; ='02.01.2' and status in (2,3,4,5)"/>
-      <rule symbol="8" label="третій пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (спостереження) проектний" key="{a017e525-d57f-426b-bcfa-8b79534c3fe3}" filter=" &quot;res_code&quot; ='02.01.3' and status in (2,3,4,5)"/>
-      <rule symbol="9" label="санітарно-захисна смуга об'єкта водопостачання проектна" key="{ef722b32-01c2-4a69-9d97-00731e6e8916}" filter=" &quot;res_code&quot; ='02.01.4' and status in (2,3,4,5)"/>
+      <rule symbol="5" label="зона санітарної охорони джерел та об'єктів централізованого питного водопостачання проєктна" key="{ddca2e0d-f98d-4fb8-a2f0-b8b6f5c4d49e}" filter=" &quot;res_code&quot; ='02.01' and status in (2,3,4,5)"/>
+      <rule symbol="6" label="перший пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (суворого режиму) проєктний" key="{f52027f0-44bd-48e2-ae16-21fe19a9fc3c}" filter=" &quot;res_code&quot; ='02.01.1' and status in (2,3,4,5)"/>
+      <rule symbol="7" label="другий пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (обмеження) проєктний" key="{4cc14c19-000d-4de2-ad80-5694f363dc03}" filter=" &quot;res_code&quot; ='02.01.2' and status in (2,3,4,5)"/>
+      <rule symbol="8" label="третій пояс зони санітарної охорони джерел та об'єктів централізованого питного водопостачання (спостереження) проєктний" key="{a017e525-d57f-426b-bcfa-8b79534c3fe3}" filter=" &quot;res_code&quot; ='02.01.3' and status in (2,3,4,5)"/>
+      <rule symbol="9" label="санітарно-захисна смуга об'єкта водопостачання проєктна" key="{ef722b32-01c2-4a69-9d97-00731e6e8916}" filter=" &quot;res_code&quot; ='02.01.4' and status in (2,3,4,5)"/>
       <rule symbol="10" label="інші" key="{d8157194-4688-4454-9d1d-d3bb7c260a70}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1769,7 +1769,7 @@
     <alias field="obj_guid" index="14" name=""/>
     <alias field="size" index="15" name="розмір зони, м"/>
     <alias field="status" index="16" name="статус"/>
-    <alias field="change" index="17" name="проектна зміна статусу"/>
+    <alias field="change" index="17" name="проєктна зміна статусу"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

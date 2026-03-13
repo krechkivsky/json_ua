@@ -17,12 +17,16 @@
 
 from dataclasses import dataclass, field
 import os
+import re
 from typing import List, Optional
 
 from qgis.core import QgsProject, Qgis, QgsLayerTreeGroup, QgsLayerTreeLayer
 from qgis.PyQt.QtCore import Qt, QModelIndex, QTimer
 
 from . import common
+
+
+PROJECT_FOLDER_PATTERN = re.compile(r"^BGD_(GP|KP|DPT)_UA\d{17}(?:_[^\s]+)?$")
 
 
 @dataclass
@@ -244,7 +248,7 @@ class OpenedProjects:
             if self.iface is not None:
                 self.iface.messageBar().pushMessage(
                     "GeoJsonUa",
-                    f"Поточний проект {name}.",
+                    f"Поточний проєкт {name}.",
                     level=Qgis.Info,
                     duration=5,
                 )
@@ -258,7 +262,7 @@ class OpenedProjects:
             if self.iface is not None:
                 self.iface.messageBar().pushMessage(
                     "GeoJsonUa",
-                    "Нема активного проекта.",
+                    "Нема активного проєкта.",
                     level=Qgis.Info,
                     duration=5,
                 )
@@ -411,8 +415,10 @@ class OpenedProjects:
     def _is_katotth_name(self, name: str) -> bool:
         if not name or name.startswith("old_"):
             return False
-        base = name.split("_", 1)[0].upper()
-        return len(base) == 19 and base.startswith("UA") and base[2:].isdigit()
+        candidate = name.strip().upper()
+        if " " in candidate:
+            return False
+        return bool(PROJECT_FOLDER_PATTERN.fullmatch(candidate))
 
     def _is_katotth_group_name(self, group: object) -> bool:
         if common.LOG:
@@ -550,7 +556,7 @@ class OpenedProjects:
             if self.iface is not None:
                 self.iface.messageBar().pushMessage(
                     "GeoJsonUa",
-                    f"Поточний проект {name}.",
+                    f"Поточний проєкт {name}.",
                     level=Qgis.Info,
                     duration=5,
                 )

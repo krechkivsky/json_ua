@@ -159,19 +159,19 @@
       <rule symbol="10" label="шляхопровід існуючий" key="{84f96d59-64aa-4758-874e-55f52b0385ec}" filter="function='12' and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="11" label="тунель існуючий" key="{a4751bf7-b733-48a7-b71e-9bd11e63588d}" filter="function='13' and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="12" label="пішохідні майдани, тротуари, пішохідні зони існуючі" key="{f1750bd5-bbfe-4778-b7f4-ce36cbc79c65}" filter="function='14' and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="13" label="будівля чи споруда транспорту проектна" key="{ce38c8c1-64ce-48cd-adfe-bd60d5a7ebad}" filter="function='0 'and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="пасажирських перевезень проектна" key="{5f305e7c-797c-4b37-b59b-72f3632384a8}" filter="function='1' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="транспортного підприємства проектна" key="{83f5cf48-6e81-4950-adb5-617199aed075}" filter="function='2' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="16" label="технічного обслуговування транспорту, дорожнього сервісу проектна" key="{6f2d8e71-d8bc-4ac2-b4e7-404d2cad27ca}" filter="function='3' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="17" label="гаражів наземних та підземних, автостоянки проектна" key="{00138fae-d7aa-4316-b9d3-fe1624423aa8}" filter="function in ('4','5','6') and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="будівля чи споруда транспорту проєктна" key="{ce38c8c1-64ce-48cd-adfe-bd60d5a7ebad}" filter="function='0 'and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="пасажирських перевезень проєктна" key="{5f305e7c-797c-4b37-b59b-72f3632384a8}" filter="function='1' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="транспортного підприємства проєктна" key="{83f5cf48-6e81-4950-adb5-617199aed075}" filter="function='2' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="16" label="технічного обслуговування транспорту, дорожнього сервісу проєктна" key="{6f2d8e71-d8bc-4ac2-b4e7-404d2cad27ca}" filter="function='3' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="17" label="гаражів наземних та підземних, автостоянки проєктна" key="{00138fae-d7aa-4316-b9d3-fe1624423aa8}" filter="function in ('4','5','6') and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="18" label="тверде покриття для проїзду автотранспорту прроектна" key="{c120bdb8-89be-4d3e-8379-1dcfaf8f63aa}" filter="function='7' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="19" label="залізнична платформа проектна" key="{038d655e-1f4b-453e-a3c8-dc93ddf6bf63}" filter="function='8' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="20" label="портова споруда проектна" key="{29b40871-cea6-4a07-9d7f-cb8a7db107ef}" filter="function='9' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="21" label="злітно-посадкова смуга, майданчик проектна" key="{cd4240e9-9f8b-4dc4-9aca-b6a5cb79f1c4}" filter="function='10' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="22" label="мостовий перехід проектний" key="{daf03e97-2fe7-431a-8570-fc7addb5bb8a}" filter="function='11' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="23" label="шляхопровід проектний" key="{2e28fc96-0e1f-4493-ad5b-77256998fa25}" filter="function='12' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="24" label="тунель проектний" key="{f8867150-b7b2-4018-9c90-92cce837a400}" filter="function='13' and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="25" label="пішохідні майдани, тротуари, пішохідні зони проектні" key="{bcc8be9c-de85-480f-ac0c-069151767485}" filter="function='14' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="19" label="залізнична платформа проєктна" key="{038d655e-1f4b-453e-a3c8-dc93ddf6bf63}" filter="function='8' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="20" label="портова споруда проєктна" key="{29b40871-cea6-4a07-9d7f-cb8a7db107ef}" filter="function='9' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="21" label="злітно-посадкова смуга, майданчик проєктна" key="{cd4240e9-9f8b-4dc4-9aca-b6a5cb79f1c4}" filter="function='10' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="22" label="мостовий перехід проєктний" key="{daf03e97-2fe7-431a-8570-fc7addb5bb8a}" filter="function='11' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="23" label="шляхопровід проєктний" key="{2e28fc96-0e1f-4493-ad5b-77256998fa25}" filter="function='12' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="24" label="тунель проєктний" key="{f8867150-b7b2-4018-9c90-92cce837a400}" filter="function='13' and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="25" label="пішохідні майдани, тротуари, пішохідні зони проєктні" key="{bcc8be9c-de85-480f-ac0c-069151767485}" filter="function='14' and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="26" label="інші" key="{98b93096-8f9d-487a-a53b-77183ee33938}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1608,14 +1608,14 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="function" index="13" name="функціональне призначення"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>
     <alias field="szz_in" index="16" name="розмір санітарно-захисної зони існуючий, м"/>
-    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проектний на короткостроковий період, м"/>
-    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проектний на середньостроковий період, м"/>
-    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проектний на довгостроковий період, м"/>
+    <alias field="szz_pr" index="17" name="розмір санітарно-захисної зони, проєктний на короткостроковий період, м"/>
+    <alias field="szz_pro" index="18" name="розмір санітарно-захисної зони, проєктний на середньостроковий період, м"/>
+    <alias field="szz_ext" index="19" name="розмір санітарно-захисної зони, проєктний на довгостроковий період, м"/>
     <alias field="san_gap" index="20" name="санітарний (інший) відступ, м"/>
     <alias field="ad_guid" index="21" name=""/>
     <alias field="square" index="22" name="площа забудови, м2"/>

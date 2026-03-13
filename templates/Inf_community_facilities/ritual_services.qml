@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{3cbc5e3b-8386-43e8-843f-7ee62eee899a}">
       <rule symbol="0" label="існуючі" key="{dbd40575-4ded-4d66-9b28-16be85b7075d}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="1" label="проектні" key="{04c071be-e958-446c-89f3-095846147838}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="1" label="проєктні" key="{04c071be-e958-446c-89f3-095846147838}" filter="&quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="2" label="інші" key="{bee45377-7497-4dc9-8635-4094a3cad864}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -871,7 +871,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="name" index="13" name="назва"/>
     <alias field="outturn" index="14" name="потужність, поховань на добу"/>
   </aliases>

@@ -154,14 +154,14 @@
       <rule symbol="5" label="локомотивне депо існуюче" key="{5991ba66-25a2-4feb-b89e-5dd23b8dae54}" filter="type=6 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="6" label="вагонне депо існуюче" key="{eab860ad-1977-43aa-bd5b-80a0db48a238}" filter="type=7 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="7" label="пункт технічного огляду вагонів  існуючий" key="{c2a218da-4760-493b-a243-55324b1d5282}" filter="type=8 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="8" label="автотранспортне підприємство проектний" key="{881712b6-1dfa-4ec1-ab85-e59ee87d145c}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="трамвайне депо проектне" key="{66ac4247-b677-4f7b-b5e1-6c281ac746fa}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="10" label="тролейбусне депо проектне" key="{5375aaa1-fcff-4c69-9993-9e5adb9bfcf3}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="11" label="депо метрополітену проектне" key="{f2339a36-91a6-4486-8842-7662bb2a044a}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="12" label="таксопарк проектний" key="{a22c62e3-54a6-4b72-a188-0d9c233f4fd6}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="13" label="локомотивне депо проектне" key="{dc6a6271-5009-4c97-8af6-881a186d5bac}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="вагонне депо проектне" key="{f7fe033a-7b6a-47d1-b9aa-8a25059b784e}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="пункт технічного огляду вагонів  проектний" key="{4dfdb505-69a1-4514-adfc-6459cde319b9}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="автотранспортне підприємство проєктний" key="{881712b6-1dfa-4ec1-ab85-e59ee87d145c}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="трамвайне депо проєктне" key="{66ac4247-b677-4f7b-b5e1-6c281ac746fa}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="10" label="тролейбусне депо проєктне" key="{5375aaa1-fcff-4c69-9993-9e5adb9bfcf3}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="11" label="депо метрополітену проєктне" key="{f2339a36-91a6-4486-8842-7662bb2a044a}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="12" label="таксопарк проєктний" key="{a22c62e3-54a6-4b72-a188-0d9c233f4fd6}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="13" label="локомотивне депо проєктне" key="{dc6a6271-5009-4c97-8af6-881a186d5bac}" filter="type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="вагонне депо проєктне" key="{f7fe033a-7b6a-47d1-b9aa-8a25059b784e}" filter="type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="пункт технічного огляду вагонів  проєктний" key="{4dfdb505-69a1-4514-adfc-6459cde319b9}" filter="type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="16" label="інші" key="{6ba56824-27a8-44d6-83e5-70b0b1a9c647}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2135,7 +2135,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип підприємства"/>
     <alias field="ent_area" index="14" name="площа, га"/>
     <alias field="haz_cl" index="15" name="клас шкідливості"/>

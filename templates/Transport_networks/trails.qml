@@ -151,11 +151,11 @@
       <rule symbol="2" label="доріжка для суміщеного руху пішоходів та велосипедної їзди існуюча" key="{645b1339-460a-4429-83cb-d0f05f73d994}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="доріжка для верхової їзди існуюча" key="{0727bf9b-8229-499a-9816-1ca8d30116fd}" filter="type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="4" label="стежка існуюча" key="{69ee620f-7693-468a-b4c3-9ffec30ad167}" filter="type=5 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="5" label="пішохідна доріжка проектна" key="{7a9db0a8-7aaa-4477-9e5e-17d9fd16cbc9}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="доріжка для велосипедної їзди проектна" key="{134ca4e3-a84d-4a24-a76b-5f67e45fa2fe}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="доріжка для суміщеного руху пішоходів та велосипедної їзди проектна" key="{404eb14c-663a-4031-a1d9-f43414bec726}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="8" label="доріжка для верхової їзди проектна" key="{5988e643-fc05-4522-8e1a-08326865936d}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="9" label="стежка проектна" key="{825312d9-9b54-4668-ad5a-0e1e08e3e3e4}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="пішохідна доріжка проєктна" key="{7a9db0a8-7aaa-4477-9e5e-17d9fd16cbc9}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="доріжка для велосипедної їзди проєктна" key="{134ca4e3-a84d-4a24-a76b-5f67e45fa2fe}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="доріжка для суміщеного руху пішоходів та велосипедної їзди проєктна" key="{404eb14c-663a-4031-a1d9-f43414bec726}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="8" label="доріжка для верхової їзди проєктна" key="{5988e643-fc05-4522-8e1a-08326865936d}" filter="type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="9" label="стежка проєктна" key="{825312d9-9b54-4668-ad5a-0e1e08e3e3e4}" filter="type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="10" label="інші" key="{0366472b-c8b4-4031-89c6-36cd9923f758}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1992,7 +1992,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="різновид доріжки"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
   </aliases>

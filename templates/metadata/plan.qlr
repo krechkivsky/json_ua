@@ -340,8 +340,8 @@
       </fieldConfiguration>
       <aliases>
         <alias field="fid" index="0" name=""/>
-        <alias field="sol_num" index="1" name="номер проектного рішення"/>
-        <alias field="solution" index="2" name="проектне рішення"/>
+        <alias field="sol_num" index="1" name="номер проєктного рішення"/>
+        <alias field="solution" index="2" name="проєктне рішення"/>
         <alias field="ind_name" index="3" name="назва індикатору"/>
         <alias field="unit" index="4" name="одиниця виміру"/>
         <alias field="ind_in" index="5" name="значення існуючого стану"/>

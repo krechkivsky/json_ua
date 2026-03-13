@@ -148,8 +148,8 @@
     <rules key="{ceed6784-946d-46d7-b4a2-e77142c2ee10}">
       <rule description="однорівнева існуючий" symbol="0" label="однорівнева існуюча" key="{7d3bf957-7154-452f-82f7-52b335b810e8}" filter=" &quot;type&quot;  = 1 and  &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule description="багаторівнева існуючий" symbol="1" label="багаторівнева існуюча" key="{92a37a3e-921b-40cc-b768-2cb25789dc18}" filter=" &quot;type&quot;  = 2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule description="однорівнева проект" symbol="2" label="однорівнева проектна" key="{0921a645-e37e-4df1-a5ff-fd725da9192b}" filter=" &quot;type&quot;  = 1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule description="багаторівнева проектний" symbol="3" label="багаторівнева проектна" key="{b802dc70-dc1a-4da2-858a-0ad2cb424a87}" filter=" &quot;type&quot;  = 2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule description="однорівнева проєкт" symbol="2" label="однорівнева проєктна" key="{0921a645-e37e-4df1-a5ff-fd725da9192b}" filter=" &quot;type&quot;  = 1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule description="багаторівнева проєктний" symbol="3" label="багаторівнева проєктна" key="{b802dc70-dc1a-4da2-858a-0ad2cb424a87}" filter=" &quot;type&quot;  = 2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інший" key="{3fd44e4f-d3ad-4bb9-befb-75d2023ebfed}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1010,7 +1010,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип розв'язки"/>
     <alias field="lev_in" index="14" name="кількість рівнів існуюча"/>
     <alias field="lev_pr" index="15" name="кількість рівнів на короткостроковий період"/>

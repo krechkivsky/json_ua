@@ -693,9 +693,9 @@
         <alias field="decision_authority" index="30" name="Назва органу, щи прийняв рішення щодо розроблення документації"/>
         <alias field="decision_date" index="31" name="Дата рішення щодо розроблення документації"/>
         <alias field="decision_number" index="32" name="Номер рішення щодо розроблення документації"/>
-        <alias field="expertise_authority" index="33" name="Назва організації, що провела експертизу проекту документації"/>
-        <alias field="expertise_date" index="34" name="Дата висновку за результатами проведення експертизи проекту документації"/>
-        <alias field="expertise_number" index="35" name="Номер висновку за результатами проведення експертизи проекту документації"/>
+        <alias field="expertise_authority" index="33" name="Назва організації, що провела експертизу проєкту документації"/>
+        <alias field="expertise_date" index="34" name="Дата висновку за результатами проведення експертизи проєкту документації"/>
+        <alias field="expertise_number" index="35" name="Номер висновку за результатами проведення експертизи проєкту документації"/>
         <alias field="approval_authority" index="36" name="Назва органу, що прийняв рішення щодо затвердження документації"/>
         <alias field="approval_date" index="37" name="Дата рішення щодо затвердження документації"/>
         <alias field="approval_number" index="38" name="Номер рішення щодо затвердження документації"/>

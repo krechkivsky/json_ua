@@ -921,9 +921,9 @@
     <alias field="name_lat" index="13" name="name"/>
     <alias field="area" index="14" name="площа, га"/>
     <alias field="pop_in" index="15" name="кількість населення існуюча, осіб"/>
-    <alias field="pop_pr" index="16" name="кількість населення, проектна на короткостроковий період, осіб"/>
-    <alias field="pop_pro" index="17" name="кількість населення, проектна на середньостроковий період, осіб"/>
-    <alias field="pop_ext" index="18" name="кількість населення, проектна на довгостроковий період, осіб"/>
+    <alias field="pop_pr" index="16" name="кількість населення, проєктна на короткостроковий період, осіб"/>
+    <alias field="pop_pro" index="17" name="кількість населення, проєктна на середньостроковий період, осіб"/>
+    <alias field="pop_ext" index="18" name="кількість населення, проєктна на довгостроковий період, осіб"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="fid"/>

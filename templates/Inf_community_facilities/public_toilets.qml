@@ -148,8 +148,8 @@
     <rules key="{3cbc5e3b-8386-43e8-843f-7ee62eee899a}">
       <rule symbol="0" label="туалет з підключенням до централізованої каналізації  існуючий" key="{5d8bd64e-4ffb-49de-b0dd-65f17fb0a791}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="туалет автономний існуючий" key="{074e3137-6a04-442f-9d2a-d46242a5bf2a}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="2" label="туалет з підключенням до централізованої каналізації проектний" key="{ca3369e3-f032-4db2-b846-2860f5dc0524}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="3" label="туалет автономний проектний" key="{8cff12c1-3715-4a57-8e38-fd309eb59341}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="2" label="туалет з підключенням до централізованої каналізації проєктний" key="{ca3369e3-f032-4db2-b846-2860f5dc0524}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="туалет автономний проєктний" key="{8cff12c1-3715-4a57-8e38-fd309eb59341}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="4" label="інший" key="{bee45377-7497-4dc9-8635-4094a3cad864}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -915,7 +915,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="type" index="13" name="тип туалету"/>
     <alias field="unit_in" index="14" name="кількість санітарно-технічних приладів існуюча, од."/>
     <alias field="unit_pr" index="15" name="кількість санітарно-технічних приладів на короткостроковий період, од."/>

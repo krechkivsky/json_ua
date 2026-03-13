@@ -150,10 +150,10 @@
       <rule symbol="1" label="автозаправна станція існуюча" key="{e4282af5-7292-4c35-8bde-5478dfecb246}" filter="azs_type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="автомобільна газонаповнювальна компресорна станція існуюча" key="{a190e971-36fe-4d20-a66a-f68d7eb17ca2}" filter="azs_type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="3" label="станція зарядки електромобілів існуюча" key="{446f5bab-8f75-4d70-b135-d8f6ddc917bf}" filter="azs_type=4 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="4" label="автозаправний комплекс проектний" key="{5a7b6138-f651-42af-8bd6-d5ecf3c949fa}" filter="azs_type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="автозаправна станція проектна" key="{fd8fa0e7-c9ea-4b0c-a1a1-16742003c6cd}" filter="azs_type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="6" label="автомобільна газонаповнювальна компресорна станція проектна" key="{d87557d2-f129-4672-9156-0d43b3baac0e}" filter="azs_type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="7" label="станція зарядки електромобілів проектна" key="{7e5f7eea-2050-41a1-a058-d1b9add024a1}" filter="azs_type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="автозаправний комплекс проєктний" key="{5a7b6138-f651-42af-8bd6-d5ecf3c949fa}" filter="azs_type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="автозаправна станція проєктна" key="{fd8fa0e7-c9ea-4b0c-a1a1-16742003c6cd}" filter="azs_type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="6" label="автомобільна газонаповнювальна компресорна станція проєктна" key="{d87557d2-f129-4672-9156-0d43b3baac0e}" filter="azs_type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="7" label="станція зарядки електромобілів проєктна" key="{7e5f7eea-2050-41a1-a058-d1b9add024a1}" filter="azs_type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="8" label="інші" key="{39ac8484-ce16-41f0-a70b-2b9fc7488f2d}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1368,7 +1368,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="name" index="13" name="назва"/>
     <alias field="azs_type" index="14" name="тип автозаправочної станції"/>
     <alias field="fuel" index="15" name="вид палива"/>

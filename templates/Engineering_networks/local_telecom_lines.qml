@@ -151,11 +151,11 @@
       <rule symbol="2" label="телевізійна кабельна мережа існуюча" key="{0ed0db32-2ba1-4580-bc2b-d8ab88d46296}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13) and type=3"/>
       <rule symbol="3" label="мережа Інтернет зв'язку існуюча" key="{ccfdb5d8-d6a2-4728-903b-c66e2ec8cf3d}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13) and type=4"/>
       <rule symbol="4" label="інша телекомунікаційна мережа існуюча" key="{5d51257f-a375-4bf4-af3f-f057abaa3e13}" filter="&quot;state&quot; in (1,2,3,4,5,6,7,13) and type=5"/>
-      <rule symbol="5" label="мережа телефонного зв'язку проектна" key="{9338b8ad-9d0b-419e-9382-8dcc81f3390f}" filter="&quot;state&quot; in (8,9,10,11,12) and type=1"/>
-      <rule symbol="6" label="мережа проводового мовлення проектна" key="{dc46d6af-206d-4f24-b663-a5fdf3495943}" filter="&quot;state&quot; in (8,9,10,11,12) and type=2"/>
-      <rule symbol="7" label="телевізійна кабельна мережа проектна" key="{e78eebf9-d156-4016-96e9-48c783a24acc}" filter="&quot;state&quot; in (8,9,10,11,12) and type=3"/>
-      <rule symbol="8" label="мережа Інтернет зв'язку проектна" key="{568202c7-9513-40c7-b91a-65ae57858a68}" filter="&quot;state&quot; in (8,9,10,11,12) and type=4"/>
-      <rule symbol="9" label="інша телекомунікаційна мережа проектна" key="{bde75c62-8079-4adf-9bf5-6f3528319de8}" filter="&quot;state&quot; in (8,9,10,11,12) and type=5"/>
+      <rule symbol="5" label="мережа телефонного зв'язку проєктна" key="{9338b8ad-9d0b-419e-9382-8dcc81f3390f}" filter="&quot;state&quot; in (8,9,10,11,12) and type=1"/>
+      <rule symbol="6" label="мережа проводового мовлення проєктна" key="{dc46d6af-206d-4f24-b663-a5fdf3495943}" filter="&quot;state&quot; in (8,9,10,11,12) and type=2"/>
+      <rule symbol="7" label="телевізійна кабельна мережа проєктна" key="{e78eebf9-d156-4016-96e9-48c783a24acc}" filter="&quot;state&quot; in (8,9,10,11,12) and type=3"/>
+      <rule symbol="8" label="мережа Інтернет зв'язку проєктна" key="{568202c7-9513-40c7-b91a-65ae57858a68}" filter="&quot;state&quot; in (8,9,10,11,12) and type=4"/>
+      <rule symbol="9" label="інша телекомунікаційна мережа проєктна" key="{bde75c62-8079-4adf-9bf5-6f3528319de8}" filter="&quot;state&quot; in (8,9,10,11,12) and type=5"/>
       <rule symbol="10" label="інші" key="{36e2e44d-e7b2-4a91-b404-85cda843453e}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1738,7 +1738,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="тип телекомунікаційної мережі"/>
     <alias field="san_gap" index="15" name="санітарний (інший) відступ, м"/>

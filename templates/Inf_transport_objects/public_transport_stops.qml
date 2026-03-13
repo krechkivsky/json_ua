@@ -160,18 +160,18 @@
       <rule symbol="11" label="фунікулеру існуюча" key="{f9ac11f5-9fb3-41c6-a733-bb6dc5071662}" filter="t_type=12 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="12" label="канатна існуюча" key="{9cda3f28-5c41-4b1f-9e6f-a588d7fb69de}" filter="t_type=13 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="13" label="автобусна проеткна" key="{eed2c469-69b1-44a7-8ed5-3bcfb4735db0}" filter="t_type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="14" label="трамвайна проектна" key="{3fb975a3-7eff-49f3-bd96-c7ba5e6019f2}" filter="t_type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="15" label="швидкісного трамваю проектна" key="{449b39ca-d3cf-4834-ac44-059870ec3979}" filter="t_type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="16" label="тролейбусна проектна" key="{631da0d9-b6b6-458e-bd29-de8942b46386}" filter="t_type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="17" label="метрополітену проектна" key="{48e6be0b-e405-466f-b534-d3e1737398fc}" filter="t_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="18" label="залізнична проектна" key="{1d996e66-5237-4aa2-9772-b499ae3dd028}" filter="t_type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="19" label="маршрутного таксі проектна" key="{29b856aa-d7fd-4329-93d5-52f26b1306d1}" filter="t_type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="20" label="шкільного автобусу проектна" key="{7703fc2c-cd1b-4c11-8c86-c2f3d1a46a35}" filter="t_type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="21" label="річкового транспорту проектна" key="{75b9640f-2cbe-4577-bccd-d6400102ec5f}" filter="t_type=9 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="22" label="морського транспорту проектна" key="{0694c45e-398e-43c9-84e1-905a05b63d7b}" filter="t_type=10 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="23" label="повітряного транспорту проектна" key="{7b0387ca-890b-471e-9cf7-ed4517f0e6f4}" filter="t_type=11 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="24" label="фунікулеру проектна" key="{d9edbd37-cc9f-4d7e-add4-d95ffc308209}" filter="t_type=12 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="25" label="канатна проектна" key="{aa807774-c3c5-4b03-ab57-ddae4aaf5480}" filter="t_type=13 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="14" label="трамвайна проєктна" key="{3fb975a3-7eff-49f3-bd96-c7ba5e6019f2}" filter="t_type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="15" label="швидкісного трамваю проєктна" key="{449b39ca-d3cf-4834-ac44-059870ec3979}" filter="t_type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="16" label="тролейбусна проєктна" key="{631da0d9-b6b6-458e-bd29-de8942b46386}" filter="t_type=4 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="17" label="метрополітену проєктна" key="{48e6be0b-e405-466f-b534-d3e1737398fc}" filter="t_type=5 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="18" label="залізнична проєктна" key="{1d996e66-5237-4aa2-9772-b499ae3dd028}" filter="t_type=6 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="19" label="маршрутного таксі проєктна" key="{29b856aa-d7fd-4329-93d5-52f26b1306d1}" filter="t_type=7 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="20" label="шкільного автобусу проєктна" key="{7703fc2c-cd1b-4c11-8c86-c2f3d1a46a35}" filter="t_type=8 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="21" label="річкового транспорту проєктна" key="{75b9640f-2cbe-4577-bccd-d6400102ec5f}" filter="t_type=9 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="22" label="морського транспорту проєктна" key="{0694c45e-398e-43c9-84e1-905a05b63d7b}" filter="t_type=10 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="23" label="повітряного транспорту проєктна" key="{7b0387ca-890b-471e-9cf7-ed4517f0e6f4}" filter="t_type=11 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="24" label="фунікулеру проєктна" key="{d9edbd37-cc9f-4d7e-add4-d95ffc308209}" filter="t_type=12 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="25" label="канатна проєктна" key="{aa807774-c3c5-4b03-ab57-ddae4aaf5480}" filter="t_type=13 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="26" label="інші" key="{d5a7045a-6746-4805-aa12-2bc1d948d2a1}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2374,7 +2374,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="name" index="13" name="назва"/>
     <alias field="t_type" index="14" name="тип транспорту"/>
     <alias field="r_type" index="15" name="тип маршруту"/>

@@ -147,7 +147,7 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" symbollevels="0" enableorderby="0" referencescale="-1">
     <rules key="{70dbb2ce-9872-4c8c-969b-7ff7e33d5884}">
       <rule symbol="0" label="існуючі" key="{4cd36d45-965d-429f-9d2c-0304e28f6199}" filter="status=1"/>
-      <rule symbol="1" label="проектні" key="{f4bbf9cb-6649-495e-928e-386aed53f118}" filter="status in (2,3,4,5)"/>
+      <rule symbol="1" label="проєктні" key="{f4bbf9cb-6649-495e-928e-386aed53f118}" filter="status in (2,3,4,5)"/>
       <rule symbol="2" label="інші" key="{1130ba77-4356-4ab9-9adc-9a9dba7e2f87}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -575,7 +575,7 @@
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="name" index="11" name="назва"/>
     <alias field="volume" index="12" name="кількість небезпечної речовини, т"/>
-    <alias field="change" index="13" name="проектна зміна статусу"/>
+    <alias field="change" index="13" name="проєктна зміна статусу"/>
     <alias field="status" index="14" name="статус"/>
   </aliases>
   <splitPolicies>

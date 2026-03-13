@@ -149,9 +149,9 @@
       <rule symbol="0" label="зрошувальна існуюча" key="{856a3449-53bc-4da4-b4b2-b853fa1f9889}" filter="type=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="осушувальна існуюча" key="{df692bde-cca7-44f6-b7fc-9d18daa366f0}" filter="type=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="змішана існуюча" key="{201c5221-9d2a-4fbf-8170-713fd9ce3db7}" filter="type=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="3" label="зрошувальна проектна" key="{56e1422a-1ac3-4429-a5d9-0e64e106b618}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="осушувальна проектна" key="{43e6fb73-6320-4e35-9c59-e712cc8f756a}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="змішана проектна" key="{eae145dd-de95-48c8-8c82-8df86d4923c1}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="зрошувальна проєктна" key="{56e1422a-1ac3-4429-a5d9-0e64e106b618}" filter="type=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="осушувальна проєктна" key="{43e6fb73-6320-4e35-9c59-e712cc8f756a}" filter="type=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="змішана проєктна" key="{eae145dd-de95-48c8-8c82-8df86d4923c1}" filter="type=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="інша" key="{bde75c62-8079-4adf-9bf5-6f3528319de8}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -2202,7 +2202,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="dkbscode" index="13" name="код за ДК 018-2000"/>
     <alias field="type" index="14" name="тип меліоративної системи"/>
     <alias field="outr_in" index="15" name="потужність існуюча, куб. м на добу"/>

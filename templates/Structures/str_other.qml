@@ -149,9 +149,9 @@
       <rule symbol="0" label="некапітальна споруда існуюча" key="{4f37bb3f-20db-450f-b9ad-7b72247e9c8c}" filter="function=1 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="1" label="садовий будинок існуючий" key="{8b4c7cc8-8567-418c-bb18-03c824f34258}" filter="function=2 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
       <rule symbol="2" label="господарська будівля на присадибній ділянці існуюча" key="{7b8984ba-c74b-4e18-999f-604cde590f91}" filter="function=3 and &quot;state&quot; in (1,2,3,4,5,6,7,13)"/>
-      <rule symbol="3" label="некапітальна споруда проектна" key="{86e19b50-34b5-43ad-a415-e5abbda7dec9}" filter="function=1 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="4" label="садовий будинок проектний" key="{d2c01f19-62d5-4838-a698-545e01780eb1}" filter="function=2 and &quot;state&quot; in (8,9,10,11,12)"/>
-      <rule symbol="5" label="господарська будівля на присадибній ділянці проектна" key="{62a03c32-7fbc-460a-9352-455a6268a3db}" filter="function=3 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="3" label="некапітальна споруда проєктна" key="{86e19b50-34b5-43ad-a415-e5abbda7dec9}" filter="function=1 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="4" label="садовий будинок проєктний" key="{d2c01f19-62d5-4838-a698-545e01780eb1}" filter="function=2 and &quot;state&quot; in (8,9,10,11,12)"/>
+      <rule symbol="5" label="господарська будівля на присадибній ділянці проєктна" key="{62a03c32-7fbc-460a-9352-455a6268a3db}" filter="function=3 and &quot;state&quot; in (8,9,10,11,12)"/>
       <rule symbol="6" label="не визначено" key="{f8652333-9e46-4223-a8a5-92eaf8af62c3}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1052,7 +1052,7 @@
     <alias field="precise" index="9" name="точність відображення"/>
     <alias field="source" index="10" name="джерело даних"/>
     <alias field="state" index="11" name="статус об'єкту"/>
-    <alias field="change" index="12" name="проектна зміна статусу"/>
+    <alias field="change" index="12" name="проєктна зміна статусу"/>
     <alias field="function" index="13" name="тип іншої споруди"/>
     <alias field="dkbscode" index="14" name="код за ДК 018-2000"/>
     <alias field="usage" index="15" name="фактичне використання"/>

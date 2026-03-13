@@ -149,9 +149,9 @@
       <rule symbol="0" label="першої категорії існуючі" key="{c8db9106-0e02-434e-96b1-f1dd4af2f498}" filter="category=1 and status=1"/>
       <rule symbol="1" label="другої категорії існуючі" key="{823fbf2d-9be3-4d47-8ea6-a202e4ae6bed}" filter="category=2 and status=1"/>
       <rule symbol="2" label="особливої важливості категорії існуючі" key="{43830f98-37eb-4014-a405-850e7ed72987}" filter="category=3 and status=1"/>
-      <rule symbol="3" label="першої категорії проектні" key="{24e58af9-a3a4-4d67-9002-e2650d36728e}" filter="category=1 and  status in (2,3,4,5)"/>
-      <rule symbol="4" label="другої категорії проектні" key="{ad1c0725-bc75-45ce-b157-143a378d4b61}" filter="category=2 and  status in (2,3,4,5)"/>
-      <rule symbol="5" label="особливої важливості категорії проектні" key="{80e0206c-0c59-4785-be11-dcf3d6bcee97}" filter="category=3 and  status in (2,3,4,5)"/>
+      <rule symbol="3" label="першої категорії проєктні" key="{24e58af9-a3a4-4d67-9002-e2650d36728e}" filter="category=1 and  status in (2,3,4,5)"/>
+      <rule symbol="4" label="другої категорії проєктні" key="{ad1c0725-bc75-45ce-b157-143a378d4b61}" filter="category=2 and  status in (2,3,4,5)"/>
+      <rule symbol="5" label="особливої важливості категорії проєктні" key="{80e0206c-0c59-4785-be11-dcf3d6bcee97}" filter="category=3 and  status in (2,3,4,5)"/>
       <rule symbol="6" label="інші" key="{9ee5a666-3503-4652-9c23-1663c7eeb007}" filter="ELSE"/>
     </rules>
     <symbols>
@@ -1645,7 +1645,7 @@
     <alias field="empl_pro" index="14" name="чисельність найбільшої працюючої зміни на середньостроковий період, осіб"/>
     <alias field="empl_ext" index="15" name="чисельність найбільшої працюючої зміни на довгостроковий період, осіб"/>
     <alias field="name" index="16" name="назва"/>
-    <alias field="change" index="17" name="проектна зміна статусу"/>
+    <alias field="change" index="17" name="проєктна зміна статусу"/>
     <alias field="status" index="18" name="статус"/>
   </aliases>
   <splitPolicies>

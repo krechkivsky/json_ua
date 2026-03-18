@@ -26,8 +26,8 @@ import json
 import uuid
 import re
 
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl
-from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl, QPointF
+from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices, QPainter, QPen, QPixmap
 from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog, QProgressDialog
 from qgis.PyQt.QtWidgets import (
     QFileDialog, QMessageBox,
@@ -108,6 +108,9 @@ class GeoJsonUa:
         self._cyrillic_fix_map.update({k.upper(): v.upper() for k, v in self._cyrillic_fix_map.items()})
         self._normative_style_cache = None
         self._missing_style_reported = set()
+        self._normative_style_enabled = False
+        self._sketch_icon = None
+        self._style_manager_icon = None
 
         settings = QSettings()
         debug_value = settings.value("json_ua/debug", False)
@@ -331,9 +334,9 @@ class GeoJsonUa:
         self.action_close.triggered.connect(self.on_close)
         self._update_close_action()
 
-        self.action_normative_style = QAction(self.tr(u"Нормативний стиль"), main_window)
-        self.action_normative_style.setCheckable(True)
-        self.action_normative_style.setChecked(False)
+        self.action_normative_style = QAction(main_window)
+        self._init_normative_style_icons(style)
+        self._update_normative_style_action()
         self.action_normative_style.triggered.connect(self.on_toggle_normative_style)
 
         self.action_debug_mode = QAction(self.tr(u"Налагоджувальний режим"), main_window)
@@ -361,6 +364,70 @@ class GeoJsonUa:
 
         self.tools_button_action = self.toolbar.addWidget(self.tools_button)
         self.tools_button.clicked.connect(self.run)
+
+    #--------------------------------------------------------------------------
+    def _init_normative_style_icons(self, style: QStyle) -> None:
+        if self._sketch_icon is None:
+            self._sketch_icon = self._create_sketch_icon()
+        if self._style_manager_icon is None:
+            self._style_manager_icon = self._create_style_manager_icon()
+
+    def _create_sketch_icon(self) -> QIcon:
+        size = 16
+        pixmap = QPixmap(size, size)
+        pixmap.fill(Qt.transparent)
+        painter = QPainter(pixmap)
+        pen = QPen(Qt.black)
+        pen.setWidth(1)
+        painter.setPen(pen)
+        painter.setBrush(Qt.NoBrush)
+        padding = 2
+        painter.drawRect(padding, padding, size - (padding * 2) - 1, size - (padding * 2) - 1)
+        painter.end()
+        return QIcon(pixmap)
+
+    def _create_style_manager_icon(self) -> QIcon:
+        size = 16
+        pixmap = QPixmap(size, size)
+        pixmap.fill(Qt.transparent)
+        painter = QPainter(pixmap)
+        painter.setRenderHint(QPainter.Antialiasing, True)
+        pen = QPen(Qt.black)
+        pen.setWidth(2)
+        painter.setPen(pen)
+        painter.setBrush(Qt.red)
+        padding = 2
+        left = padding
+        right = size - padding - 1
+        top = padding
+        bottom = size - padding - 1
+        x1 = left
+        y1 = bottom
+        x2 = right
+        y2 = bottom
+        x3 = (left + right) / 2.0
+        y3 = top
+        painter.drawPolygon(
+            [
+                QPointF(x1, y1),
+                QPointF(x2, y2),
+                QPointF(x3, y3),
+            ]
+        )
+        painter.end()
+        return QIcon(pixmap)
+
+    def _update_normative_style_action(self) -> None:
+        if getattr(self, "action_normative_style", None) is None:
+            return
+        if self._normative_style_enabled:
+            self.action_normative_style.setText(self.tr(u"Ескіз"))
+            if self._sketch_icon is not None:
+                self.action_normative_style.setIcon(self._sketch_icon)
+        else:
+            self.action_normative_style.setText(self.tr(u"Умовні знаки"))
+            if self._style_manager_icon is not None:
+                self.action_normative_style.setIcon(self._style_manager_icon)
 
     #--------------------------------------------------------------------------
 
@@ -3022,11 +3089,13 @@ class GeoJsonUa:
             return
 
     def on_toggle_normative_style(self):
+        new_enabled = not self._normative_style_enabled
         if common.LOG:
-            common.log_calls(common.logFile, f"GeoJsonUa.on_toggle_normative_style(checked={bool(self.action_normative_style.isChecked())})")
-        checked = bool(self.action_normative_style.isChecked())
+            common.log_calls(common.logFile, f"GeoJsonUa.on_toggle_normative_style(enabled={new_enabled})")
+        self._normative_style_enabled = new_enabled
         group = getattr(self.opened_projects, "current_project", None)
-        self._apply_normative_style(group, checked)
+        self._apply_normative_style(group, self._normative_style_enabled)
+        self._update_normative_style_action()
 
     def on_toggle_debug_mode(self):
         if common.LOG:

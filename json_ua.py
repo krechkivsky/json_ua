@@ -187,6 +187,7 @@ class GeoJsonUa:
         self._normative_style_cache = None
         self._missing_style_reported = set()
         self._normative_style_enabled = False
+        self._layer_theme_cache = {}
         self._sketch_icon = None
         self._style_manager_icon = None
 
@@ -998,6 +999,7 @@ class GeoJsonUa:
         if not layer_id:
             return
         meta = self.layer_registry.pop(layer_id, None)
+        self._layer_theme_cache.pop(layer_id, None)
         if not meta:
             return
         class_name = meta.get("class_name")
@@ -3638,6 +3640,11 @@ class GeoJsonUa:
     def _clear_registry_for_group(self, group) -> None:
         if group is None:
             return
+        group_name = ""
+        try:
+            group_name = group.name() or ""
+        except Exception:
+            group_name = ""
         layer_ids = []
         try:
             children = group.children()
@@ -3654,10 +3661,16 @@ class GeoJsonUa:
                     layer_ids.append(layer_obj.id())
         for layer_id in layer_ids:
             meta = self.layer_registry.pop(layer_id, None)
+            self._layer_theme_cache.pop(layer_id, None)
             if meta:
                 class_name = meta.get("class_name")
                 if class_name and self.class_layers.get(class_name) == layer_id:
                     self.class_layers.pop(class_name, None)
+        if group_name:
+            prefix = f"{group_name}::"
+            for key in list(self._layer_theme_cache.keys()):
+                if isinstance(key, str) and key.startswith(prefix):
+                    self._layer_theme_cache.pop(key, None)
         self._update_save_action()
 
     def _on_request_geojson(self, class_key: str) -> None:
@@ -4067,42 +4080,209 @@ class GeoJsonUa:
                 layers.extend(self._group_layers(child))
         return layers
 
+    def _theme_cache_key(self, layer: QgsVectorLayer, group=None) -> str:
+        if layer is None:
+            return ""
+        layer_name = ""
+        try:
+            layer_name = layer.name() or ""
+        except Exception:
+            layer_name = ""
+        group_name = ""
+        target_group = group if group is not None else getattr(self.opened_projects, "current_project", None)
+        if target_group is not None:
+            try:
+                group_name = target_group.name() or ""
+            except Exception:
+                group_name = ""
+        if group_name:
+            return f"{group_name}::{layer_name}"
+        return layer_name
+
+    def _clone_renderer(self, renderer):
+        if renderer is None:
+            return None
+        try:
+            return renderer.clone()
+        except Exception:
+            return None
+
+    def _build_sketch_renderer(self, layer: QgsVectorLayer):
+        if layer is None:
+            return None
+        try:
+            geom_type = QgsWkbTypes.geometryType(layer.wkbType())
+        except Exception:
+            return None
+        symbol = None
+        if geom_type == QgsWkbTypes.PolygonGeometry:
+            symbol = QgsFillSymbol.createSimple({
+                "color": "0,0,0,0",
+                "outline_color": "0,0,0,255",
+                "outline_width": "0.3",
+            })
+        elif geom_type == QgsWkbTypes.LineGeometry:
+            symbol = QgsLineSymbol.createSimple({
+                "color": "0,0,0,255",
+                "width": "0.3",
+            })
+        else:
+            symbol = QgsMarkerSymbol.createSimple({
+                "color": "0,0,0,255",
+                "outline_color": "0,0,0,255",
+                "size": "2.0",
+            })
+        if symbol is None:
+            return None
+        return QgsSingleSymbolRenderer(symbol)
+
     def _apply_normative_style(self, group, enabled: bool) -> None:
         if group is None:
             return
         layers = self._group_layers(group)
+        vector_layers = []
         for layer in layers:
             if not isinstance(layer, QgsVectorLayer):
                 continue
+            try:
+                if layer.providerType().lower() != "memory":
+                    continue
+            except Exception:
+                continue
+            vector_layers.append(layer)
+        total = len(vector_layers)
+        if total == 0:
+            return
+        progress = QProgressDialog(
+            self.tr(u"Застосування теми..."),
+            self.tr(u"Скасувати"),
+            0,
+            total,
+            self.iface.mainWindow() if self.iface is not None else None,
+        )
+        progress.setWindowModality(Qt.ApplicationModal)
+        progress.setMinimumDuration(0)
+        progress.setAutoClose(False)
+        progress.setAutoReset(False)
+        progress.setValue(0)
+        self._align_progress_dialog_left(progress)
+        self._pump_progress_ui(progress, force=True)
+        canvas = self.iface.mapCanvas() if getattr(self, "iface", None) is not None else None
+        prev_render = None
+        if canvas is not None:
+            try:
+                prev_render = canvas.renderFlag()
+                canvas.setRenderFlag(False)
+            except Exception:
+                prev_render = None
+        started_at = time.monotonic()
+        cache_hits = 0
+        file_reads = 0
+        sketch_fallbacks = 0
+
+        def update_theme_progress(layer_name: str, index_value: int, stage_text: str) -> None:
+            elapsed = max(0.0, time.monotonic() - started_at)
+            done = float(max(1, index_value - 1))
+            remaining = float(max(0, total - (index_value - 1)))
+            eta = (elapsed / done) * remaining if done > 0.0 else 0.0
+            progress.setLabelText(
+                self.tr(
+                    u"Минуло: {0} | Очікується: {1} | Кеш: {2} | Файл: {3} | Ескіз: {4}\n{5} ({6}/{7}) - {8}"
+                ).format(
+                    self._format_duration_hhmmss(elapsed),
+                    self._format_duration_hhmmss(eta),
+                    cache_hits,
+                    file_reads,
+                    sketch_fallbacks,
+                    layer_name,
+                    index_value,
+                    total,
+                    stage_text,
+                )
+            )
+            progress.setValue(index_value - 1)
+            self._pump_progress_ui(progress)
+
+        for index, layer in enumerate(vector_layers, start=1):
+            if progress.wasCanceled():
+                break
+            update_theme_progress(layer.name(), index, self.tr(u"Підготовка"))
+            cache_key = self._theme_cache_key(layer, group)
+            cache = self._layer_theme_cache.setdefault(cache_key, {}) if cache_key else {}
             if not enabled:
-                self._apply_sketch_style(layer)
+                cache_hits += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Тема Ескіз (з кешу/шаблону)"))
+                self._apply_sketch_style(layer, trigger_repaint=False)
+                continue
+            cached_normative = None
+            if cache is not None:
+                cached_normative = cache.get("normative")
+            if cached_normative is False:
+                cache_hits += 1
+                sketch_fallbacks += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Умовні знаки: нема стилю, Ескіз (з кешу)"))
+                self._apply_sketch_style(layer, trigger_repaint=False)
+                continue
+            if cached_normative is not None:
+                cache_hits += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Умовні знаки (з кешу)"))
+                try:
+                    layer.setRenderer(self._clone_renderer(cached_normative))
+                except Exception:
+                    sketch_fallbacks += 1
+                    update_theme_progress(layer.name(), index, self.tr(u"Помилка кешу, Ескіз"))
+                    self._apply_sketch_style(layer, trigger_repaint=False)
                 continue
             style_path = self._normative_style_path(layer.name())
             if not style_path:
-                if layer.name() not in self._missing_style_reported:
-                    self._missing_style_reported.add(layer.name())
-                    self._push_message(
-                        self.tr(u"Не знайдено файл стилю для шару {0}.").format(layer.name()),
-                        level=Qgis.Warning,
-                        duration=0,
-                    )
-                self._apply_sketch_style(layer)
+                if cache is not None:
+                    cache["normative"] = False
+                sketch_fallbacks += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Нема стилю, Ескіз (кешовано)"))
+                self._apply_sketch_style(layer, trigger_repaint=False)
                 continue
             if not os.path.exists(style_path):
-                if layer.name() not in self._missing_style_reported:
-                    self._missing_style_reported.add(layer.name())
-                    self._push_message(
-                        self.tr(u"Не знайдено файл стилю для шару {0}.").format(layer.name()),
-                        level=Qgis.Warning,
-                        duration=0,
-                    )
-                self._apply_sketch_style(layer)
+                if cache is not None:
+                    cache["normative"] = False
+                sketch_fallbacks += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Файл стилю відсутній, Ескіз (кешовано)"))
+                self._apply_sketch_style(layer, trigger_repaint=False)
                 continue
             try:
+                file_reads += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Читання файлу стилю"))
                 self._load_symbology_only(layer, style_path)
-                layer.triggerRepaint()
+                renderer = None
+                try:
+                    renderer = layer.renderer()
+                except Exception:
+                    renderer = None
+                renderer_clone = self._clone_renderer(renderer)
+                if cache is not None:
+                    cache["normative"] = renderer_clone if renderer_clone is not None else False
+                update_theme_progress(layer.name(), index, self.tr(u"Умовні знаки (з файлу, кешовано)"))
             except Exception:
+                if cache is not None:
+                    cache["normative"] = False
+                sketch_fallbacks += 1
+                update_theme_progress(layer.name(), index, self.tr(u"Помилка стилю, Ескіз"))
+                self._apply_sketch_style(layer, trigger_repaint=False)
                 continue
+        if canvas is not None and prev_render is not None:
+            try:
+                canvas.setRenderFlag(prev_render)
+            except Exception:
+                pass
+            try:
+                canvas.refresh()
+            except Exception:
+                pass
+        progress.setValue(total)
+        try:
+            progress.setCancelButtonText(self.tr(u"Закрити"))
+        except Exception:
+            pass
+        self._pump_progress_ui(progress)
 
     def _load_symbology_only(self, layer: QgsVectorLayer, style_path: str) -> None:
         if layer is None or not style_path:
@@ -4155,36 +4335,24 @@ class GeoJsonUa:
             except Exception:
                 pass
 
-    def _apply_sketch_style(self, layer: QgsVectorLayer) -> None:
+    def _apply_sketch_style(self, layer: QgsVectorLayer, trigger_repaint: bool = True) -> None:
         if layer is None:
             return
-        try:
-            geom_type = QgsWkbTypes.geometryType(layer.wkbType())
-        except Exception:
-            return
-        symbol = None
-        if geom_type == QgsWkbTypes.PolygonGeometry:
-            symbol = QgsFillSymbol.createSimple({
-                "color": "0,0,0,0",
-                "outline_color": "0,0,0,255",
-                "outline_width": "0.3",
-            })
-        elif geom_type == QgsWkbTypes.LineGeometry:
-            symbol = QgsLineSymbol.createSimple({
-                "color": "0,0,0,255",
-                "width": "0.3",
-            })
-        else:
-            symbol = QgsMarkerSymbol.createSimple({
-                "color": "0,0,0,255",
-                "outline_color": "0,0,0,255",
-                "size": "2.0",
-            })
-        if symbol is None:
+        cache_key = self._theme_cache_key(layer)
+        cache = self._layer_theme_cache.setdefault(cache_key, {}) if cache_key else {}
+        sketch_renderer = self._clone_renderer(cache.get("sketch")) if cache else None
+        if sketch_renderer is None:
+            sketch_renderer = self._build_sketch_renderer(layer)
+            if sketch_renderer is None:
+                return
+            if cache is not None:
+                cache["sketch"] = self._clone_renderer(sketch_renderer)
+        if sketch_renderer is None:
             return
         try:
-            layer.setRenderer(QgsSingleSymbolRenderer(symbol))
-            layer.triggerRepaint()
+            layer.setRenderer(sketch_renderer)
+            if trigger_repaint:
+                layer.triggerRepaint()
         except Exception:
             return
 

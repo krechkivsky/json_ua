@@ -26,9 +26,9 @@ import json
 import uuid
 import re
 
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl, QPointF
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl, QPointF, QObject, QEvent, QTimer, QEventLoop
 from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices, QPainter, QPen, QPixmap
-from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog, QProgressDialog
+from qgis.PyQt.QtWidgets import QAction, QMenu, QStyle, QToolButton, QInputDialog, QProgressDialog, QApplication
 from qgis.PyQt.QtWidgets import (
     QFileDialog, QMessageBox,
     QDialog, QVBoxLayout, QHBoxLayout,
@@ -54,6 +54,7 @@ from qgis.core import (
     QgsMarkerSymbol,
     QgsSingleSymbolRenderer,
     QgsEditorWidgetSetup,
+    QgsTask,
 )
 
 # Initialize Qt resources from file resources.py
@@ -67,6 +68,83 @@ PROJECT_FOLDER_PATTERN = re.compile(r"^BGD_(GP|KP|DPT)_UA\d{17}(?:_[^\s]+)?$")
 # Import the code for the DockWidget
 from .json_ua_dockwidget import GeoJsonUaDockWidget
 import os
+import time
+import ctypes
+
+
+class _SizeGuardEventFilter(QObject):
+    def __init__(self, plugin):
+        super().__init__()
+        self._plugin = plugin
+
+    def eventFilter(self, obj, event):
+        try:
+            self._plugin._handle_size_guard_event(obj, event)
+        except Exception:
+            pass
+        return False
+
+
+class _GeoJsonParseTask(QgsTask):
+    def __init__(self, source_path: str, class_key: str):
+        super().__init__(f"json_ua_parse_{class_key}", QgsTask.CanCancel)
+        self.source_path = source_path
+        self.class_key = class_key
+        self.records = []
+        self.source_field_names = set()
+        self.geometry_type = None
+        self.error_message = ""
+        self.success = False
+
+    def run(self):
+        try:
+            with open(self.source_path, "r", encoding="utf-8-sig") as handle:
+                data = json.load(handle)
+        except Exception:
+            try:
+                with open(self.source_path, "r", encoding="cp1251") as handle:
+                    data = json.load(handle)
+            except Exception as exc:
+                self.error_message = str(exc)
+                return False
+        if not isinstance(data, dict):
+            self.error_message = "Некоректний формат GeoJSON (очікувався об'єкт)."
+            return False
+        features = data.get("features")
+        if not isinstance(features, list):
+            self.error_message = "Некоректний формат GeoJSON (відсутній масив features)."
+            return False
+        total = max(1, len(features))
+        records = []
+        field_names = set()
+        first_geom_type = None
+        for idx, feature in enumerate(features, start=1):
+            if self.isCanceled():
+                return False
+            if not isinstance(feature, dict):
+                continue
+            geometry = feature.get("geometry")
+            properties = feature.get("properties")
+            if not isinstance(properties, dict):
+                properties = {}
+            if first_geom_type is None and isinstance(geometry, dict):
+                geom_type = geometry.get("type")
+                if isinstance(geom_type, str):
+                    first_geom_type = geom_type
+            field_names.update(properties.keys())
+            records.append(
+                {
+                    "geometry": geometry if isinstance(geometry, dict) else None,
+                    "properties": properties,
+                }
+            )
+            if idx % 500 == 0 or idx == total:
+                self.setProgress(100.0 * float(idx) / float(total))
+        self.records = records
+        self.source_field_names = field_names
+        self.geometry_type = first_geom_type
+        self.success = True
+        return True
 
 
 class GeoJsonUa:
@@ -122,6 +200,7 @@ class GeoJsonUa:
         self.tools_menu = None
         self.tools_button = None
         self.tools_button_action = None
+        self._show_current_project_label = False
         common.set_log_enabled(self.debug_enabled)
         self.current_project_label = None
         self.opened_projects = OpenedProjects(self.iface, self._update_current_project_label)
@@ -158,6 +237,19 @@ class GeoJsonUa:
         self.dockwidget = None
         self.layer_registry = {}
         self.class_layers = {}
+        self._suppress_layer_remove_prompt = False
+        self._pending_layer_commit_save = set()
+        self._qgis_save_layer_action = None
+        self._qgis_save_all_edits_action = None
+        self._pending_qgis_button_save_ids = set()
+        self._layer_autosave_queued = set()
+        self._size_guard_filter = None
+        self._size_guard_enabled = False
+        self._size_guard_user_resize_until = 0.0
+        self._size_guard_restore_in_progress = False
+        self._guarded_main_size = None
+        self._guarded_layer_panel_width = None
+        self._layer_panel_dock = None
 
 
     # noinspection PyMethodMayBeStatic
@@ -364,6 +456,7 @@ class GeoJsonUa:
 
         self.tools_button_action = self.toolbar.addWidget(self.tools_button)
         self.tools_button.clicked.connect(self.run)
+        self._connect_qgis_save_edit_actions()
 
     #--------------------------------------------------------------------------
     def _init_normative_style_icons(self, style: QStyle) -> None:
@@ -472,6 +565,7 @@ class GeoJsonUa:
                 pass
             self.tools_button = None
         self.tools_menu = None
+        self._disconnect_qgis_save_edit_actions()
 
         for action in self.actions:
             self.iface.removePluginMenu(
@@ -508,6 +602,8 @@ class GeoJsonUa:
             pass
 
     def _ensure_current_project_label(self):
+        if not getattr(self, "_show_current_project_label", True):
+            return None
         if getattr(self, "current_project_label", None) is not None:
             return self.current_project_label
         try:
@@ -525,16 +621,15 @@ class GeoJsonUa:
         return self.current_project_label
 
     def _update_current_project_label(self, name) -> None:
-        label = self._ensure_current_project_label()
-        if label is None:
-            return
         if name:
             text = self.tr(u"Поточний проєкт: {0}").format(name)
         elif not getattr(self.opened_projects, "projects", []):
             text = self.tr(u"Немає поточного проєкту")
         else:
             text = self.tr(u"Немає поточного проєкту")
-        label.setText(text)
+        label = self._ensure_current_project_label()
+        if label is not None:
+            label.setText(text)
         self._update_close_action()
         self._update_validate_action()
         if getattr(self, "dockwidget", None) is not None:
@@ -568,10 +663,19 @@ class GeoJsonUa:
             return None
         try:
             if hasattr(root, "insertGroup"):
-                return root.insertGroup(0, project_name)
+                group = root.insertGroup(0, project_name)
+                try:
+                    group.setExpanded(True)
+                except Exception:
+                    pass
+                return group
             group = root.addGroup(project_name)
             try:
                 root.insertChildNode(0, group)
+            except Exception:
+                pass
+            try:
+                group.setExpanded(True)
             except Exception:
                 pass
             return group
@@ -581,6 +685,10 @@ class GeoJsonUa:
     def _select_group_in_tree(self, group) -> None:
         if group is None:
             return
+        try:
+            group.setExpanded(True)
+        except Exception:
+            pass
         try:
             view = self.iface.layerTreeView()
         except Exception:
@@ -625,6 +733,149 @@ class GeoJsonUa:
                 pass
         try:
             view.setCurrentIndex(index)
+        except Exception:
+            pass
+        try:
+            view.expand(index)
+        except Exception:
+            pass
+
+    def _align_progress_dialog_left(self, progress) -> None:
+        if progress is None:
+            return
+        try:
+            labels = progress.findChildren(QLabel)
+        except Exception:
+            labels = []
+        for label in labels:
+            try:
+                label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+            except Exception:
+                pass
+
+    def _pump_progress_ui(self, progress, force: bool = False) -> None:
+        if progress is None:
+            return
+        try:
+            if force or not progress.isVisible():
+                progress.show()
+            if force:
+                progress.raise_()
+                progress.activateWindow()
+            progress.repaint()
+        except Exception:
+            pass
+        try:
+            QCoreApplication.processEvents(QEventLoop.AllEvents, 25)
+        except Exception:
+            QCoreApplication.processEvents()
+        try:
+            QApplication.sendPostedEvents()
+        except Exception:
+            pass
+
+    def _enter_cpu_boost_mode(self):
+        token = {
+            "enabled": False,
+            "process": None,
+            "thread": None,
+            "old_priority_class": None,
+            "old_thread_priority": None,
+            "old_affinity": None,
+        }
+        if os.name != "nt":
+            return token
+        try:
+            kernel32 = ctypes.windll.kernel32
+            process = kernel32.GetCurrentProcess()
+            thread = kernel32.GetCurrentThread()
+            if not process or not thread:
+                return token
+            old_class = kernel32.GetPriorityClass(process)
+            old_thread = kernel32.GetThreadPriority(thread)
+            try:
+                proc_mask = ctypes.c_size_t(0)
+                sys_mask = ctypes.c_size_t(0)
+                got_mask = kernel32.GetProcessAffinityMask(
+                    process,
+                    ctypes.byref(proc_mask),
+                    ctypes.byref(sys_mask),
+                )
+                if got_mask:
+                    old_affinity = int(proc_mask.value)
+                    target_affinity = int(sys_mask.value)
+                    if target_affinity:
+                        kernel32.SetProcessAffinityMask(process, ctypes.c_size_t(target_affinity))
+                else:
+                    old_affinity = None
+            except Exception:
+                old_affinity = None
+            # Aggressive boost during long open operation; restored in finally.
+            kernel32.SetPriorityClass(process, 0x00000100)  # REALTIME_PRIORITY_CLASS
+            kernel32.SetThreadPriority(thread, 15)  # THREAD_PRIORITY_TIME_CRITICAL
+            token.update(
+                {
+                    "enabled": True,
+                    "process": process,
+                    "thread": thread,
+                    "old_priority_class": int(old_class) if old_class else None,
+                    "old_thread_priority": int(old_thread) if old_thread is not None else None,
+                    "old_affinity": old_affinity,
+                }
+            )
+        except Exception:
+            return token
+        return token
+
+    def _leave_cpu_boost_mode(self, token) -> None:
+        if not isinstance(token, dict) or not token.get("enabled"):
+            return
+        if os.name != "nt":
+            return
+        try:
+            kernel32 = ctypes.windll.kernel32
+            process = token.get("process")
+            thread = token.get("thread")
+            old_affinity = token.get("old_affinity")
+            old_thread_priority = token.get("old_thread_priority")
+            old_priority_class = token.get("old_priority_class")
+            if process and old_affinity:
+                try:
+                    kernel32.SetProcessAffinityMask(process, ctypes.c_size_t(int(old_affinity)))
+                except Exception:
+                    pass
+            if thread and old_thread_priority is not None:
+                try:
+                    kernel32.SetThreadPriority(thread, int(old_thread_priority))
+                except Exception:
+                    pass
+            if process and old_priority_class:
+                try:
+                    kernel32.SetPriorityClass(process, int(old_priority_class))
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+    def _refresh_cpu_boost_mode(self, token) -> None:
+        if not isinstance(token, dict) or not token.get("enabled"):
+            return
+        if os.name != "nt":
+            return
+        try:
+            kernel32 = ctypes.windll.kernel32
+            process = token.get("process")
+            thread = token.get("thread")
+            if process:
+                try:
+                    kernel32.SetPriorityClass(process, 0x00000100)  # REALTIME_PRIORITY_CLASS
+                except Exception:
+                    pass
+            if thread:
+                try:
+                    kernel32.SetThreadPriority(thread, 15)  # THREAD_PRIORITY_TIME_CRITICAL
+                except Exception:
+                    pass
         except Exception:
             pass
 
@@ -700,12 +951,17 @@ class GeoJsonUa:
     def _connect_project_signals(self) -> None:
         project = QgsProject.instance()
         signal = getattr(project, "readProject", None)
-        if signal is None:
-            return
-        try:
-            signal.connect(self._on_project_read)
-        except Exception:
-            return
+        if signal is not None:
+            try:
+                signal.connect(self._on_project_read)
+            except Exception:
+                pass
+        removed_signal = getattr(project, "layersWillBeRemoved", None)
+        if removed_signal is not None:
+            try:
+                removed_signal.connect(self._on_layers_will_be_removed)
+            except Exception:
+                pass
 
     def _on_project_read(self, *args) -> None:
         self._rename_existing_project_groups()
@@ -714,6 +970,110 @@ class GeoJsonUa:
         except Exception:
             pass
         self._refresh_current_project_label()
+
+    def _extract_layer_ids_from_signal_args(self, *args):
+        if not args:
+            return []
+        first = args[0]
+        if isinstance(first, (list, tuple)):
+            values = list(first)
+        else:
+            values = [first]
+        layer_ids = []
+        for value in values:
+            if isinstance(value, str):
+                layer_ids.append(value)
+                continue
+            layer_id_getter = getattr(value, "id", None)
+            if callable(layer_id_getter):
+                try:
+                    layer_id = layer_id_getter()
+                except Exception:
+                    layer_id = None
+                if layer_id:
+                    layer_ids.append(layer_id)
+        return layer_ids
+
+    def _remove_layer_registry_entry(self, layer_id: str) -> None:
+        if not layer_id:
+            return
+        meta = self.layer_registry.pop(layer_id, None)
+        if not meta:
+            return
+        class_name = meta.get("class_name")
+        if class_name and self.class_layers.get(class_name) == layer_id:
+            self.class_layers.pop(class_name, None)
+
+    def _layer_id_in_group(self, layer_id: str, group) -> bool:
+        if not layer_id or group is None:
+            return False
+        try:
+            for node in group.findLayers():
+                try:
+                    layer = node.layer()
+                except Exception:
+                    layer = None
+                if layer is not None and layer.id() == layer_id:
+                    return True
+        except Exception:
+            return False
+        return False
+
+    def _on_layers_will_be_removed(self, *args) -> None:
+        layer_ids = self._extract_layer_ids_from_signal_args(*args)
+        if not layer_ids:
+            return
+        project = QgsProject.instance()
+        parent = self.iface.mainWindow() if self.iface is not None else None
+        current_group = getattr(self.opened_projects, "current_project", None)
+        has_open_project = current_group is not None
+        for layer_id in layer_ids:
+            meta = self.layer_registry.get(layer_id)
+            if not meta:
+                continue
+            layer = None
+            try:
+                layer = project.mapLayer(layer_id)
+            except Exception:
+                layer = None
+            is_memory = False
+            try:
+                is_memory = isinstance(layer, QgsVectorLayer) and layer.providerType().lower() == "memory"
+            except Exception:
+                is_memory = False
+            source_path = meta.get("source_path", "") if isinstance(meta, dict) else ""
+            if (
+                not self._suppress_layer_remove_prompt
+                and has_open_project
+                and self._layer_id_in_group(layer_id, current_group)
+                and is_memory
+                and source_path
+                and os.path.exists(source_path)
+            ):
+                layer_name = ""
+                try:
+                    layer_name = layer.name()
+                except Exception:
+                    layer_name = meta.get("class_name", "")
+                prompt = QMessageBox.question(
+                    parent,
+                    self.tr(u"Видалення файлу шару"),
+                    self.tr(u"Шар \"{0}\" видалено.\nВидалити також файл {1}?")
+                    .format(layer_name or layer_id, os.path.basename(source_path)),
+                    QMessageBox.Yes | QMessageBox.No,
+                    QMessageBox.No,
+                )
+                if prompt == QMessageBox.Yes:
+                    try:
+                        os.remove(source_path)
+                        self._push_info(self.tr(u"Файл {0} видалено.").format(os.path.basename(source_path)))
+                    except Exception:
+                        self._push_message(
+                            self.tr(u"Не вдалося видалити файл {0}.").format(os.path.basename(source_path)),
+                            level=Qgis.Warning,
+                        )
+            self._remove_layer_registry_entry(layer_id)
+        self._update_save_action()
 
     def _refresh_current_project_label(self) -> None:
         current_name = None
@@ -803,31 +1163,285 @@ class GeoJsonUa:
             pass
 
     def _constrain_main_window(self) -> None:
+        # Disabled intentionally: plugin must not mutate QGIS window geometry.
+        return
+
+    def _find_layer_panel_dock(self):
+        try:
+            view = self.iface.layerTreeView()
+        except Exception:
+            return None
+        widget = view
+        while widget is not None:
+            if widget.__class__.__name__ == "QDockWidget":
+                return widget
+            try:
+                widget = widget.parentWidget()
+            except Exception:
+                return None
+        return None
+
+    def _capture_size_baseline(self) -> None:
         try:
             window = self.iface.mainWindow()
         except Exception:
+            window = None
+        if window is not None:
+            try:
+                size = window.size()
+                self._guarded_main_size = (size.width(), size.height())
+            except Exception:
+                pass
+        self._layer_panel_dock = self._find_layer_panel_dock()
+        if self._layer_panel_dock is not None:
+            try:
+                self._guarded_layer_panel_width = self._layer_panel_dock.width()
+            except Exception:
+                pass
+
+    def _mark_user_resize_intent(self, ttl_seconds: float = 1.2) -> None:
+        self._size_guard_user_resize_until = time.monotonic() + max(0.1, float(ttl_seconds))
+
+    def _is_user_resize_intent_active(self) -> bool:
+        return time.monotonic() <= self._size_guard_user_resize_until
+
+    def _restore_main_window_size(self) -> None:
+        if self._size_guard_restore_in_progress:
             return
+        if not self._guarded_main_size:
+            return
+        try:
+            window = self.iface.mainWindow()
+        except Exception:
+            window = None
         if window is None:
             return
+        self._size_guard_restore_in_progress = True
         try:
-            screen = window.screen()
-        except Exception:
-            screen = None
-        if screen is None:
-            try:
-                screen = QGuiApplication.primaryScreen()
-            except Exception:
-                screen = None
-        if screen is None:
-            return
-        try:
-            geom = screen.availableGeometry()
-        except Exception:
-            return
-        try:
-            window.setMaximumSize(geom.width(), geom.height())
+            width, height = self._guarded_main_size
+            window.resize(width, height)
         except Exception:
             pass
+        self._size_guard_restore_in_progress = False
+
+    def _restore_layer_panel_width(self) -> None:
+        if self._size_guard_restore_in_progress:
+            return
+        dock = self._layer_panel_dock or self._find_layer_panel_dock()
+        if dock is None or self._guarded_layer_panel_width is None:
+            return
+        self._size_guard_restore_in_progress = True
+        try:
+            dock.resize(self._guarded_layer_panel_width, dock.height())
+        except Exception:
+            pass
+        self._size_guard_restore_in_progress = False
+
+    def _handle_size_guard_event(self, obj, event) -> None:
+        if not self._size_guard_enabled or event is None:
+            return
+        etype = event.type()
+        non_client_press = getattr(QEvent, "NonClientAreaMouseButtonPress", None)
+        if etype == QEvent.MouseButtonPress:
+            class_name = obj.__class__.__name__ if obj is not None else ""
+            if "QSplitterHandle" in class_name:
+                self._mark_user_resize_intent(2.0)
+        elif non_client_press is not None and etype == non_client_press:
+            self._mark_user_resize_intent(2.0)
+
+        if etype != QEvent.Resize:
+            return
+        if self._size_guard_restore_in_progress:
+            return
+        try:
+            window = self.iface.mainWindow()
+        except Exception:
+            window = None
+        if window is not None and obj is window:
+            try:
+                size = window.size()
+                current = (size.width(), size.height())
+            except Exception:
+                return
+            if self._guarded_main_size is None:
+                self._guarded_main_size = current
+                return
+            if self._is_user_resize_intent_active():
+                self._guarded_main_size = current
+            elif current != self._guarded_main_size:
+                QTimer.singleShot(0, self._restore_main_window_size)
+            return
+
+        dock = self._layer_panel_dock or self._find_layer_panel_dock()
+        if dock is not None and obj is dock:
+            current_width = dock.width()
+            if self._guarded_layer_panel_width is None:
+                self._guarded_layer_panel_width = current_width
+                return
+            if self._is_user_resize_intent_active():
+                self._guarded_layer_panel_width = current_width
+            elif current_width != self._guarded_layer_panel_width:
+                QTimer.singleShot(0, self._restore_layer_panel_width)
+
+    def _enable_size_guard(self) -> None:
+        # Disabled intentionally: plugin must not mutate/restore QGIS geometry.
+        return
+
+    def _disable_size_guard(self) -> None:
+        # Disabled intentionally.
+        return
+
+    def _find_qgis_action(self, object_names):
+        try:
+            main_window = self.iface.mainWindow()
+        except Exception:
+            return None
+        if main_window is None:
+            return None
+        for object_name in object_names:
+            try:
+                action = main_window.findChild(QAction, object_name)
+            except Exception:
+                action = None
+            if action is not None:
+                return action
+        return None
+
+    def _connect_qgis_save_edit_actions(self) -> None:
+        self._disconnect_qgis_save_edit_actions()
+        self._qgis_save_layer_action = self._find_qgis_action(
+            ["mActionSaveLayerEdits", "mActionSaveEdits"]
+        )
+        self._qgis_save_all_edits_action = self._find_qgis_action(["mActionSaveAllEdits"])
+        if self._qgis_save_layer_action is not None:
+            try:
+                self._qgis_save_layer_action.triggered.connect(self._on_qgis_save_layer_button_triggered)
+            except Exception:
+                pass
+        if self._qgis_save_all_edits_action is not None:
+            try:
+                self._qgis_save_all_edits_action.triggered.connect(self._on_qgis_save_layer_button_triggered)
+            except Exception:
+                pass
+
+    def _disconnect_qgis_save_edit_actions(self) -> None:
+        if self._qgis_save_layer_action is not None:
+            try:
+                self._qgis_save_layer_action.triggered.disconnect(self._on_qgis_save_layer_button_triggered)
+            except Exception:
+                pass
+        if self._qgis_save_all_edits_action is not None:
+            try:
+                self._qgis_save_all_edits_action.triggered.disconnect(self._on_qgis_save_layer_button_triggered)
+            except Exception:
+                pass
+        self._qgis_save_layer_action = None
+        self._qgis_save_all_edits_action = None
+
+    def _qgis_save_targets(self):
+        targets = []
+        project = QgsProject.instance()
+        for layer_id in list(self.layer_registry.keys()):
+            layer = project.mapLayer(layer_id)
+            if layer is None:
+                continue
+            try:
+                is_memory = isinstance(layer, QgsVectorLayer) and layer.providerType().lower() == "memory"
+            except Exception:
+                is_memory = False
+            if not is_memory:
+                continue
+            targets.append(layer_id)
+        return targets
+
+    def _on_qgis_save_layer_button_triggered(self, *_args) -> None:
+        for layer_id in self._qgis_save_targets():
+            self._pending_qgis_button_save_ids.add(layer_id)
+            QTimer.singleShot(120, lambda lid=layer_id: self._autosave_after_qgis_save_button(lid))
+            QTimer.singleShot(600, lambda lid=layer_id: self._autosave_after_qgis_save_button(lid))
+
+    def _autosave_after_qgis_save_button(self, layer_id: str) -> None:
+        if layer_id not in self._pending_qgis_button_save_ids:
+            return
+        if layer_id not in self.layer_registry:
+            self._pending_qgis_button_save_ids.discard(layer_id)
+            return
+        project = QgsProject.instance()
+        layer = project.mapLayer(layer_id)
+        if layer is None:
+            self._pending_qgis_button_save_ids.discard(layer_id)
+            return
+        # Ensure both geometry and attributes are committed before GeoJSON write.
+        try:
+            if layer.isEditable() and layer.isModified():
+                try:
+                    layer.commitChanges(False)
+                except TypeError:
+                    layer.commitChanges()
+                try:
+                    layer.startEditing()
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        ok = self._autosave_to_geojson(layer_id)
+        if ok:
+            self._pending_qgis_button_save_ids.discard(layer_id)
+
+    def _on_layer_edit_command_ended(self, layer_id: str) -> None:
+        if not layer_id or layer_id not in self.layer_registry:
+            return
+        if layer_id in self._layer_autosave_queued:
+            return
+        self._layer_autosave_queued.add(layer_id)
+        QTimer.singleShot(180, lambda lid=layer_id: self._autosave_layer_after_form_edit(lid))
+
+    def _autosave_layer_after_form_edit(self, layer_id: str) -> None:
+        self._layer_autosave_queued.discard(layer_id)
+        if not layer_id or layer_id not in self.layer_registry:
+            return
+        project = QgsProject.instance()
+        layer = project.mapLayer(layer_id)
+        if layer is None:
+            return
+        try:
+            is_memory = isinstance(layer, QgsVectorLayer) and layer.providerType().lower() == "memory"
+        except Exception:
+            is_memory = False
+        if not is_memory:
+            return
+        self._autosave_to_geojson(layer_id)
+
+    def _show_status_debug(self, message: str, timeout_ms: int = 2500) -> None:
+        try:
+            status_bar = self.iface.mainWindow().statusBar() if self.iface is not None else None
+        except Exception:
+            status_bar = None
+        if status_bar is None:
+            return
+        try:
+            status_bar.showMessage(message, int(timeout_ms))
+        except Exception:
+            pass
+
+    def _autosave_to_geojson(self, layer_id: str) -> bool:
+        meta = self.layer_registry.get(layer_id)
+        if meta is None:
+            return False
+        project = QgsProject.instance()
+        layer = project.mapLayer(layer_id)
+        if layer is None:
+            return False
+        source_path = meta.get("source_path", "")
+        if not source_path:
+            info = self._current_project_info()
+            project_dir = self._resolve_project_dir(info)
+            if project_dir:
+                source_path = os.path.join(project_dir, f"{meta.get('class_name', layer.name())}.geojson")
+                meta["source_path"] = source_path
+        target_name = os.path.basename(source_path) if source_path else "?"
+        self._show_status_debug(f"autosave {layer.name()} -> {target_name}")
+        return self.save_layer(layer_id, prompt_add_file=False)
 
     def _load_schema_cache(self):
         if self._schema_cache is not None:
@@ -1939,6 +2553,200 @@ class GeoJsonUa:
         }
         return mapping.get(geom_name)
 
+    def _layer_category_from_wkb(self, wkb_type) -> str:
+        if wkb_type is None:
+            return "metadata"
+        try:
+            geom_type = QgsWkbTypes.geometryType(wkb_type)
+        except Exception:
+            return "metadata"
+        if geom_type == QgsWkbTypes.PointGeometry:
+            return "points"
+        if geom_type == QgsWkbTypes.LineGeometry:
+            return "lines"
+        if geom_type == QgsWkbTypes.PolygonGeometry:
+            return "polygons"
+        return "metadata"
+
+    def _detect_geojson_category_from_file(self, source_path: str) -> str:
+        data = self._read_json_file(source_path)
+        if not isinstance(data, dict):
+            return "metadata"
+        features = data.get("features")
+        if not isinstance(features, list):
+            return "metadata"
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            geometry = feature.get("geometry")
+            if not isinstance(geometry, dict):
+                continue
+            geom_type = geometry.get("type")
+            if geom_type in ("Point", "MultiPoint"):
+                return "points"
+            if geom_type in ("LineString", "MultiLineString"):
+                return "lines"
+            if geom_type in ("Polygon", "MultiPolygon"):
+                return "polygons"
+            if geom_type == "GeometryCollection":
+                geometries = geometry.get("geometries", [])
+                if not isinstance(geometries, list):
+                    continue
+                for entry in geometries:
+                    if not isinstance(entry, dict):
+                        continue
+                    entry_type = entry.get("type")
+                    if entry_type in ("Point", "MultiPoint"):
+                        return "points"
+                    if entry_type in ("LineString", "MultiLineString"):
+                        return "lines"
+                    if entry_type in ("Polygon", "MultiPolygon"):
+                        return "polygons"
+        return "metadata"
+
+    def _categorize_geojson_file(self, class_key: str, schema: dict, common_schema: dict, source_path: str) -> str:
+        wkb_type = self._schema_geometry_wkb(class_key, schema, common_schema)
+        category = self._layer_category_from_wkb(wkb_type)
+        if category != "metadata":
+            return category
+        return self._detect_geojson_category_from_file(source_path)
+
+    def _format_duration_hhmmss(self, seconds: float) -> str:
+        try:
+            total = int(max(0, round(float(seconds))))
+        except Exception:
+            total = 0
+        hours, rest = divmod(total, 3600)
+        minutes, secs = divmod(rest, 60)
+        return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+    def _wkb_from_geojson_geometry_type(self, geom_type_name: str):
+        mapping = {
+            "Point": QgsWkbTypes.Point,
+            "LineString": QgsWkbTypes.LineString,
+            "Polygon": QgsWkbTypes.Polygon,
+            "MultiPoint": QgsWkbTypes.MultiPoint,
+            "MultiLineString": QgsWkbTypes.MultiLineString,
+            "MultiPolygon": QgsWkbTypes.MultiPolygon,
+        }
+        return mapping.get(geom_type_name)
+
+    def _geojson_geometry_to_wkt(self, geometry_data: dict):
+        if not isinstance(geometry_data, dict):
+            return None
+        geom_type = geometry_data.get("type")
+        if not isinstance(geom_type, str):
+            return None
+        coords = geometry_data.get("coordinates")
+
+        def fmt_num(value):
+            try:
+                return f"{float(value):.15g}"
+            except Exception:
+                return None
+
+        def point_wkt(point):
+            if not isinstance(point, (list, tuple)) or len(point) < 2:
+                return None
+            x = fmt_num(point[0])
+            y = fmt_num(point[1])
+            if x is None or y is None:
+                return None
+            return f"{x} {y}"
+
+        def linestring_wkt(line):
+            if not isinstance(line, (list, tuple)) or not line:
+                return None
+            pts = []
+            for point in line:
+                p = point_wkt(point)
+                if p is None:
+                    return None
+                pts.append(p)
+            return ", ".join(pts)
+
+        def polygon_wkt(poly):
+            if not isinstance(poly, (list, tuple)) or not poly:
+                return None
+            rings = []
+            for ring in poly:
+                ls = linestring_wkt(ring)
+                if ls is None:
+                    return None
+                rings.append(f"({ls})")
+            return ", ".join(rings)
+
+        if geom_type == "Point":
+            p = point_wkt(coords)
+            return f"POINT ({p})" if p else None
+        if geom_type == "LineString":
+            ls = linestring_wkt(coords)
+            return f"LINESTRING ({ls})" if ls else None
+        if geom_type == "Polygon":
+            poly = polygon_wkt(coords)
+            return f"POLYGON ({poly})" if poly else None
+        if geom_type == "MultiPoint":
+            if not isinstance(coords, (list, tuple)) or not coords:
+                return None
+            points = []
+            for point in coords:
+                p = point_wkt(point)
+                if p is None:
+                    return None
+                points.append(f"({p})")
+            return f"MULTIPOINT ({', '.join(points)})"
+        if geom_type == "MultiLineString":
+            if not isinstance(coords, (list, tuple)) or not coords:
+                return None
+            lines = []
+            for line in coords:
+                ls = linestring_wkt(line)
+                if ls is None:
+                    return None
+                lines.append(f"({ls})")
+            return f"MULTILINESTRING ({', '.join(lines)})"
+        if geom_type == "MultiPolygon":
+            if not isinstance(coords, (list, tuple)) or not coords:
+                return None
+            polygons = []
+            for poly in coords:
+                pw = polygon_wkt(poly)
+                if pw is None:
+                    return None
+                polygons.append(f"({pw})")
+            return f"MULTIPOLYGON ({', '.join(polygons)})"
+        if geom_type == "GeometryCollection":
+            geometries = geometry_data.get("geometries")
+            if not isinstance(geometries, (list, tuple)) or not geometries:
+                return None
+            parts = []
+            for entry in geometries:
+                wkt = self._geojson_geometry_to_wkt(entry)
+                if not wkt:
+                    continue
+                parts.append(wkt)
+            if not parts:
+                return None
+            return f"GEOMETRYCOLLECTION ({', '.join(parts)})"
+        return None
+
+    def _geometry_from_geojson_dict(self, geometry_data: dict):
+        if not isinstance(geometry_data, dict):
+            return None
+        wkt = self._geojson_geometry_to_wkt(geometry_data)
+        if not wkt:
+            return None
+        try:
+            geometry = QgsGeometry.fromWkt(wkt)
+        except Exception:
+            return None
+        try:
+            if geometry is None or geometry.isNull() or geometry.isEmpty():
+                return None
+        except Exception:
+            pass
+        return geometry
+
     def _schema_simple_type(self, schema_node, schema: dict, common_schema: dict):
         if not isinstance(schema_node, dict):
             return None
@@ -2039,6 +2847,52 @@ class GeoJsonUa:
             layer.attributeValueChanged.connect(lambda _fid, _idx, _val, lid=layer_id: self.mark_dirty(lid))
         except Exception:
             pass
+        try:
+            layer.editCommandEnded.connect(lambda lid=layer_id: self._on_layer_edit_command_ended(lid))
+        except Exception:
+            pass
+        try:
+            layer.beforeCommitChanges.connect(lambda _stop=False, lid=layer_id: self._on_layer_before_commit(lid))
+        except Exception:
+            pass
+        try:
+            layer.afterCommitChanges.connect(lambda lid=layer_id: self._on_layer_after_commit(lid))
+        except Exception:
+            pass
+        # Provider-level commit notifications (attributes/geometry/features) are
+        # the most reliable trigger after user presses QGIS "Save Layer Edits".
+        try:
+            layer.committedAttributeValuesChanges.connect(
+                lambda *_args, lid=layer_id: self._schedule_layer_commit_save(lid)
+            )
+        except Exception:
+            pass
+        try:
+            layer.committedGeometriesChanges.connect(
+                lambda *_args, lid=layer_id: self._schedule_layer_commit_save(lid)
+            )
+        except Exception:
+            pass
+        try:
+            layer.committedFeaturesAdded.connect(
+                lambda *_args, lid=layer_id: self._schedule_layer_commit_save(lid)
+            )
+        except Exception:
+            pass
+        try:
+            layer.committedFeaturesRemoved.connect(
+                lambda *_args, lid=layer_id: self._schedule_layer_commit_save(lid)
+            )
+        except Exception:
+            pass
+        try:
+            layer.editingStopped.connect(lambda lid=layer_id: self._on_layer_editing_stopped(lid))
+        except Exception:
+            pass
+        try:
+            layer.afterRollBack.connect(lambda lid=layer_id: self._on_layer_after_rollback(lid))
+        except Exception:
+            pass
 
     def mark_dirty(self, layer_id: str, dirty: bool = True) -> None:
         meta = self.layer_registry.get(layer_id)
@@ -2066,12 +2920,14 @@ class GeoJsonUa:
         if meta is not None:
             meta["spatial_index"] = index
 
-    def _ensure_memory_layer_for_class(self, class_key: str, project_dir: str, source_layer=None, source_path: str = "", loaded_from_disk: bool = False):
+    def _ensure_memory_layer_for_class(self, class_key: str, project_dir: str, source_layer=None, source_path: str = "", loaded_from_disk: bool = False, source_wkb=None):
         existing = self._get_layer_for_class(class_key)
         if existing is not None:
             return existing
         schema, common_schema = self._load_schema_cache()
         wkb_type = self._schema_geometry_wkb(class_key, schema, common_schema)
+        if wkb_type is None and source_wkb is not None:
+            wkb_type = source_wkb
         if wkb_type is None and source_layer is not None:
             try:
                 wkb_type = source_layer.wkbType()
@@ -2269,24 +3125,93 @@ class GeoJsonUa:
     def load_folder(self, folder_path: str) -> None:
         if not folder_path or not os.path.isdir(folder_path):
             return
-        files = sorted(
+        file_names = sorted(
             name for name in os.listdir(folder_path)
             if name.lower().endswith(".geojson")
         )
-        if not files:
+        if not file_names:
             return
+
+        schema, common_schema = self._load_schema_cache()
+        categories = {key: [] for key in ("metadata", "points", "lines", "polygons")}
+        total_kb = 0
+        for name in file_names:
+            source_path = os.path.join(folder_path, name)
+            class_key = os.path.splitext(name)[0]
+            try:
+                size_bytes = os.path.getsize(source_path)
+            except Exception:
+                size_bytes = 0
+            size_kb = max(1, int((size_bytes + 1023) // 1024))
+            category = self._categorize_geojson_file(class_key, schema, common_schema, source_path)
+            categories.setdefault(category, []).append(
+                {
+                    "name": name,
+                    "class_key": class_key,
+                    "source_path": source_path,
+                    "size_kb": size_kb,
+                    "category": category,
+                }
+            )
+            total_kb += size_kb
+
+        for key in categories:
+            categories[key].sort(key=lambda item: item["name"].lower())
+        ordered_files = []
+        for key in ("metadata", "points", "lines", "polygons"):
+            ordered_files.extend(categories.get(key, []))
+        if not ordered_files:
+            return
+
         progress = QProgressDialog(
             self.tr(u"Відкриття проєкту..."),
             self.tr(u"Скасувати"),
             0,
-            len(files),
+            max(total_kb, 1),
             self.iface.mainWindow(),
         )
-        progress.setWindowModality(Qt.WindowModal)
+        progress.setWindowModality(Qt.ApplicationModal)
         progress.setMinimumDuration(0)
+        progress.setAutoClose(False)
+        progress.setAutoReset(False)
         progress.setValue(0)
-        schema, common_schema = self._load_schema_cache()
+        self._align_progress_dialog_left(progress)
+        self._pump_progress_ui(progress, force=True)
+
         loaded = 0
+        elapsed_start = time.monotonic()
+        processed_kb = 0.0
+        last_ui_pump_at = 0.0
+
+        def update_progress(file_info, stage_text: str, fraction: float) -> None:
+            nonlocal last_ui_pump_at
+            if file_info is None:
+                return
+            size_kb = float(max(1, int(file_info.get("size_kb", 1))))
+            fraction = max(0.0, min(1.0, float(fraction)))
+            done_kb = min(float(total_kb), processed_kb + size_kb * fraction)
+            elapsed = max(0.0, time.monotonic() - elapsed_start)
+            if done_kb > 0.0:
+                remaining_kb = max(0.0, float(total_kb) - done_kb)
+                eta = (elapsed / done_kb) * remaining_kb
+            else:
+                eta = 0.0
+            line_1 = self.tr(u"Минуло: {0} | Очікується: {1}").format(
+                self._format_duration_hhmmss(elapsed),
+                self._format_duration_hhmmss(eta),
+            )
+            line_2 = self.tr(u"{0} {1} кБ {2}").format(
+                file_info.get("name", ""),
+                int(size_kb),
+                stage_text,
+            )
+            progress.setLabelText(f"{line_1}\n{line_2}")
+            progress.setValue(int(max(0.0, min(float(total_kb), done_kb))))
+            now = time.monotonic()
+            if (now - last_ui_pump_at) >= 0.12 or fraction >= 0.999:
+                self._pump_progress_ui(progress)
+                last_ui_pump_at = now
+
         canvas = self.iface.mapCanvas() if getattr(self, "iface", None) is not None else None
         prev_render = None
         if canvas is not None:
@@ -2295,88 +3220,237 @@ class GeoJsonUa:
                 canvas.setRenderFlag(False)
             except Exception:
                 prev_render = None
+        cpu_boost_token = self._enter_cpu_boost_mode()
+
         try:
-            for index, name in enumerate(files, start=1):
+            for file_info in ordered_files:
                 if progress.wasCanceled():
                     break
-                progress.setLabelText(self.tr(u"Завантаження {0}").format(name))
-                progress.setValue(index - 1)
-                QCoreApplication.processEvents()
-                class_key = os.path.splitext(name)[0]
+                name = file_info["name"]
+                class_key = file_info["class_key"]
+                file_size_kb = int(file_info.get("size_kb", 0))
+                if file_size_kb > 500:
+                    self._refresh_cpu_boost_mode(cpu_boost_token)
                 if self._get_layer_for_class(class_key) is not None:
+                    processed_kb += float(file_info["size_kb"])
+                    update_progress(file_info, self.tr(u"Пропуск (вже додано)"), 1.0)
                     continue
-                source_path = os.path.join(folder_path, name)
-                item = self._show_status(self.tr(u"{0}: парсинг geojson").format(name))
-                source_layer = QgsVectorLayer(source_path, class_key, "ogr")
-                if not source_layer.isValid():
+
+                source_path = file_info["source_path"]
+                update_progress(file_info, self.tr(u"Читання з диску"), 0.10)
+                item = None
+                parse_task = _GeoJsonParseTask(source_path, class_key)
+                parse_state = {
+                    "done": False,
+                    "success": False,
+                    "records": [],
+                    "source_field_names": set(),
+                    "geometry_type": None,
+                    "error_message": "",
+                }
+
+                def _on_parse_completed():
+                    try:
+                        parse_state["success"] = bool(parse_task.success)
+                        parse_state["records"] = list(parse_task.records or [])
+                        parse_state["source_field_names"] = set(parse_task.source_field_names or set())
+                        parse_state["geometry_type"] = parse_task.geometry_type
+                        parse_state["error_message"] = parse_task.error_message or ""
+                    except Exception:
+                        parse_state["success"] = False
+                    parse_state["done"] = True
+
+                def _on_parse_terminated():
+                    parse_state["done"] = True
+                    parse_state["success"] = False
+
+                try:
+                    parse_task.taskCompleted.connect(_on_parse_completed)
+                except Exception:
+                    pass
+                try:
+                    parse_task.taskTerminated.connect(_on_parse_terminated)
+                except Exception:
+                    pass
+                try:
+                    QgsApplication.taskManager().addTask(parse_task)
+                except Exception:
+                    parse_task = None
+                parse_started_at = time.monotonic()
+                while parse_task is not None and not parse_state["done"]:
+                    if progress.wasCanceled():
+                        try:
+                            parse_task.cancel()
+                        except Exception:
+                            pass
+                        break
+                    parse_progress = 0.0
+                    try:
+                        parse_progress = float(parse_task.progress())
+                    except Exception:
+                        parse_progress = 0.0
+                    update_progress(file_info, self.tr(u"Синтаксичний аналіз"), 0.55 + 0.20 * min(1.0, parse_progress / 100.0))
+                    if file_size_kb > 500 and (time.monotonic() - parse_started_at) >= 0.35:
+                        self._refresh_cpu_boost_mode(cpu_boost_token)
+                        parse_started_at = time.monotonic()
+                if progress.wasCanceled():
+                    break
+                if parse_task is None or not parse_state["success"]:
                     self._close_status(item)
+                    processed_kb += float(file_info["size_kb"])
+                    update_progress(file_info, self.tr(u"Помилка читання"), 1.0)
                     continue
+
+                update_progress(file_info, self.tr(u"Синтаксичний аналіз"), 0.55)
+                source_wkb = self._wkb_from_geojson_geometry_type(parse_state["geometry_type"])
                 target_layer = self._ensure_memory_layer_for_class(
                     class_key,
                     folder_path,
-                    source_layer=source_layer,
+                    source_layer=None,
                     source_path=source_path,
                     loaded_from_disk=True,
+                    source_wkb=source_wkb,
                 )
                 if target_layer is None:
                     self._close_status(item)
+                    processed_kb += float(file_info["size_kb"])
+                    update_progress(file_info, self.tr(u"Помилка створення шару"), 1.0)
                     continue
                 props_template = {}
                 if schema and f"{class_key}Feature" in schema.get("$defs", {}):
                     props_template = self._build_feature_properties(class_key, "", schema, common_schema)
                 target_fields = target_layer.fields()
-                source_field_names = set()
-                try:
-                    source_field_names = set(source_layer.fields().names())
-                except Exception:
-                    source_field_names = set()
+                source_field_names = set(parse_state["source_field_names"] or set())
                 new_features = []
-                for feature in source_layer.getFeatures():
+                prepared_records = list(parse_state["records"] or [])
+                feature_total = len(prepared_records)
+                chunk_size = 2000 if file_size_kb > 500 else 5000
+                chunk_add_failed = False
+                last_boost_at = time.monotonic()
+
+                def flush_features_chunk() -> bool:
+                    nonlocal new_features, chunk_add_failed, last_boost_at
+                    if not new_features:
+                        return True
+                    try:
+                        if not target_layer.isEditable():
+                            target_layer.startEditing()
+                    except Exception:
+                        pass
+                    try:
+                        target_layer.dataProvider().addFeatures(new_features)
+                        new_features = []
+                        if file_size_kb > 500:
+                            now_boost = time.monotonic()
+                            if (now_boost - last_boost_at) >= 0.35:
+                                self._refresh_cpu_boost_mode(cpu_boost_token)
+                                last_boost_at = now_boost
+                        return True
+                    except Exception:
+                        chunk_add_failed = True
+                        return False
+
+                for feature_index, record in enumerate(prepared_records, start=1):
                     new_feature = QgsFeature(target_fields)
-                    geometry = self._coerce_geometry(feature.geometry(), target_layer.wkbType())
+                    geometry_obj = self._geometry_from_geojson_dict(record.get("geometry"))
+                    geometry = self._coerce_geometry(geometry_obj, target_layer.wkbType())
                     if geometry is not None:
                         new_feature.setGeometry(geometry)
+                    properties = record.get("properties")
+                    if not isinstance(properties, dict):
+                        properties = {}
                     if props_template:
                         props = dict(props_template)
-                        for name in source_field_names:
-                            if name in props:
+                        for field_name in source_field_names:
+                            if field_name in props:
                                 try:
-                                    props[name] = feature[name]
+                                    props[field_name] = properties.get(field_name)
                                 except Exception:
                                     pass
-                        self._apply_property_aliases(class_key, props, source_field_names, feature)
+                        self._apply_property_aliases(class_key, props, source_field_names, properties)
                         attributes = [props.get(field.name()) for field in target_fields]
                     else:
-                        attributes = feature.attributes()
+                        attributes = [properties.get(field.name()) for field in target_fields]
                     new_feature.setAttributes(attributes)
                     new_features.append(new_feature)
-                try:
-                    if not target_layer.isEditable():
-                        target_layer.startEditing()
-                except Exception:
-                    pass
-                try:
-                    target_layer.dataProvider().addFeatures(new_features)
-                except Exception:
+                    if len(new_features) >= chunk_size:
+                        if not flush_features_chunk():
+                            break
+                    if feature_index % 500 == 0:
+                        if feature_total > 0:
+                            progress_fraction = 0.55 + 0.25 * min(1.0, float(feature_index) / float(feature_total))
+                        else:
+                            progress_fraction = 0.70
+                        update_progress(file_info, self.tr(u"Синтаксичний аналіз"), progress_fraction)
+                    if file_size_kb > 500 and feature_index % 2000 == 0:
+                        self._refresh_cpu_boost_mode(cpu_boost_token)
+                if not chunk_add_failed and not flush_features_chunk():
+                    chunk_add_failed = True
+                if chunk_add_failed:
                     self._close_status(item)
+                    processed_kb += float(file_info["size_kb"])
+                    update_progress(file_info, self.tr(u"Помилка додавання об'єктів"), 1.0)
                     continue
                 target_layer.updateExtents()
+                update_progress(file_info, self.tr(u"Індексація"), 0.85)
                 self._update_status(item, self.tr(u"{0}: побудова просторового індекса").format(name))
                 self.build_index(target_layer)
                 self._close_status(item)
                 self.mark_dirty(target_layer.id(), False)
                 loaded += 1
+                processed_kb += float(file_info["size_kb"])
+                update_progress(file_info, self.tr(u"Готово"), 1.0)
         finally:
+            self._leave_cpu_boost_mode(cpu_boost_token)
             if canvas is not None and prev_render is not None:
                 try:
                     canvas.setRenderFlag(prev_render)
                 except Exception:
                     pass
-        progress.setValue(len(files))
+        progress.setValue(max(total_kb, 1))
+        try:
+            progress.setCancelButtonText(self.tr(u"Закрити"))
+        except Exception:
+            pass
+        self._pump_progress_ui(progress)
         if loaded:
             pass
 
-    def save_layer(self, layer_id: str) -> bool:
+    def _on_layer_after_commit(self, layer_id: str) -> None:
+        if not layer_id:
+            return
+        self._schedule_layer_commit_save(layer_id)
+
+    def _on_layer_before_commit(self, layer_id: str) -> None:
+        if not layer_id:
+            return
+        self._pending_layer_commit_save.add(layer_id)
+
+    def _on_layer_after_rollback(self, layer_id: str) -> None:
+        if not layer_id:
+            return
+        self._pending_layer_commit_save.discard(layer_id)
+
+    def _on_layer_editing_stopped(self, layer_id: str) -> None:
+        # In some QGIS setups afterCommitChanges may be skipped/delayed.
+        # If commit was requested and editing stopped, persist anyway.
+        if not layer_id:
+            return
+        if layer_id in self._pending_layer_commit_save:
+            self._schedule_layer_commit_save(layer_id)
+
+    def _schedule_layer_commit_save(self, layer_id: str) -> None:
+        if not layer_id:
+            return
+        self._pending_layer_commit_save.discard(layer_id)
+        QTimer.singleShot(120, lambda lid=layer_id: self._autosave_committed_layer(lid))
+
+    def _autosave_committed_layer(self, layer_id: str) -> None:
+        if not layer_id or layer_id not in self.layer_registry:
+            return
+        self._autosave_to_geojson(layer_id)
+
+    def save_layer(self, layer_id: str, prompt_add_file: bool = True) -> bool:
         meta = self.layer_registry.get(layer_id)
         if meta is None:
             return False
@@ -2404,7 +3478,7 @@ class GeoJsonUa:
         if locked or os.path.exists(source_path):
             base, ext = os.path.splitext(source_path)
             write_path = f"{base}_tmp{ext or '.geojson'}"
-        item = self._show_status(self.tr(u"{0}: парсинг geojson").format(os.path.basename(write_path)))
+        item = None
         options = QgsVectorFileWriter.SaveVectorOptions()
         options.driverName = "GeoJSON"
         options.fileEncoding = "UTF-8"
@@ -2439,7 +3513,8 @@ class GeoJsonUa:
         meta["dirty"] = False
         meta["loaded_from_disk"] = True
         self._push_info(self.tr(u"Збережено GeoJSON: {0}").format(os.path.basename(final_path)))
-        self._prompt_add_saved_file(final_path, meta.get("class_name", layer.name()))
+        if prompt_add_file:
+            self._prompt_add_saved_file(final_path, meta.get("class_name", layer.name()))
         self._update_save_action()
         return True
 
@@ -2508,12 +3583,12 @@ class GeoJsonUa:
                     continue
 
     def save_all_dirty(self) -> bool:
-        dirty_layers = [lid for lid, meta in self.layer_registry.items() if meta.get("dirty")]
-        if not dirty_layers:
+        layers_to_save = self._collect_layers_to_save()
+        if not layers_to_save:
             self._push_info(self.tr(u"Немає незбережених змін."))
             return True
         failed = []
-        for layer_id in dirty_layers:
+        for layer_id in layers_to_save:
             if not self.save_layer(layer_id):
                 failed.append(layer_id)
         if failed:
@@ -2523,8 +3598,8 @@ class GeoJsonUa:
         return True
 
     def _prompt_save_dirty(self) -> bool:
-        dirty_layers = [lid for lid, meta in self.layer_registry.items() if meta.get("dirty")]
-        if not dirty_layers:
+        layers_to_save = self._collect_layers_to_save()
+        if not layers_to_save:
             return True
         parent = self.iface.mainWindow() if self.iface is not None else None
         dialog = QMessageBox(parent)
@@ -2542,6 +3617,23 @@ class GeoJsonUa:
         if clicked == discard_button:
             return True
         return False
+
+    def _collect_layers_to_save(self):
+        layers = []
+        project = QgsProject.instance()
+        for layer_id, meta in self.layer_registry.items():
+            layer = project.mapLayer(layer_id)
+            if layer is None:
+                continue
+            is_dirty = bool(meta.get("dirty"))
+            if not is_dirty:
+                try:
+                    is_dirty = bool(layer.isModified())
+                except Exception:
+                    is_dirty = False
+            if is_dirty:
+                layers.append(layer_id)
+        return layers
 
     def _clear_registry_for_group(self, group) -> None:
         if group is None:
@@ -2785,6 +3877,7 @@ class GeoJsonUa:
         progress.setWindowModality(Qt.WindowModal)
         progress.setMinimumDuration(0)
         progress.setValue(0)
+        self._align_progress_dialog_left(progress)
         errors_dir = os.path.join(project_dir, "Errors")
         error_entries_by_class = {}
         c_errors = {}
@@ -2850,6 +3943,7 @@ class GeoJsonUa:
             topo_progress.setWindowModality(Qt.WindowModal)
             topo_progress.setMinimumDuration(0)
             topo_progress.setValue(0)
+            self._align_progress_dialog_left(topo_progress)
             topo_errors_by_class = self._run_topology_checks(topo_rules, topo_progress)
         for class_key, entries in topo_errors_by_class.items():
             error_entries_by_class.setdefault(class_key, []).extend(entries)
@@ -2895,15 +3989,19 @@ class GeoJsonUa:
             except Exception:
                 group_name = None
         if group is not None:
+            self._suppress_layer_remove_prompt = True
             try:
-                root = QgsProject.instance().layerTreeRoot()
-            except Exception:
-                root = None
-            if root is not None:
                 try:
-                    root.removeChildNode(group)
+                    root = QgsProject.instance().layerTreeRoot()
                 except Exception:
-                    pass
+                    root = None
+                if root is not None:
+                    try:
+                        root.removeChildNode(group)
+                    except Exception:
+                        pass
+            finally:
+                self._suppress_layer_remove_prompt = False
             try:
                 self.opened_projects.remove_by_group(group)
             except Exception:
@@ -2988,6 +4086,7 @@ class GeoJsonUa:
                         level=Qgis.Warning,
                         duration=0,
                     )
+                self._apply_sketch_style(layer)
                 continue
             if not os.path.exists(style_path):
                 if layer.name() not in self._missing_style_reported:
@@ -2997,6 +4096,7 @@ class GeoJsonUa:
                         level=Qgis.Warning,
                         duration=0,
                     )
+                self._apply_sketch_style(layer)
                 continue
             try:
                 self._load_symbology_only(layer, style_path)
@@ -3122,12 +4222,10 @@ class GeoJsonUa:
             self.iface.addDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
             self._ensure_dockwidget_panel_name()
             self._refresh_current_project_label()
-            self._constrain_main_window()
             self.dockwidget.show()
             return
 
         if self.dockwidget.isVisible():
             self.dockwidget.hide()
         else:
-            self._constrain_main_window()
             self.dockwidget.show()

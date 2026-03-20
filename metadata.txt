@@ -2,8 +2,8 @@
 name=json_ua
 qgisMinimumVersion=3.34.15
 description=Process Ukrainian GeoJSON files
-version=0.9.8
-date=2026-03-18
+version=0.9.9
+date=2026-03-20
 author=krechkivsky.dev@gmail.com
 email=krechkivsky.dev@gmail.com
 license=GPLv3

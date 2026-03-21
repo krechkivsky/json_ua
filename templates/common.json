@@ -1,6 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Common GeoJSON schemas",
+  "description": "Copyright (c) 2026 Mykhailo Krechkivski. Licensed under GNU GPL v3.0. Базові геопросторові типи для валідації містобудівної документації України (Наказ №56). Умови використання: обов'язкове посилання на автора та збереження ліцензії GPL v3.",
+  "x-author": "Mykhailo Krechkivski",
+  "x-license": "GNU GPL v3.0",
+  "x-source": "https://github.com/krechkivsky/json_ua",
+
   "$defs": {
     "NonEmptyString": {
       "type": "string",

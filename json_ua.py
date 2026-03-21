@@ -25,6 +25,7 @@ import configparser
 import json
 import uuid
 import re
+import math
 
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt, QItemSelectionModel, QVariant, QUrl, QPointF, QObject, QEvent, QTimer, QEventLoop
 from qgis.PyQt.QtGui import QIcon, QGuiApplication, QDesktopServices, QPainter, QPen, QPixmap
@@ -1925,7 +1926,25 @@ class GeoJsonUa:
                     continue
                 if hole_geom is None or hole_geom.isEmpty():
                     continue
-                entries.append(self._topo_error_entry(layer_a.name(), hole_geom, "Топологія: проміжок."))
+                area = 0.0
+                perimeter = 0.0
+                try:
+                    area = float(hole_geom.area())
+                except Exception:
+                    area = 0.0
+                try:
+                    perimeter = float(hole_geom.length())
+                except Exception:
+                    perimeter = 0.0
+                if area > 0.0 and perimeter > 0.0:
+                    form_factor = (perimeter * perimeter) / (4.0 * math.pi * area)
+                else:
+                    form_factor = float("inf")
+                message = self.tr(u"Топологія: проміжок, площа {0:.3f} м², форм-фактор {1:.6E}.").format(
+                    area,
+                    form_factor,
+                )
+                entries.append(self._topo_error_entry(layer_a.name(), hole_geom, message))
         return entries
 
     def _run_topology_checks(self, rules=None, progress=None):

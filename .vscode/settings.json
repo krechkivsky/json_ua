@@ -1,0 +1,45 @@
+﻿{
+  "python.analysis.indexing": false,
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.autoImportCompletions": false,
+  "python.analysis.userFileIndexingLimit": 1000,
+  "python.analysis.exclude": [
+    "**/templates/**",
+    "**/Syntax/**",
+    "**/Topology/**",
+    "**/*_check.geojson",
+    "**/*_err.geojson",
+    "**/.context/**",
+    "**/.git/**"
+  ],
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.context/**": true,
+    "**/__pycache__/**": true,
+    "**/.mypy_cache/**": true,
+    "**/.pytest_cache/**": true,
+    "**/.ruff_cache/**": true,
+    "**/node_modules/**": true,
+    "**/templates/**": true,
+    "**/Syntax/**": true,
+    "**/Topology/**": true,
+    "**/*_check.geojson": true,
+    "**/*_err.geojson": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.context": true,
+    "**/__pycache__": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/node_modules": true,
+    "**/templates": true,
+    "**/Syntax": true,
+    "**/Topology": true,
+    "**/*_check.geojson": true,
+    "**/*_err.geojson": true
+  }
+}

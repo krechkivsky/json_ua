@@ -24260,7 +24260,7 @@
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="agrogr_с">
+    <field configurationFlags="NoFlag" name="agrogr_c">
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">

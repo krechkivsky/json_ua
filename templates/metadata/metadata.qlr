@@ -233,7 +233,7 @@
       <customproperties>
         <Option type="Map">
           <Option type="List" name="dualview/previewExpressions">
-            <Option type="QString" value="&quot;company_name&quot;"/>
+            <Option type="QString" value="&quot;Company_Name&quot;"/>
           </Option>
         </Option>
       </customproperties>
@@ -251,7 +251,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="title">
+        <field configurationFlags="NoFlag" name="Title">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -261,7 +261,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="doc_type">
+        <field configurationFlags="NoFlag" name="Doc_type">
           <editWidget type="ValueMap">
             <config>
               <Option type="Map">
@@ -283,7 +283,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="region">
+        <field configurationFlags="NoFlag" name="Region">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -293,7 +293,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="region_koatuu">
+        <field configurationFlags="NoFlag" name="Region_KOATUU">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -303,7 +303,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="region_katotth">
+        <field configurationFlags="NoFlag" name="Region_KATOTTH">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -313,7 +313,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="hromada">
+        <field configurationFlags="NoFlag" name="Hromada">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -323,7 +323,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="hromada_koatuu">
+        <field configurationFlags="NoFlag" name="Hromada_KOATUU">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -333,7 +333,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="hromada_katotth">
+        <field configurationFlags="NoFlag" name="Hromada_KATOTTH">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -343,7 +343,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="settlement">
+        <field configurationFlags="NoFlag" name="Settlement">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -353,7 +353,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="settl_koatuu">
+        <field configurationFlags="NoFlag" name="Settl_KOATUU">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -363,7 +363,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="settl_katotth">
+        <field configurationFlags="NoFlag" name="Settl_KATOTTH">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -403,7 +403,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="company_name">
+        <field configurationFlags="NoFlag" name="Company_Name">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -413,7 +413,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="edrpou">
+        <field configurationFlags="NoFlag" name="EDRPOU">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -423,7 +423,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="address">
+        <field configurationFlags="NoFlag" name="Address">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -433,7 +433,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="phone">
+        <field configurationFlags="NoFlag" name="Phone">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -443,7 +443,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="email">
+        <field configurationFlags="NoFlag" name="Email">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -453,7 +453,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="arch_lastname">
+        <field configurationFlags="NoFlag" name="Arch_LastName">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -463,7 +463,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="arch_firstname">
+        <field configurationFlags="NoFlag" name="Arch_FirstName">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -473,7 +473,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="arch_middlename">
+        <field configurationFlags="NoFlag" name="Arch_MiddleName">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -483,7 +483,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="arch_certificate_number">
+        <field configurationFlags="NoFlag" name="Arch_Certificate_Number">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -493,7 +493,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="arch_certificate_date">
+        <field configurationFlags="NoFlag" name="Arch_Certificate_Date">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -506,7 +506,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="surv_last_name">
+        <field configurationFlags="NoFlag" name="Surv_Last_Name">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -516,7 +516,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="surv_first_name">
+        <field configurationFlags="NoFlag" name="Surv_First_Name">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -526,7 +526,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="surv_middle_name">
+        <field configurationFlags="NoFlag" name="Surv_Middle_Name">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -536,7 +536,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="surv_certificate_number">
+        <field configurationFlags="NoFlag" name="Surv_Certificate_Number">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -546,7 +546,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="surv_certificate_date">
+        <field configurationFlags="NoFlag" name="Surv_Certificate_Date">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -559,7 +559,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="decision_authority">
+        <field configurationFlags="NoFlag" name="Decision_Authority">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -569,7 +569,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="decision_date">
+        <field configurationFlags="NoFlag" name="Decision_Date">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -582,7 +582,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="decision_number">
+        <field configurationFlags="NoFlag" name="Decision_Number">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -592,7 +592,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="expertise_authority">
+        <field configurationFlags="NoFlag" name="Expertise_Authority">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -602,7 +602,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="expertise_date">
+        <field configurationFlags="NoFlag" name="Expertise_Date">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -615,7 +615,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="expertise_number">
+        <field configurationFlags="NoFlag" name="Expertise_Number">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -625,7 +625,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="approval_authority">
+        <field configurationFlags="NoFlag" name="Approval_Authority">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -635,7 +635,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="approval_date">
+        <field configurationFlags="NoFlag" name="Approval_Date">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -648,7 +648,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="approval_number">
+        <field configurationFlags="NoFlag" name="Approval_Number">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -661,208 +661,208 @@
       </fieldConfiguration>
       <aliases>
         <alias field="fid" index="0" name=""/>
-        <alias field="title" index="1" name="Повна назва документації"/>
-        <alias field="doc_type" index="2" name="Вид документації"/>
-        <alias field="region" index="3" name="Назва регіону"/>
-        <alias field="region_koatuu" index="4" name="КОАТУУ регіону"/>
-        <alias field="region_katotth" index="5" name="КАТОТТГ регіону"/>
-        <alias field="hromada" index="6" name="Назва територіальної громади"/>
-        <alias field="hromada_koatuu" index="7" name="КОАТУУ територіальної громади"/>
-        <alias field="hromada_katotth" index="8" name="КАТОТТГ територіальної громади"/>
-        <alias field="settlement" index="9" name="Назва населеного пункту"/>
-        <alias field="settl_koatuu" index="10" name="КОАТУУ населеного пункту"/>
-        <alias field="settl_katotth" index="11" name="КАТОТТГ населеного пункту"/>
+        <alias field="Title" index="1" name="Повна назва документації"/>
+        <alias field="Doc_type" index="2" name="Вид документації"/>
+        <alias field="Region" index="3" name="Назва регіону"/>
+        <alias field="Region_KOATUU" index="4" name="КОАТУУ регіону"/>
+        <alias field="Region_KATOTTH" index="5" name="КАТОТТГ регіону"/>
+        <alias field="Hromada" index="6" name="Назва територіальної громади"/>
+        <alias field="Hromada_KOATUU" index="7" name="КОАТУУ територіальної громади"/>
+        <alias field="Hromada_KATOTTH" index="8" name="КАТОТТГ територіальної громади"/>
+        <alias field="Settlement" index="9" name="Назва населеного пункту"/>
+        <alias field="Settl_KOATUU" index="10" name="КОАТУУ населеного пункту"/>
+        <alias field="Settl_KATOTTH" index="11" name="КАТОТТГ населеного пункту"/>
         <alias field="existing_term" index="12" name="дата існуючого стану (рік)"/>
         <alias field="prime_term" index="13" name="дата першого етапу (рік)"/>
         <alias field="project_term" index="14" name="дата розрахунковго період (рік)"/>
-        <alias field="company_name" index="15" name="Назва організації-розробника документації"/>
-        <alias field="edrpou" index="16" name="Код ЄДРПОУ організації-розробника документації"/>
-        <alias field="address" index="17" name="Адреса організації-розробника документації"/>
-        <alias field="phone" index="18" name="Телефон організації-розробника документації"/>
-        <alias field="email" index="19" name="Електронна адреса організації-розробника документації"/>
-        <alias field="arch_lastname" index="20" name="Прізвище сертифікованого архітектора"/>
-        <alias field="arch_firstname" index="21" name="Ім'я сертифікованого архітектора"/>
-        <alias field="arch_middlename" index="22" name="По-батькові сертифікованого архітектора"/>
-        <alias field="arch_certificate_number" index="23" name="Номер сертифіката аріхтектора"/>
-        <alias field="arch_certificate_date" index="24" name="Дата видачі сертифіката архітектора"/>
-        <alias field="surv_last_name" index="25" name="Прізвище сертифікованого інженера-землевпорядника"/>
-        <alias field="surv_first_name" index="26" name="Імя сертифікованого інженера-землевпорядника"/>
-        <alias field="surv_middle_name" index="27" name="По-батькові сертифікованого інженера-землевпорядника"/>
-        <alias field="surv_certificate_number" index="28" name="Номер сертифіката інженера-землевпорядника"/>
-        <alias field="surv_certificate_date" index="29" name="Дата видачі сертифіката інженера-землевпорядника"/>
-        <alias field="decision_authority" index="30" name="Назва органу, щи прийняв рішення щодо розроблення документації"/>
-        <alias field="decision_date" index="31" name="Дата рішення щодо розроблення документації"/>
-        <alias field="decision_number" index="32" name="Номер рішення щодо розроблення документації"/>
-        <alias field="expertise_authority" index="33" name="Назва організації, що провела експертизу проєкту документації"/>
-        <alias field="expertise_date" index="34" name="Дата висновку за результатами проведення експертизи проєкту документації"/>
-        <alias field="expertise_number" index="35" name="Номер висновку за результатами проведення експертизи проєкту документації"/>
-        <alias field="approval_authority" index="36" name="Назва органу, що прийняв рішення щодо затвердження документації"/>
-        <alias field="approval_date" index="37" name="Дата рішення щодо затвердження документації"/>
-        <alias field="approval_number" index="38" name="Номер рішення щодо затвердження документації"/>
+        <alias field="Company_Name" index="15" name="Назва організації-розробника документації"/>
+        <alias field="EDRPOU" index="16" name="Код ЄДРПОУ організації-розробника документації"/>
+        <alias field="Address" index="17" name="Адреса організації-розробника документації"/>
+        <alias field="Phone" index="18" name="Телефон організації-розробника документації"/>
+        <alias field="Email" index="19" name="Електронна адреса організації-розробника документації"/>
+        <alias field="Arch_LastName" index="20" name="Прізвище сертифікованого архітектора"/>
+        <alias field="Arch_FirstName" index="21" name="Ім'я сертифікованого архітектора"/>
+        <alias field="Arch_MiddleName" index="22" name="По-батькові сертифікованого архітектора"/>
+        <alias field="Arch_Certificate_Number" index="23" name="Номер сертифіката аріхтектора"/>
+        <alias field="Arch_Certificate_Date" index="24" name="Дата видачі сертифіката архітектора"/>
+        <alias field="Surv_Last_Name" index="25" name="Прізвище сертифікованого інженера-землевпорядника"/>
+        <alias field="Surv_First_Name" index="26" name="Імя сертифікованого інженера-землевпорядника"/>
+        <alias field="Surv_Middle_Name" index="27" name="По-батькові сертифікованого інженера-землевпорядника"/>
+        <alias field="Surv_Certificate_Number" index="28" name="Номер сертифіката інженера-землевпорядника"/>
+        <alias field="Surv_Certificate_Date" index="29" name="Дата видачі сертифіката інженера-землевпорядника"/>
+        <alias field="Decision_Authority" index="30" name="Назва органу, щи прийняв рішення щодо розроблення документації"/>
+        <alias field="Decision_Date" index="31" name="Дата рішення щодо розроблення документації"/>
+        <alias field="Decision_Number" index="32" name="Номер рішення щодо розроблення документації"/>
+        <alias field="Expertise_Authority" index="33" name="Назва організації, що провела експертизу проєкту документації"/>
+        <alias field="Expertise_Date" index="34" name="Дата висновку за результатами проведення експертизи проєкту документації"/>
+        <alias field="Expertise_Number" index="35" name="Номер висновку за результатами проведення експертизи проєкту документації"/>
+        <alias field="Approval_Authority" index="36" name="Назва органу, що прийняв рішення щодо затвердження документації"/>
+        <alias field="Approval_Date" index="37" name="Дата рішення щодо затвердження документації"/>
+        <alias field="Approval_Number" index="38" name="Номер рішення щодо затвердження документації"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="fid"/>
-        <policy policy="Duplicate" field="title"/>
-        <policy policy="Duplicate" field="doc_type"/>
-        <policy policy="Duplicate" field="region"/>
-        <policy policy="Duplicate" field="region_koatuu"/>
-        <policy policy="Duplicate" field="region_katotth"/>
-        <policy policy="Duplicate" field="hromada"/>
-        <policy policy="Duplicate" field="hromada_koatuu"/>
-        <policy policy="Duplicate" field="hromada_katotth"/>
-        <policy policy="Duplicate" field="settlement"/>
-        <policy policy="Duplicate" field="settl_koatuu"/>
-        <policy policy="Duplicate" field="settl_katotth"/>
+        <policy policy="Duplicate" field="Title"/>
+        <policy policy="Duplicate" field="Doc_type"/>
+        <policy policy="Duplicate" field="Region"/>
+        <policy policy="Duplicate" field="Region_KOATUU"/>
+        <policy policy="Duplicate" field="Region_KATOTTH"/>
+        <policy policy="Duplicate" field="Hromada"/>
+        <policy policy="Duplicate" field="Hromada_KOATUU"/>
+        <policy policy="Duplicate" field="Hromada_KATOTTH"/>
+        <policy policy="Duplicate" field="Settlement"/>
+        <policy policy="Duplicate" field="Settl_KOATUU"/>
+        <policy policy="Duplicate" field="Settl_KATOTTH"/>
         <policy policy="Duplicate" field="existing_term"/>
         <policy policy="Duplicate" field="prime_term"/>
         <policy policy="Duplicate" field="project_term"/>
-        <policy policy="Duplicate" field="company_name"/>
-        <policy policy="Duplicate" field="edrpou"/>
-        <policy policy="Duplicate" field="address"/>
-        <policy policy="Duplicate" field="phone"/>
-        <policy policy="Duplicate" field="email"/>
-        <policy policy="Duplicate" field="arch_lastname"/>
-        <policy policy="Duplicate" field="arch_firstname"/>
-        <policy policy="Duplicate" field="arch_middlename"/>
-        <policy policy="Duplicate" field="arch_certificate_number"/>
-        <policy policy="Duplicate" field="arch_certificate_date"/>
-        <policy policy="Duplicate" field="surv_last_name"/>
-        <policy policy="Duplicate" field="surv_first_name"/>
-        <policy policy="Duplicate" field="surv_middle_name"/>
-        <policy policy="Duplicate" field="surv_certificate_number"/>
-        <policy policy="Duplicate" field="surv_certificate_date"/>
-        <policy policy="Duplicate" field="decision_authority"/>
-        <policy policy="Duplicate" field="decision_date"/>
-        <policy policy="Duplicate" field="decision_number"/>
-        <policy policy="Duplicate" field="expertise_authority"/>
-        <policy policy="Duplicate" field="expertise_date"/>
-        <policy policy="Duplicate" field="expertise_number"/>
-        <policy policy="Duplicate" field="approval_authority"/>
-        <policy policy="Duplicate" field="approval_date"/>
-        <policy policy="Duplicate" field="approval_number"/>
+        <policy policy="Duplicate" field="Company_Name"/>
+        <policy policy="Duplicate" field="EDRPOU"/>
+        <policy policy="Duplicate" field="Address"/>
+        <policy policy="Duplicate" field="Phone"/>
+        <policy policy="Duplicate" field="Email"/>
+        <policy policy="Duplicate" field="Arch_LastName"/>
+        <policy policy="Duplicate" field="Arch_FirstName"/>
+        <policy policy="Duplicate" field="Arch_MiddleName"/>
+        <policy policy="Duplicate" field="Arch_Certificate_Number"/>
+        <policy policy="Duplicate" field="Arch_Certificate_Date"/>
+        <policy policy="Duplicate" field="Surv_Last_Name"/>
+        <policy policy="Duplicate" field="Surv_First_Name"/>
+        <policy policy="Duplicate" field="Surv_Middle_Name"/>
+        <policy policy="Duplicate" field="Surv_Certificate_Number"/>
+        <policy policy="Duplicate" field="Surv_Certificate_Date"/>
+        <policy policy="Duplicate" field="Decision_Authority"/>
+        <policy policy="Duplicate" field="Decision_Date"/>
+        <policy policy="Duplicate" field="Decision_Number"/>
+        <policy policy="Duplicate" field="Expertise_Authority"/>
+        <policy policy="Duplicate" field="Expertise_Date"/>
+        <policy policy="Duplicate" field="Expertise_Number"/>
+        <policy policy="Duplicate" field="Approval_Authority"/>
+        <policy policy="Duplicate" field="Approval_Date"/>
+        <policy policy="Duplicate" field="Approval_Number"/>
       </splitPolicies>
       <defaults>
         <default field="fid" expression="" applyOnUpdate="0"/>
-        <default field="title" expression="" applyOnUpdate="0"/>
-        <default field="doc_type" expression="" applyOnUpdate="0"/>
-        <default field="region" expression="" applyOnUpdate="0"/>
-        <default field="region_koatuu" expression="" applyOnUpdate="0"/>
-        <default field="region_katotth" expression="" applyOnUpdate="0"/>
-        <default field="hromada" expression="" applyOnUpdate="0"/>
-        <default field="hromada_koatuu" expression="" applyOnUpdate="0"/>
-        <default field="hromada_katotth" expression="" applyOnUpdate="0"/>
-        <default field="settlement" expression="" applyOnUpdate="0"/>
-        <default field="settl_koatuu" expression="" applyOnUpdate="0"/>
-        <default field="settl_katotth" expression="" applyOnUpdate="0"/>
+        <default field="Title" expression="" applyOnUpdate="0"/>
+        <default field="Doc_type" expression="" applyOnUpdate="0"/>
+        <default field="Region" expression="" applyOnUpdate="0"/>
+        <default field="Region_KOATUU" expression="" applyOnUpdate="0"/>
+        <default field="Region_KATOTTH" expression="" applyOnUpdate="0"/>
+        <default field="Hromada" expression="" applyOnUpdate="0"/>
+        <default field="Hromada_KOATUU" expression="" applyOnUpdate="0"/>
+        <default field="Hromada_KATOTTH" expression="" applyOnUpdate="0"/>
+        <default field="Settlement" expression="" applyOnUpdate="0"/>
+        <default field="Settl_KOATUU" expression="" applyOnUpdate="0"/>
+        <default field="Settl_KATOTTH" expression="" applyOnUpdate="0"/>
         <default field="existing_term" expression="" applyOnUpdate="0"/>
         <default field="prime_term" expression="" applyOnUpdate="0"/>
         <default field="project_term" expression="" applyOnUpdate="0"/>
-        <default field="company_name" expression="" applyOnUpdate="0"/>
-        <default field="edrpou" expression="" applyOnUpdate="0"/>
-        <default field="address" expression="" applyOnUpdate="0"/>
-        <default field="phone" expression="" applyOnUpdate="0"/>
-        <default field="email" expression="" applyOnUpdate="0"/>
-        <default field="arch_lastname" expression="" applyOnUpdate="0"/>
-        <default field="arch_firstname" expression="" applyOnUpdate="0"/>
-        <default field="arch_middlename" expression="" applyOnUpdate="0"/>
-        <default field="arch_certificate_number" expression="" applyOnUpdate="0"/>
-        <default field="arch_certificate_date" expression="" applyOnUpdate="0"/>
-        <default field="surv_last_name" expression="" applyOnUpdate="0"/>
-        <default field="surv_first_name" expression="" applyOnUpdate="0"/>
-        <default field="surv_middle_name" expression="" applyOnUpdate="0"/>
-        <default field="surv_certificate_number" expression="" applyOnUpdate="0"/>
-        <default field="surv_certificate_date" expression="" applyOnUpdate="0"/>
-        <default field="decision_authority" expression="" applyOnUpdate="0"/>
-        <default field="decision_date" expression="" applyOnUpdate="0"/>
-        <default field="decision_number" expression="" applyOnUpdate="0"/>
-        <default field="expertise_authority" expression="" applyOnUpdate="0"/>
-        <default field="expertise_date" expression="" applyOnUpdate="0"/>
-        <default field="expertise_number" expression="" applyOnUpdate="0"/>
-        <default field="approval_authority" expression="" applyOnUpdate="0"/>
-        <default field="approval_date" expression="" applyOnUpdate="0"/>
-        <default field="approval_number" expression="" applyOnUpdate="0"/>
+        <default field="Company_Name" expression="" applyOnUpdate="0"/>
+        <default field="EDRPOU" expression="" applyOnUpdate="0"/>
+        <default field="Address" expression="" applyOnUpdate="0"/>
+        <default field="Phone" expression="" applyOnUpdate="0"/>
+        <default field="Email" expression="" applyOnUpdate="0"/>
+        <default field="Arch_LastName" expression="" applyOnUpdate="0"/>
+        <default field="Arch_FirstName" expression="" applyOnUpdate="0"/>
+        <default field="Arch_MiddleName" expression="" applyOnUpdate="0"/>
+        <default field="Arch_Certificate_Number" expression="" applyOnUpdate="0"/>
+        <default field="Arch_Certificate_Date" expression="" applyOnUpdate="0"/>
+        <default field="Surv_Last_Name" expression="" applyOnUpdate="0"/>
+        <default field="Surv_First_Name" expression="" applyOnUpdate="0"/>
+        <default field="Surv_Middle_Name" expression="" applyOnUpdate="0"/>
+        <default field="Surv_Certificate_Number" expression="" applyOnUpdate="0"/>
+        <default field="Surv_Certificate_Date" expression="" applyOnUpdate="0"/>
+        <default field="Decision_Authority" expression="" applyOnUpdate="0"/>
+        <default field="Decision_Date" expression="" applyOnUpdate="0"/>
+        <default field="Decision_Number" expression="" applyOnUpdate="0"/>
+        <default field="Expertise_Authority" expression="" applyOnUpdate="0"/>
+        <default field="Expertise_Date" expression="" applyOnUpdate="0"/>
+        <default field="Expertise_Number" expression="" applyOnUpdate="0"/>
+        <default field="Approval_Authority" expression="" applyOnUpdate="0"/>
+        <default field="Approval_Date" expression="" applyOnUpdate="0"/>
+        <default field="Approval_Number" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
         <constraint exp_strength="0" notnull_strength="1" field="fid" constraints="3" unique_strength="1"/>
-        <constraint exp_strength="0" notnull_strength="0" field="title" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="doc_type" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="region" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="region_koatuu" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="region_katotth" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="hromada" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="hromada_koatuu" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="hromada_katotth" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="settlement" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="settl_koatuu" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="settl_katotth" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Title" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Doc_type" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Region" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Region_KOATUU" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Region_KATOTTH" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Hromada" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Hromada_KOATUU" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Hromada_KATOTTH" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Settlement" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Settl_KOATUU" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Settl_KATOTTH" constraints="0" unique_strength="0"/>
         <constraint exp_strength="0" notnull_strength="0" field="existing_term" constraints="0" unique_strength="0"/>
         <constraint exp_strength="0" notnull_strength="0" field="prime_term" constraints="0" unique_strength="0"/>
         <constraint exp_strength="0" notnull_strength="0" field="project_term" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="company_name" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="edrpou" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="address" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="phone" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="email" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="arch_lastname" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="arch_firstname" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="arch_middlename" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="arch_certificate_number" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="arch_certificate_date" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="surv_last_name" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="surv_first_name" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="surv_middle_name" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="surv_certificate_number" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="surv_certificate_date" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="decision_authority" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="decision_date" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="decision_number" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="expertise_authority" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="expertise_date" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="expertise_number" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="approval_authority" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="approval_date" constraints="0" unique_strength="0"/>
-        <constraint exp_strength="0" notnull_strength="0" field="approval_number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Company_Name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="EDRPOU" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Address" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Phone" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Email" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Arch_LastName" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Arch_FirstName" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Arch_MiddleName" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Arch_Certificate_Number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Arch_Certificate_Date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Surv_Last_Name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Surv_First_Name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Surv_Middle_Name" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Surv_Certificate_Number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Surv_Certificate_Date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Decision_Authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Decision_Date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Decision_Number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Expertise_Authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Expertise_Date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Expertise_Number" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Approval_Authority" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Approval_Date" constraints="0" unique_strength="0"/>
+        <constraint exp_strength="0" notnull_strength="0" field="Approval_Number" constraints="0" unique_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint exp="" field="fid" desc=""/>
-        <constraint exp="" field="title" desc=""/>
-        <constraint exp="" field="doc_type" desc=""/>
-        <constraint exp="" field="region" desc=""/>
-        <constraint exp="" field="region_koatuu" desc=""/>
-        <constraint exp="" field="region_katotth" desc=""/>
-        <constraint exp="" field="hromada" desc=""/>
-        <constraint exp="" field="hromada_koatuu" desc=""/>
-        <constraint exp="" field="hromada_katotth" desc=""/>
-        <constraint exp="" field="settlement" desc=""/>
-        <constraint exp="" field="settl_koatuu" desc=""/>
-        <constraint exp="" field="settl_katotth" desc=""/>
+        <constraint exp="" field="Title" desc=""/>
+        <constraint exp="" field="Doc_type" desc=""/>
+        <constraint exp="" field="Region" desc=""/>
+        <constraint exp="" field="Region_KOATUU" desc=""/>
+        <constraint exp="" field="Region_KATOTTH" desc=""/>
+        <constraint exp="" field="Hromada" desc=""/>
+        <constraint exp="" field="Hromada_KOATUU" desc=""/>
+        <constraint exp="" field="Hromada_KATOTTH" desc=""/>
+        <constraint exp="" field="Settlement" desc=""/>
+        <constraint exp="" field="Settl_KOATUU" desc=""/>
+        <constraint exp="" field="Settl_KATOTTH" desc=""/>
         <constraint exp="" field="existing_term" desc=""/>
         <constraint exp="" field="prime_term" desc=""/>
         <constraint exp="" field="project_term" desc=""/>
-        <constraint exp="" field="company_name" desc=""/>
-        <constraint exp="" field="edrpou" desc=""/>
-        <constraint exp="" field="address" desc=""/>
-        <constraint exp="" field="phone" desc=""/>
-        <constraint exp="" field="email" desc=""/>
-        <constraint exp="" field="arch_lastname" desc=""/>
-        <constraint exp="" field="arch_firstname" desc=""/>
-        <constraint exp="" field="arch_middlename" desc=""/>
-        <constraint exp="" field="arch_certificate_number" desc=""/>
-        <constraint exp="" field="arch_certificate_date" desc=""/>
-        <constraint exp="" field="surv_last_name" desc=""/>
-        <constraint exp="" field="surv_first_name" desc=""/>
-        <constraint exp="" field="surv_middle_name" desc=""/>
-        <constraint exp="" field="surv_certificate_number" desc=""/>
-        <constraint exp="" field="surv_certificate_date" desc=""/>
-        <constraint exp="" field="decision_authority" desc=""/>
-        <constraint exp="" field="decision_date" desc=""/>
-        <constraint exp="" field="decision_number" desc=""/>
-        <constraint exp="" field="expertise_authority" desc=""/>
-        <constraint exp="" field="expertise_date" desc=""/>
-        <constraint exp="" field="expertise_number" desc=""/>
-        <constraint exp="" field="approval_authority" desc=""/>
-        <constraint exp="" field="approval_date" desc=""/>
-        <constraint exp="" field="approval_number" desc=""/>
+        <constraint exp="" field="Company_Name" desc=""/>
+        <constraint exp="" field="EDRPOU" desc=""/>
+        <constraint exp="" field="Address" desc=""/>
+        <constraint exp="" field="Phone" desc=""/>
+        <constraint exp="" field="Email" desc=""/>
+        <constraint exp="" field="Arch_LastName" desc=""/>
+        <constraint exp="" field="Arch_FirstName" desc=""/>
+        <constraint exp="" field="Arch_MiddleName" desc=""/>
+        <constraint exp="" field="Arch_Certificate_Number" desc=""/>
+        <constraint exp="" field="Arch_Certificate_Date" desc=""/>
+        <constraint exp="" field="Surv_Last_Name" desc=""/>
+        <constraint exp="" field="Surv_First_Name" desc=""/>
+        <constraint exp="" field="Surv_Middle_Name" desc=""/>
+        <constraint exp="" field="Surv_Certificate_Number" desc=""/>
+        <constraint exp="" field="Surv_Certificate_Date" desc=""/>
+        <constraint exp="" field="Decision_Authority" desc=""/>
+        <constraint exp="" field="Decision_Date" desc=""/>
+        <constraint exp="" field="Decision_Number" desc=""/>
+        <constraint exp="" field="Expertise_Authority" desc=""/>
+        <constraint exp="" field="Expertise_Date" desc=""/>
+        <constraint exp="" field="Expertise_Number" desc=""/>
+        <constraint exp="" field="Approval_Authority" desc=""/>
+        <constraint exp="" field="Approval_Date" desc=""/>
+        <constraint exp="" field="Approval_Number" desc=""/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -871,44 +871,44 @@
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
           <column hidden="0" width="-1" type="field" name="fid"/>
-          <column hidden="0" width="-1" type="field" name="title"/>
-          <column hidden="0" width="-1" type="field" name="doc_type"/>
-          <column hidden="0" width="-1" type="field" name="region"/>
-          <column hidden="0" width="-1" type="field" name="region_koatuu"/>
-          <column hidden="0" width="-1" type="field" name="region_katotth"/>
-          <column hidden="0" width="-1" type="field" name="hromada"/>
-          <column hidden="0" width="-1" type="field" name="hromada_koatuu"/>
-          <column hidden="0" width="-1" type="field" name="hromada_katotth"/>
-          <column hidden="0" width="-1" type="field" name="settlement"/>
-          <column hidden="0" width="-1" type="field" name="settl_koatuu"/>
-          <column hidden="0" width="-1" type="field" name="settl_katotth"/>
+          <column hidden="0" width="-1" type="field" name="Title"/>
+          <column hidden="0" width="-1" type="field" name="Doc_type"/>
+          <column hidden="0" width="-1" type="field" name="Region"/>
+          <column hidden="0" width="-1" type="field" name="Region_KOATUU"/>
+          <column hidden="0" width="-1" type="field" name="Region_KATOTTH"/>
+          <column hidden="0" width="-1" type="field" name="Hromada"/>
+          <column hidden="0" width="-1" type="field" name="Hromada_KOATUU"/>
+          <column hidden="0" width="-1" type="field" name="Hromada_KATOTTH"/>
+          <column hidden="0" width="-1" type="field" name="Settlement"/>
+          <column hidden="0" width="-1" type="field" name="Settl_KOATUU"/>
+          <column hidden="0" width="-1" type="field" name="Settl_KATOTTH"/>
           <column hidden="0" width="-1" type="field" name="existing_term"/>
           <column hidden="0" width="-1" type="field" name="prime_term"/>
           <column hidden="0" width="-1" type="field" name="project_term"/>
-          <column hidden="0" width="-1" type="field" name="company_name"/>
-          <column hidden="0" width="-1" type="field" name="edrpou"/>
-          <column hidden="0" width="-1" type="field" name="address"/>
-          <column hidden="0" width="-1" type="field" name="phone"/>
-          <column hidden="0" width="-1" type="field" name="email"/>
-          <column hidden="0" width="-1" type="field" name="arch_lastname"/>
-          <column hidden="0" width="-1" type="field" name="arch_firstname"/>
-          <column hidden="0" width="-1" type="field" name="arch_middlename"/>
-          <column hidden="0" width="-1" type="field" name="arch_certificate_number"/>
-          <column hidden="0" width="-1" type="field" name="arch_certificate_date"/>
-          <column hidden="0" width="-1" type="field" name="surv_last_name"/>
-          <column hidden="0" width="-1" type="field" name="surv_first_name"/>
-          <column hidden="0" width="-1" type="field" name="surv_middle_name"/>
-          <column hidden="0" width="-1" type="field" name="surv_certificate_number"/>
-          <column hidden="0" width="-1" type="field" name="surv_certificate_date"/>
-          <column hidden="0" width="-1" type="field" name="decision_authority"/>
-          <column hidden="0" width="-1" type="field" name="decision_date"/>
-          <column hidden="0" width="-1" type="field" name="decision_number"/>
-          <column hidden="0" width="-1" type="field" name="expertise_authority"/>
-          <column hidden="0" width="-1" type="field" name="expertise_date"/>
-          <column hidden="0" width="-1" type="field" name="expertise_number"/>
-          <column hidden="0" width="-1" type="field" name="approval_authority"/>
-          <column hidden="0" width="-1" type="field" name="approval_date"/>
-          <column hidden="0" width="-1" type="field" name="approval_number"/>
+          <column hidden="0" width="-1" type="field" name="Company_Name"/>
+          <column hidden="0" width="-1" type="field" name="EDRPOU"/>
+          <column hidden="0" width="-1" type="field" name="Address"/>
+          <column hidden="0" width="-1" type="field" name="Phone"/>
+          <column hidden="0" width="-1" type="field" name="Email"/>
+          <column hidden="0" width="-1" type="field" name="Arch_LastName"/>
+          <column hidden="0" width="-1" type="field" name="Arch_FirstName"/>
+          <column hidden="0" width="-1" type="field" name="Arch_MiddleName"/>
+          <column hidden="0" width="-1" type="field" name="Arch_Certificate_Number"/>
+          <column hidden="0" width="-1" type="field" name="Arch_Certificate_Date"/>
+          <column hidden="0" width="-1" type="field" name="Surv_Last_Name"/>
+          <column hidden="0" width="-1" type="field" name="Surv_First_Name"/>
+          <column hidden="0" width="-1" type="field" name="Surv_Middle_Name"/>
+          <column hidden="0" width="-1" type="field" name="Surv_Certificate_Number"/>
+          <column hidden="0" width="-1" type="field" name="Surv_Certificate_Date"/>
+          <column hidden="0" width="-1" type="field" name="Decision_Authority"/>
+          <column hidden="0" width="-1" type="field" name="Decision_Date"/>
+          <column hidden="0" width="-1" type="field" name="Decision_Number"/>
+          <column hidden="0" width="-1" type="field" name="Expertise_Authority"/>
+          <column hidden="0" width="-1" type="field" name="Expertise_Date"/>
+          <column hidden="0" width="-1" type="field" name="Expertise_Number"/>
+          <column hidden="0" width="-1" type="field" name="Approval_Authority"/>
+          <column hidden="0" width="-1" type="field" name="Approval_Date"/>
+          <column hidden="0" width="-1" type="field" name="Approval_Number"/>
           <column hidden="1" width="-1" type="actions"/>
         </columns>
       </attributetableconfig>
@@ -941,86 +941,86 @@ def my_form_open(dialog, layer, feature):
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
       <editable>
-        <field editable="1" name="address"/>
-        <field editable="1" name="approval_authority"/>
-        <field editable="1" name="approval_date"/>
-        <field editable="1" name="approval_number"/>
-        <field editable="1" name="arch_certificate_date"/>
-        <field editable="1" name="arch_certificate_number"/>
-        <field editable="1" name="arch_firstname"/>
-        <field editable="1" name="arch_lastname"/>
-        <field editable="1" name="arch_middlename"/>
-        <field editable="1" name="company_name"/>
-        <field editable="1" name="decision_authority"/>
-        <field editable="1" name="decision_date"/>
-        <field editable="1" name="decision_number"/>
-        <field editable="1" name="doc_type"/>
-        <field editable="1" name="edrpou"/>
-        <field editable="1" name="email"/>
+        <field editable="1" name="Address"/>
+        <field editable="1" name="Approval_Authority"/>
+        <field editable="1" name="Approval_Date"/>
+        <field editable="1" name="Approval_Number"/>
+        <field editable="1" name="Arch_Certificate_Date"/>
+        <field editable="1" name="Arch_Certificate_Number"/>
+        <field editable="1" name="Arch_FirstName"/>
+        <field editable="1" name="Arch_LastName"/>
+        <field editable="1" name="Arch_MiddleName"/>
+        <field editable="1" name="Company_Name"/>
+        <field editable="1" name="Decision_Authority"/>
+        <field editable="1" name="Decision_Date"/>
+        <field editable="1" name="Decision_Number"/>
+        <field editable="1" name="Doc_type"/>
+        <field editable="1" name="EDRPOU"/>
+        <field editable="1" name="Email"/>
         <field editable="1" name="existing_term"/>
-        <field editable="1" name="expertise_authority"/>
-        <field editable="1" name="expertise_date"/>
-        <field editable="1" name="expertise_number"/>
+        <field editable="1" name="Expertise_Authority"/>
+        <field editable="1" name="Expertise_Date"/>
+        <field editable="1" name="Expertise_Number"/>
         <field editable="1" name="fid"/>
-        <field editable="1" name="hromada"/>
-        <field editable="1" name="hromada_katotth"/>
-        <field editable="1" name="hromada_koatuu"/>
-        <field editable="1" name="phone"/>
+        <field editable="1" name="Hromada"/>
+        <field editable="1" name="Hromada_KATOTTH"/>
+        <field editable="1" name="Hromada_KOATUU"/>
+        <field editable="1" name="Phone"/>
         <field editable="1" name="prime_term"/>
         <field editable="1" name="project_term"/>
-        <field editable="1" name="region"/>
-        <field editable="1" name="region_katotth"/>
-        <field editable="1" name="region_koatuu"/>
-        <field editable="1" name="settl_katotth"/>
-        <field editable="1" name="settl_koatuu"/>
-        <field editable="1" name="settlement"/>
-        <field editable="1" name="surv_certificate_date"/>
-        <field editable="1" name="surv_certificate_number"/>
-        <field editable="1" name="surv_first_name"/>
-        <field editable="1" name="surv_last_name"/>
-        <field editable="1" name="surv_middle_name"/>
-        <field editable="1" name="title"/>
+        <field editable="1" name="Region"/>
+        <field editable="1" name="Region_KATOTTH"/>
+        <field editable="1" name="Region_KOATUU"/>
+        <field editable="1" name="Settl_KATOTTH"/>
+        <field editable="1" name="Settl_KOATUU"/>
+        <field editable="1" name="Settlement"/>
+        <field editable="1" name="Surv_Certificate_Date"/>
+        <field editable="1" name="Surv_Certificate_Number"/>
+        <field editable="1" name="Surv_First_Name"/>
+        <field editable="1" name="Surv_Last_Name"/>
+        <field editable="1" name="Surv_Middle_Name"/>
+        <field editable="1" name="Title"/>
       </editable>
       <labelOnTop>
-        <field labelOnTop="0" name="address"/>
-        <field labelOnTop="0" name="approval_authority"/>
-        <field labelOnTop="0" name="approval_date"/>
-        <field labelOnTop="0" name="approval_number"/>
-        <field labelOnTop="0" name="arch_certificate_date"/>
-        <field labelOnTop="0" name="arch_certificate_number"/>
-        <field labelOnTop="0" name="arch_firstname"/>
-        <field labelOnTop="0" name="arch_lastname"/>
-        <field labelOnTop="0" name="arch_middlename"/>
-        <field labelOnTop="0" name="company_name"/>
-        <field labelOnTop="0" name="decision_authority"/>
-        <field labelOnTop="0" name="decision_date"/>
-        <field labelOnTop="0" name="decision_number"/>
-        <field labelOnTop="0" name="doc_type"/>
-        <field labelOnTop="0" name="edrpou"/>
-        <field labelOnTop="0" name="email"/>
+        <field labelOnTop="0" name="Address"/>
+        <field labelOnTop="0" name="Approval_Authority"/>
+        <field labelOnTop="0" name="Approval_Date"/>
+        <field labelOnTop="0" name="Approval_Number"/>
+        <field labelOnTop="0" name="Arch_Certificate_Date"/>
+        <field labelOnTop="0" name="Arch_Certificate_Number"/>
+        <field labelOnTop="0" name="Arch_FirstName"/>
+        <field labelOnTop="0" name="Arch_LastName"/>
+        <field labelOnTop="0" name="Arch_MiddleName"/>
+        <field labelOnTop="0" name="Company_Name"/>
+        <field labelOnTop="0" name="Decision_Authority"/>
+        <field labelOnTop="0" name="Decision_Date"/>
+        <field labelOnTop="0" name="Decision_Number"/>
+        <field labelOnTop="0" name="Doc_type"/>
+        <field labelOnTop="0" name="EDRPOU"/>
+        <field labelOnTop="0" name="Email"/>
         <field labelOnTop="0" name="existing_term"/>
-        <field labelOnTop="0" name="expertise_authority"/>
-        <field labelOnTop="0" name="expertise_date"/>
-        <field labelOnTop="0" name="expertise_number"/>
+        <field labelOnTop="0" name="Expertise_Authority"/>
+        <field labelOnTop="0" name="Expertise_Date"/>
+        <field labelOnTop="0" name="Expertise_Number"/>
         <field labelOnTop="0" name="fid"/>
-        <field labelOnTop="0" name="hromada"/>
-        <field labelOnTop="0" name="hromada_katotth"/>
-        <field labelOnTop="0" name="hromada_koatuu"/>
-        <field labelOnTop="0" name="phone"/>
+        <field labelOnTop="0" name="Hromada"/>
+        <field labelOnTop="0" name="Hromada_KATOTTH"/>
+        <field labelOnTop="0" name="Hromada_KOATUU"/>
+        <field labelOnTop="0" name="Phone"/>
         <field labelOnTop="0" name="prime_term"/>
         <field labelOnTop="0" name="project_term"/>
-        <field labelOnTop="0" name="region"/>
-        <field labelOnTop="0" name="region_katotth"/>
-        <field labelOnTop="0" name="region_koatuu"/>
-        <field labelOnTop="0" name="settl_katotth"/>
-        <field labelOnTop="0" name="settl_koatuu"/>
-        <field labelOnTop="0" name="settlement"/>
-        <field labelOnTop="0" name="surv_certificate_date"/>
-        <field labelOnTop="0" name="surv_certificate_number"/>
-        <field labelOnTop="0" name="surv_first_name"/>
-        <field labelOnTop="0" name="surv_last_name"/>
-        <field labelOnTop="0" name="surv_middle_name"/>
-        <field labelOnTop="0" name="title"/>
+        <field labelOnTop="0" name="Region"/>
+        <field labelOnTop="0" name="Region_KATOTTH"/>
+        <field labelOnTop="0" name="Region_KOATUU"/>
+        <field labelOnTop="0" name="Settl_KATOTTH"/>
+        <field labelOnTop="0" name="Settl_KOATUU"/>
+        <field labelOnTop="0" name="Settlement"/>
+        <field labelOnTop="0" name="Surv_Certificate_Date"/>
+        <field labelOnTop="0" name="Surv_Certificate_Number"/>
+        <field labelOnTop="0" name="Surv_First_Name"/>
+        <field labelOnTop="0" name="Surv_Last_Name"/>
+        <field labelOnTop="0" name="Surv_Middle_Name"/>
+        <field labelOnTop="0" name="Title"/>
       </labelOnTop>
       <reuseLastValue/>
       <dataDefinedFieldProperties/>

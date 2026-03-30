@@ -1,6 +1,8 @@
 __pycache__/
 .context/
 .examples/
+.tmp.driveupload/
+.vscode/
 
 log.md
 json_ua.code-workspace

@@ -152,6 +152,7 @@ class GeoJsonUaDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         if parser is None or not parser.has_section("LayerGroups"):
             return
         groups = list(parser.items("LayerGroups"))
+        groups.sort(key=lambda item: (0 if str(item[0]).strip().lower() == "tables" else 1))
         for group_key, group_title in groups:
             rows = []
             if parser.has_section(group_key):
@@ -174,6 +175,8 @@ class GeoJsonUaDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             table.setProperty("layer_group_key", group_key)
             table.cellDoubleClicked.connect(partial(self._on_table_double_clicked, table))
             self.layerGroupsTabs.addTab(table, group_title)
+        if self.layerGroupsTabs.count() > 0:
+            self.layerGroupsTabs.setCurrentIndex(0)
 
     def _on_table_double_clicked(self, table, row: int, column: int) -> None:
         if table is None:
